@@ -41,7 +41,15 @@ export function SiteFooter() {
     <footer className="border-t border-border/50 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-3 px-5 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
         <p>
-          © {new Date().getFullYear()} {profile.name}. Built with care.
+          Designed and crafted by{" "}
+          <a
+            href="https://bnsairam.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-primary hover:underline"
+          >
+            Sairam BN
+          </a>
         </p>
         <div className="flex flex-wrap gap-4">
           <a
