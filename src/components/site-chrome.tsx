@@ -43,9 +43,25 @@ export function SiteFooter() {
         <p>
           © {new Date().getFullYear()} {profile.name}. Built with care.
         </p>
-        <a href={profile.github} target="_blank" rel="noreferrer" className="hover:text-foreground">
-          github.com/{profile.handle}
-        </a>
+        <div className="flex flex-wrap gap-4">
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-foreground"
+          >
+            LinkedIn
+          </a>
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-foreground"
+          >
+            github.com/{profile.handle}
+          </a>
+        </div>
+
       </div>
     </footer>
   );
