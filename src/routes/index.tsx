@@ -5,16 +5,16 @@ import { ProjectCard } from "@/components/project-card";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sairam BN — Software Engineer & Builder" },
+      { title: "BN Sairam — Data Analyst | Power BI, SQL, Python" },
       {
         name: "description",
         content:
-          "Portfolio of Sairam BN, a software engineer building scheduling engines, AI/ML dashboards and full-stack products in TypeScript and Python.",
+          "Portfolio of BN Sairam, a Chennai-based data analyst building Power BI dashboards on solid SQL and Python. Open to roles in Bangalore, Hyderabad or remote.",
       },
-      { property: "og:title", content: "Sairam BN — Software Engineer & Builder" },
+      { property: "og:title", content: "BN Sairam — Data Analyst | Power BI, SQL, Python" },
       {
         property: "og:description",
-        content: "Full-stack and applied AI/ML projects, shipped one problem at a time.",
+        content: "Power BI dashboards teams actually use, built on solid SQL and Python.",
       },
       { property: "og:image", content: profile.avatar },
       { name: "twitter:image", content: profile.avatar },
@@ -31,13 +31,18 @@ function Home() {
       <section className="relative overflow-hidden">
         <div className="grid-backdrop pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-5 pt-20 pb-24 sm:pt-28 sm:pb-32">
-          <p className="eyebrow">Software Engineer · India</p>
+          <p className="eyebrow">
+            {profile.role} · {profile.location}
+          </p>
           <h1 className="mt-6 max-w-4xl text-5xl leading-[0.95] font-bold sm:text-7xl">
-            Building software that
-            <span className="text-gradient-ember"> quietly does the hard part.</span>
+            Dashboards teams
+            <span className="text-gradient-ember"> actually open every morning.</span>
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             {profile.tagline}
+          </p>
+          <p className="mt-4 font-mono text-xs tracking-wider text-muted-foreground">
+            {profile.education} · {profile.openTo}
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
@@ -47,14 +52,23 @@ function Home() {
               View selected work
             </Link>
             <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
+            >
+              LinkedIn
+            </a>
+            <a
               href={profile.github}
               target="_blank"
               rel="noreferrer"
               className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
             >
-              GitHub profile
+              GitHub
             </a>
           </div>
+
 
           <dl className="mt-20 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3">
             {stats.map((s) => (
