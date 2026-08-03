@@ -5,13 +5,13 @@ import { ProjectCard } from "@/components/project-card";
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — BN Sairam" },
+      { title: "Projects — Sairam Nagarajan" },
       {
         name: "description",
         content:
-          "Open-source projects by BN Sairam: a master timetable generator, an AI/ML stats portal, daily NeetCode 250 solutions and more.",
+          "Open-source projects by Sairam Nagarajan: a master timetable generator, an AI/ML stats portal, daily NeetCode 250 solutions and more.",
       },
-      { property: "og:title", content: "Projects — BN Sairam" },
+      { property: "og:title", content: "Projects — Sairam Nagarajan" },
       {
         property: "og:description",
         content: "Scheduling engines, dashboards, growth sites and daily algorithm practice.",
@@ -27,7 +27,7 @@ function Projects() {
       <p className="eyebrow">Work</p>
       <h1 className="mt-4 text-4xl font-bold sm:text-6xl">Every project, in the open.</h1>
       <p className="mt-5 max-w-2xl text-muted-foreground">
-        Each of these lives on GitHub — code, commits and all. Click through to read the source.
+        Each of these lives on GitHub — code, commits and all. Live demos where available.
       </p>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
         {projects.map((p) => (

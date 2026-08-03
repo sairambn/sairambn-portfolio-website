@@ -13,8 +13,6 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 
-const SR_FAVICON =
-  "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111827'/><text x='50' y='68' text-anchor='middle' fill='%23f8fafc' font-size='48' font-family='system-ui,sans-serif' font-weight='700'>SR</text></svg>";
 
 function NotFoundComponent() {
   return (
@@ -81,18 +79,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "BN Sairam — Data Analyst" },
+      { title: "Sairam Nagarajan — Data Analyst" },
       {
         name: "description",
-        content: "Portfolio of BN Sairam, data analyst working in Power BI, SQL and Python.",
+        content: "Portfolio of Sairam Nagarajan, data analyst working in Power BI, SQL and Python.",
       },
-      { name: "author", content: "BN Sairam" },
-      { property: "og:title", content: "BN Sairam — Data Analyst" },
+      { name: "author", content: "Sairam Nagarajan" },
+      { property: "og:title", content: "Sairam Nagarajan — Data Analyst" },
       {
         property: "og:description",
-        content: "Portfolio of BN Sairam, data analyst working in Power BI, SQL and Python.",
+        content: "Portfolio of Sairam Nagarajan, data analyst working in Power BI, SQL and Python.",
       },
-
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -107,7 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap",
       },
-      { rel: "icon", href: SR_FAVICON, type: "image/svg+xml" },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
 
@@ -139,7 +136,6 @@ function RootComponent() {
       <div className="flex min-h-screen flex-col">
         <SiteHeader />
         <main className="flex-1">
-          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
         </main>
         <SiteFooter />
@@ -147,4 +143,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-

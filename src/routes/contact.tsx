@@ -4,13 +4,13 @@ import { profile } from "@/data/portfolio";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact BN Sairam — Data Analyst" },
+      { title: "Contact Sairam Nagarajan — Data Analyst" },
       {
         name: "description",
         content:
-          "Get in touch with BN Sairam about data analyst roles in Bangalore, Hyderabad or remote, freelance Power BI work and collaborations.",
+          "Get in touch with Sairam Nagarajan about data analyst roles in Bangalore, Hyderabad or remote, freelance Power BI work and collaborations.",
       },
-      { property: "og:title", content: "Contact BN Sairam" },
+      { property: "og:title", content: "Contact Sairam Nagarajan" },
       {
         property: "og:description",
         content: "Open to data analyst roles in Bangalore, Hyderabad or remote.",
@@ -29,22 +29,28 @@ function Contact() {
       </h1>
       <p className="mt-6 text-lg text-muted-foreground">
         {profile.openTo}. I'm available for data analyst roles, freelance Power BI and SQL work, and
-        dashboard rescues. LinkedIn is the fastest way to reach me.
+        dashboard rescues. LinkedIn or email is the fastest way to reach me.
       </p>
       <div className="mt-10 flex flex-wrap gap-3">
         <a
           href={profile.linkedin}
           target="_blank"
           rel="noreferrer"
-          className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
+          className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_8px_30px_-8px_color-mix(in_oklab,var(--ember)_50%,transparent)] transition-all hover:-translate-y-0.5"
         >
           Connect on LinkedIn
+        </a>
+        <a
+          href={`mailto:${profile.email}`}
+          className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary hover:border-primary/30"
+        >
+          {profile.email}
         </a>
         <a
           href={profile.github}
           target="_blank"
           rel="noreferrer"
-          className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary"
+          className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary hover:border-primary/30"
         >
           Browse GitHub
         </a>
