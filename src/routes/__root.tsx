@@ -79,11 +79,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sairam BN — Software Engineer" },
-      { name: "description", content: "Portfolio of Sairam BN, software engineer and builder." },
-      { name: "author", content: "Sairam BN" },
-      { property: "og:title", content: "Sairam BN — Software Engineer" },
-      { property: "og:description", content: "Portfolio of Sairam BN, software engineer and builder." },
+      { title: "BN Sairam — Data Analyst" },
+      {
+        name: "description",
+        content: "Portfolio of BN Sairam, data analyst working in Power BI, SQL and Python.",
+      },
+      { name: "author", content: "BN Sairam" },
+      { property: "og:title", content: "BN Sairam — Data Analyst" },
+      {
+        property: "og:description",
+        content: "Portfolio of BN Sairam, data analyst working in Power BI, SQL and Python.",
+      },
+
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
