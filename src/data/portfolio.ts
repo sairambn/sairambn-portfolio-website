@@ -20,7 +20,7 @@ export const profile = {
 
 export const stats = [
   { label: "End-to-end Power BI builds", value: "5+" },
-  { label: "LinkedIn followers", value: "3.1K" },
+  { label: "Live client sites shipped", value: "2" },
   { label: "Core stack", value: "Power BI · SQL · Python" },
 ];
 
@@ -28,27 +28,27 @@ export const impact = [
   {
     title: "Hospitality Revenue Dashboard",
     result: "Recovered up to 20% lost revenue the next month",
-    detail: "Identified low-performing cities and pricing gaps.",
+    detail: "Identified low-performing cities and pricing gaps that leadership could act on immediately.",
   },
   {
     title: "Supply Chain Analytics (FMCG)",
-    result: "~20% savings on expansion costs",
-    detail: "OTIF% and route efficiency insights now drive decisions.",
+    result: "~20% savings targeted on expansion costs",
+    detail: "OTIF% and route efficiency insights now drive weekly decisions.",
   },
   {
     title: "Sales Analytics Dashboard",
     result: "+7% projected revenue lift",
-    detail: "Category-wise trends and forecasting for next quarter.",
+    detail: "Category-wise trends and forecasting used for next-quarter planning.",
   },
   {
     title: "HR Analytics Dashboard",
     result: "3–4 hours saved every day",
-    detail: "Automated attendance and performance tracking for HR.",
+    detail: "Automated attendance and performance tracking for the HR team.",
   },
   {
     title: "T20 Cricket World Cup Analytics",
     result: "90% projected win probability Dream XI",
-    detail: "Scraped ESPNcricinfo → cleaned in Python → interactive Power BI.",
+    detail: "Scraped ESPNcricinfo → cleaned in Python → interactive Power BI report.",
   },
 ];
 
@@ -83,19 +83,20 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: "aiml-stats-portal",
-    title: "AIML Stats Portal",
+    title: "Result Analysis Portal",
     description:
-      "Analytics portal surfacing AI/ML department statistics — structured data models, dashboards and readable records for non-technical staff.",
+      "Exam-cell ready result analysis. Upload mark sheets → diagrams, subject-wise stats, toppers, arrear groups → professional FRONT + MARK Excel export.",
     language: "TypeScript",
     stars: 0,
     url: "https://github.com/sairambn/aiml-stats-portal",
+    live: "https://aiml-stats-portal.vercel.app",
     featured: true,
   },
   {
     name: "master-timetable-generator",
     title: "Master Timetable Generator",
     description:
-      "Intelligent scheduling engine for schools and colleges. Constraint-aware class and teacher views, conflict detection, and CSV export behind a clean UI.",
+      "Conflict-free school & college timetable builder. Smart scheduling, class/teacher views, CSV export — runs fully in the browser.",
     language: "JavaScript",
     stars: 0,
     url: "https://github.com/sairambn/master-timetable-generator",
@@ -103,34 +104,34 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    name: "neetcode-250-daily",
-    title: "NeetCode 250 Daily",
+    name: "TotalFitnessStudio",
+    title: "Total Fitness Studio",
     description:
-      "One problem a day, every day. A tracked run through the complete NeetCode 250 list with clean, commented Python solutions.",
-    language: "Python",
-    stars: 5,
-    url: "https://github.com/sairambn/neetcode-250-daily",
+      "Live client website for a 4.9★ Chromepet gym. SSR, Schema.org local SEO, Google Maps alignment, tel/WhatsApp CTAs.",
+    language: "TypeScript",
+    stars: 0,
+    url: "https://github.com/sairambn/TotalFitnessStudio",
+    live: "https://total-fitness-studio-livid.vercel.app",
     featured: true,
   },
   {
     name: "naiyapudai-growth-studio",
     title: "Naiyapudai Growth Studio",
     description:
-      "Marketing and growth studio site — modern TypeScript stack, strong visual identity, local SEO and conversion systems.",
+      "Digital growth studio for Tamil Nadu. Web, local SEO, Google Maps ranking and performance marketing for local brands.",
     language: "TypeScript",
     stars: 0,
     url: "https://github.com/sairambn/naiyapudai-growth-studio",
     live: "https://naiyapudai.vercel.app",
   },
   {
-    name: "TotalFitnessStudio",
-    title: "Total Fitness Studio",
+    name: "neetcode-250-daily",
+    title: "NeetCode 250 Daily",
     description:
-      "Live client website for a 4.9★ gym. Full delivery from design to production with class listings and conversion-focused flow.",
-    language: "TypeScript",
-    stars: 0,
-    url: "https://github.com/sairambn/TotalFitnessStudio",
-    live: "https://total-fitness-studio-livid.vercel.app",
+      "One problem a day until the full NeetCode 250 list is done. Structured practice with Python, Java and C++ solutions.",
+    language: "Python",
+    stars: 5,
+    url: "https://github.com/sairambn/neetcode-250-daily",
   },
   {
     name: "sairambn",
