@@ -1,16 +1,20 @@
 export const profile = {
-  name: "BN Sairam",
+  name: "Sairam Nagarajan",
+  shortName: "Sairam BN",
   handle: "sairambn",
   role: "Data Analyst",
-  headline: "Data Analyst · Power BI • SQL • Python",
+  headline: "Data Analyst · Power BI · SQL · Python",
   location: "Chennai, Tamil Nadu, India",
-  openTo: "Open to opportunities in Bangalore / Hyderabad / Remote",
+  openTo: "Open to Bangalore · Hyderabad · Remote",
   education: "M.E., College of Engineering Guindy (CEG) '25",
+  email: "bnsairam14@gmail.com",
   tagline:
-    "I build Power BI dashboards that teams actually use every day — clean, fast, and built on solid SQL and Python.",
-  bio: "Data Analyst working across Power BI, SQL and Python. I turn messy operational data into dashboards people open every morning: tight data models, fast queries, and visuals that answer the question without a manual. Alongside analytics, I build full-stack side projects and solve one algorithm problem a day.",
+    "I build Power BI dashboards that teams actually open every morning — clean models, fast queries, and visuals that answer the question without a manual.",
+  bio: "Data Analyst focused on Power BI, SQL and Python. I turn messy operational data into dashboards people trust: tight data models, reliable measures, and clear storytelling. Alongside analytics I ship full-stack side projects and solve one algorithm problem a day (NeetCode 250). Currently looking for full-time Data Analyst / BI Analyst roles, with strong interest in high-bar product teams.",
   github: "https://github.com/sairambn",
   linkedin: "https://www.linkedin.com/in/sairambn/",
+  portfolio: "https://sairambn.vercel.app",
+  leetcode: "https://leetcode.com/u/sairambn/",
   avatar: "https://avatars.githubusercontent.com/u/308968341?v=4",
 };
 
@@ -20,15 +24,45 @@ export const stats = [
   { label: "Core stack", value: "Power BI · SQL · Python" },
 ];
 
+export const impact = [
+  {
+    title: "Hospitality Revenue Dashboard",
+    result: "Recovered up to 20% lost revenue the next month",
+    detail: "Identified low-performing cities and pricing gaps.",
+  },
+  {
+    title: "Supply Chain Analytics (FMCG)",
+    result: "~20% savings on expansion costs",
+    detail: "OTIF% and route efficiency insights now drive decisions.",
+  },
+  {
+    title: "Sales Analytics Dashboard",
+    result: "+7% projected revenue lift",
+    detail: "Category-wise trends and forecasting for next quarter.",
+  },
+  {
+    title: "HR Analytics Dashboard",
+    result: "3–4 hours saved every day",
+    detail: "Automated attendance and performance tracking for HR.",
+  },
+  {
+    title: "T20 Cricket World Cup Analytics",
+    result: "90% projected win probability Dream XI",
+    detail: "Scraped ESPNcricinfo → cleaned in Python → interactive Power BI.",
+  },
+];
+
 export const skills = [
   "Power BI",
   "DAX",
+  "Power Query",
   "SQL",
   "Python",
   "Pandas",
   "Data Modeling",
   "ETL & Data Cleaning",
   "Excel",
+  "Tableau",
   "Data Visualization",
   "TypeScript",
   "React",
@@ -42,6 +76,7 @@ export type Project = {
   language: string;
   stars: number;
   url: string;
+  live?: string;
   featured?: boolean;
 };
 
@@ -64,6 +99,7 @@ export const projects: Project[] = [
     language: "JavaScript",
     stars: 0,
     url: "https://github.com/sairambn/master-timetable-generator",
+    live: "https://master-timetable-generator.vercel.app",
     featured: true,
   },
   {
@@ -80,19 +116,21 @@ export const projects: Project[] = [
     name: "naiyapudai-growth-studio",
     title: "Naiyapudai Growth Studio",
     description:
-      "Marketing and growth studio site built with a modern TypeScript stack and a strong visual identity.",
+      "Marketing and growth studio site — modern TypeScript stack, strong visual identity, local SEO and conversion systems.",
     language: "TypeScript",
     stars: 0,
     url: "https://github.com/sairambn/naiyapudai-growth-studio",
+    live: "https://naiyapudai.vercel.app",
   },
   {
     name: "TotalFitnessStudio",
     title: "Total Fitness Studio",
     description:
-      "Fitness studio web experience with class listings, schedules, and a conversion-focused landing flow.",
+      "Live client website for a 4.9★ gym. Full delivery from design to production with class listings and conversion-focused flow.",
     language: "TypeScript",
     stars: 0,
     url: "https://github.com/sairambn/TotalFitnessStudio",
+    live: "https://total-fitness-studio-livid.vercel.app",
   },
   {
     name: "sairambn",
