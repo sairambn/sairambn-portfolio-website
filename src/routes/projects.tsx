@@ -5,13 +5,13 @@ import { ProjectCard } from "@/components/project-card";
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Sairam BN" },
+      { title: "Projects — BN Sairam" },
       {
         name: "description",
         content:
-          "Open-source projects by Sairam BN: a master timetable generator, an AI/ML stats portal, daily NeetCode 250 solutions and more.",
+          "Open-source projects by BN Sairam: a master timetable generator, an AI/ML stats portal, daily NeetCode 250 solutions and more.",
       },
-      { property: "og:title", content: "Projects — Sairam BN" },
+      { property: "og:title", content: "Projects — BN Sairam" },
       {
         property: "og:description",
         content: "Scheduling engines, dashboards, growth sites and daily algorithm practice.",
