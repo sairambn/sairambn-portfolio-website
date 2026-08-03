@@ -4,16 +4,16 @@ import { profile, skills } from "@/data/portfolio";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Sairam BN — Engineer & Problem Solver" },
+      { title: "About BN Sairam — Data Analyst in Chennai" },
       {
         name: "description",
         content:
-          "About Sairam BN: full-stack engineer with a focus on applied AI/ML, algorithms and interfaces that hide hard problems.",
+          "About BN Sairam: Chennai-based data analyst (M.E. CEG '25) working in Power BI, SQL and Python to ship dashboards teams use daily.",
       },
-      { property: "og:title", content: "About Sairam BN" },
+      { property: "og:title", content: "About BN Sairam" },
       {
         property: "og:description",
-        content: "Full-stack engineer focused on applied AI/ML, algorithms and clean interfaces.",
+        content: "Data analyst in Power BI, SQL and Python. M.E. CEG '25, based in Chennai.",
       },
     ],
   }),
@@ -33,7 +33,10 @@ function About() {
         />
         <div className="min-w-0">
           <h1 className="text-4xl font-bold sm:text-5xl">{profile.name}</h1>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{profile.bio}</p>
+          <p className="mt-2 font-mono text-xs tracking-wider text-muted-foreground">
+            {profile.headline}
+          </p>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{profile.bio}</p>
         </div>
       </div>
 
@@ -41,15 +44,15 @@ function About() {
         <div className="surface-card rounded-2xl p-6">
           <h2 className="text-lg font-semibold">How I work</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Start with the constraint, not the framework. Ship something small that works, then make
-            it fast, then make it look inevitable.
+            Start from the decision the dashboard has to support. Model the data properly, keep the
+            SQL and DAX fast, then cut every visual that doesn't earn its space.
           </p>
         </div>
         <div className="surface-card rounded-2xl p-6">
-          <h2 className="text-lg font-semibold">What I'm into</h2>
+          <h2 className="text-lg font-semibold">Right now</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Scheduling and optimisation problems, applied machine learning, and building products
-            end-to-end — from schema to the last pixel.
+            {profile.education}. {profile.openTo} — plus daily algorithm practice and full-stack
+            side projects on GitHub.
           </p>
         </div>
       </div>
