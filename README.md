@@ -10,7 +10,7 @@
 [![TanStack Start](https://img.shields.io/badge/TanStack-Start-FF4154?style=flat-square)](https://tanstack.com/start)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](./LICENSE)
 
-**Live** → [bnsairam.vercel.app](https://bnsairam.vercel.app) · [sairambn.vercel.app](https://sairambn.vercel.app)
+**Live** → [bnsairam.vercel.app](https://bnsairam.vercel.app)
 
 </div>
 
@@ -64,8 +64,9 @@ Requires [Bun](https://bun.sh) or Node 20+.
 
 ## Deploy
 
-Connect this repo to Vercel and set the production domain.  
-Auto-deploys on every push to `main`.
+Connected to Vercel on `main`. Production domain: **bnsairam.vercel.app**.
+
+Framework preset: **TanStack Start** (`vercel.json`).
 
 ---
 
