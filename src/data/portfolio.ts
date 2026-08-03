@@ -1,30 +1,38 @@
 export const profile = {
-  name: "Sairam BN",
+  name: "BN Sairam",
   handle: "sairambn",
-  role: "Software Engineer",
-  tagline: "I build clean, useful software — from scheduling engines to AI-driven dashboards.",
-  bio: "Engineer focused on full-stack product work and applied AI/ML. I like problems where a good interface hides a hard algorithm: timetable scheduling, analytics portals, growth tooling. Currently solving one NeetCode problem a day and shipping side projects that people actually use.",
+  role: "Data Analyst",
+  headline: "Data Analyst · Power BI • SQL • Python",
+  location: "Chennai, Tamil Nadu, India",
+  openTo: "Open to opportunities in Bangalore / Hyderabad / Remote",
+  education: "M.E., College of Engineering Guindy (CEG) '25",
+  tagline:
+    "I build Power BI dashboards that teams actually use every day — clean, fast, and built on solid SQL and Python.",
+  bio: "Data Analyst working across Power BI, SQL and Python. I turn messy operational data into dashboards people open every morning: tight data models, fast queries, and visuals that answer the question without a manual. Alongside analytics, I build full-stack side projects and solve one algorithm problem a day.",
   github: "https://github.com/sairambn",
+  linkedin: "https://www.linkedin.com/in/sairambn/",
   avatar: "https://avatars.githubusercontent.com/u/308968341?v=4",
 };
 
 export const stats = [
-  { label: "Public repos", value: "6" },
-  { label: "Daily DSA streak", value: "250" },
-  { label: "Core stacks", value: "TS · Py · JS" },
+  { label: "End-to-end Power BI builds", value: "5+" },
+  { label: "LinkedIn followers", value: "3.1K" },
+  { label: "Core stack", value: "Power BI · SQL · Python" },
 ];
 
 export const skills = [
+  "Power BI",
+  "DAX",
+  "SQL",
+  "Python",
+  "Pandas",
+  "Data Modeling",
+  "ETL & Data Cleaning",
+  "Excel",
+  "Data Visualization",
   "TypeScript",
   "React",
-  "Python",
-  "JavaScript",
-  "Node.js",
-  "Tailwind CSS",
   "Data Structures & Algorithms",
-  "AI / ML",
-  "PostgreSQL",
-  "Git & CI",
 ];
 
 export type Project = {
@@ -38,6 +46,16 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    name: "aiml-stats-portal",
+    title: "AIML Stats Portal",
+    description:
+      "Analytics portal surfacing AI/ML department statistics — structured data models, dashboards and readable records for non-technical staff.",
+    language: "TypeScript",
+    stars: 0,
+    url: "https://github.com/sairambn/aiml-stats-portal",
+    featured: true,
+  },
   {
     name: "master-timetable-generator",
     title: "Master Timetable Generator",
@@ -56,16 +74,6 @@ export const projects: Project[] = [
     language: "Python",
     stars: 5,
     url: "https://github.com/sairambn/neetcode-250-daily",
-    featured: true,
-  },
-  {
-    name: "aiml-stats-portal",
-    title: "AIML Stats Portal",
-    description:
-      "A TypeScript portal for surfacing AI/ML department statistics — dashboards, records, and readable data views.",
-    language: "TypeScript",
-    stars: 0,
-    url: "https://github.com/sairambn/aiml-stats-portal",
     featured: true,
   },
   {
