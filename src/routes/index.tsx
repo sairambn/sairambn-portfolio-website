@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { profile, projects, skills, stats, impact } from "@/data/portfolio";
 import { ProjectCard } from "@/components/project-card";
+import { GitHubStats } from "@/components/github-stats";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -99,6 +100,8 @@ function Home() {
           ))}
         </div>
       </section>
+
+      <GitHubStats />
 
       <section className="mx-auto max-w-6xl px-5 pb-24">
         <div className="flex items-end justify-between gap-4">
