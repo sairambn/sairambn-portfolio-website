@@ -27,10 +27,11 @@ function Contact() {
       <h1 className="mt-4 text-4xl font-bold sm:text-6xl">
         Got data that needs <span className="text-gradient-ember">answers?</span>
       </h1>
-      <p className="mt-6 text-lg text-muted-foreground">
-        {profile.openTo}. I'm available for data analyst roles, freelance Power BI and SQL work, and
+      <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+        {profile.openTo}. Available for data analyst roles, freelance Power BI and SQL work, and
         dashboard rescues. LinkedIn or email is the fastest way to reach me.
       </p>
+
       <div className="mt-10 flex flex-wrap gap-3">
         <a
           href={profile.linkedin}
@@ -42,7 +43,7 @@ function Contact() {
         </a>
         <a
           href={`mailto:${profile.email}`}
-          className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary hover:border-primary/30"
+          className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary/30 hover:bg-secondary"
         >
           {profile.email}
         </a>
@@ -50,21 +51,46 @@ function Contact() {
           href={profile.github}
           target="_blank"
           rel="noreferrer"
-          className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:bg-secondary hover:border-primary/30"
+          className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary/30 hover:bg-secondary"
         >
           Browse GitHub
         </a>
       </div>
+
       <dl className="mt-16 grid gap-5 sm:grid-cols-2">
         <div className="surface-card rounded-2xl p-6">
           <dt className="eyebrow">Based in</dt>
           <dd className="mt-2 text-lg font-semibold">{profile.location}</dd>
+          <dd className="mt-1 text-sm text-muted-foreground">{profile.openTo}</dd>
         </div>
         <div className="surface-card rounded-2xl p-6">
           <dt className="eyebrow">Education</dt>
           <dd className="mt-2 text-lg font-semibold">{profile.education}</dd>
+          <dd className="mt-1 text-sm text-muted-foreground">Looking for full-time Data Analyst roles</dd>
         </div>
       </dl>
+
+      <div className="surface-card mt-10 rounded-2xl p-6 sm:p-8">
+        <h2 className="text-lg font-semibold">What I can help with</h2>
+        <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+          <li className="flex gap-2">
+            <span className="text-primary">→</span>
+            End-to-end Power BI dashboards (model, DAX, publish, adoption)
+          </li>
+          <li className="flex gap-2">
+            <span className="text-primary">→</span>
+            SQL + Python pipelines that keep reports fast and trustworthy
+          </li>
+          <li className="flex gap-2">
+            <span className="text-primary">→</span>
+            Cleaning up existing dashboards that no one opens
+          </li>
+          <li className="flex gap-2">
+            <span className="text-primary">→</span>
+            Full-time Data Analyst / BI Analyst roles on product teams
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { profile, skills, impact } from "@/data/portfolio";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { profile, skills, impact, principles } from "@/data/portfolio";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -29,6 +29,8 @@ function About() {
           src={profile.avatar}
           alt={`Portrait of ${profile.name}`}
           loading="lazy"
+          width={112}
+          height={112}
           className="h-28 w-28 shrink-0 rounded-2xl border border-border object-cover shadow-[var(--shadow-lift)]"
         />
         <div className="min-w-0">
@@ -42,20 +44,27 @@ function About() {
 
       <div className="mt-16 grid gap-5 sm:grid-cols-2">
         <div className="surface-card rounded-2xl p-6">
-          <h2 className="text-lg font-semibold">How I work</h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Start from the decision the dashboard has to support. Model the data properly, keep the
-            SQL and DAX fast, then cut every visual that doesn't earn its space. Ship complete — from
-            raw data to published report and real user adoption.
-          </p>
+          <h2 className="text-lg font-semibold">Based in</h2>
+          <p className="mt-2 text-sm text-muted-foreground">{profile.location}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{profile.openTo}</p>
         </div>
         <div className="surface-card rounded-2xl p-6">
-          <h2 className="text-lg font-semibold">Right now</h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            {profile.education}. {profile.openTo} — plus daily algorithm practice and full-stack
-            side projects on GitHub. Looking for Data Analyst / BI Analyst roles.
+          <h2 className="text-lg font-semibold">Education</h2>
+          <p className="mt-2 text-sm text-muted-foreground">{profile.education}</p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Daily algorithm practice + full-stack side projects on GitHub.
           </p>
         </div>
+      </div>
+
+      <h2 className="mt-16 text-2xl font-bold">How I work</h2>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        {principles.map((p) => (
+          <div key={p.title} className="surface-card rounded-2xl p-5">
+            <h3 className="text-sm font-semibold">{p.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+          </div>
+        ))}
       </div>
 
       <h2 className="mt-16 text-2xl font-bold">Impact highlights</h2>
@@ -64,6 +73,7 @@ function About() {
           <div key={item.title} className="surface-card rounded-2xl p-5">
             <h3 className="text-sm font-semibold">{item.title}</h3>
             <p className="mt-1.5 text-sm text-primary">{item.result}</p>
+            <p className="mt-1.5 text-sm text-muted-foreground">{item.detail}</p>
           </div>
         ))}
       </div>
@@ -78,6 +88,21 @@ function About() {
             {skill}
           </span>
         ))}
+      </div>
+
+      <div className="mt-16 flex flex-wrap gap-3">
+        <Link
+          to="/projects"
+          className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:-translate-y-0.5"
+        >
+          See the work
+        </Link>
+        <Link
+          to="/contact"
+          className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary/30 hover:bg-secondary"
+        >
+          Get in touch
+        </Link>
       </div>
     </div>
   );
