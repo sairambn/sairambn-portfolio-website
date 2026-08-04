@@ -11,11 +11,11 @@ type GitHubStatsProps = {
 };
 
 export function GitHubStats({
-  totalContributions = 439,
-  currentStreak = 11,
-  longestStreak = 11,
+  totalContributions = 445,
+  currentStreak = 12,
+  longestStreak = 12,
   contributionsPeriod = "Jul 24 – Present",
-  streakPeriod = "Jul 24 – Aug 3",
+  streakPeriod = "Jul 24 – Aug 4",
 }: GitHubStatsProps) {
   // Full ring when streak is active; scale if you later pass a max value
   const progress = 1;
