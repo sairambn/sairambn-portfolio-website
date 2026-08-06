@@ -15,6 +15,7 @@ export const Route = createFileRoute("/about")({
         property: "og:description",
         content: "Data analyst in Power BI, SQL and Python. M.E. CEG '25, based in Chennai.",
       },
+      { property: "og:image", content: "https://bnsairam.vercel.app/profile.jpg" },
     ],
   }),
   component: About,
@@ -24,15 +25,18 @@ function About() {
   return (
     <div className="mx-auto max-w-4xl px-5 py-20">
       <p className="eyebrow">About</p>
-      <div className="mt-6 grid gap-10 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-start">
-        <img
-          src={profile.avatar}
-          alt={`Portrait of ${profile.name}`}
-          loading="lazy"
-          width={112}
-          height={112}
-          className="h-28 w-28 shrink-0 rounded-2xl border border-border object-cover shadow-[var(--shadow-lift)]"
-        />
+      <div className="mt-8 grid gap-10 sm:grid-cols-[240px_minmax(0,1fr)] sm:items-start">
+        <div className="relative">
+          <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-primary/25 via-transparent to-primary/10 blur-xl" />
+          <img
+            src={profile.avatar}
+            alt={`Portrait of ${profile.name}`}
+            loading="lazy"
+            width={240}
+            height={300}
+            className="relative aspect-[4/5] w-full rounded-2xl border border-border object-cover object-top shadow-[var(--shadow-lift)]"
+          />
+        </div>
         <div className="min-w-0">
           <h1 className="text-4xl font-bold sm:text-5xl">{profile.name}</h1>
           <p className="mt-2 font-mono text-xs tracking-wider text-muted-foreground">

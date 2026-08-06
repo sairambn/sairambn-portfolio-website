@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { profile, projects, skills, stats, impact, principles } from "@/data/portfolio";
+import { profile, projects, skills, stats, impact } from "@/data/portfolio";
 import { ProjectCard } from "@/components/project-card";
-import { GitHubStats } from "@/components/github-stats";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,8 +16,8 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Power BI dashboards teams actually use, built on solid SQL and Python.",
       },
-      { property: "og:image", content: profile.avatar },
-      { name: "twitter:image", content: profile.avatar },
+      { property: "og:image", content: "https://bnsairam.vercel.app/profile.jpg" },
+      { name: "twitter:image", content: "https://bnsairam.vercel.app/profile.jpg" },
     ],
   }),
   component: Home,
@@ -32,46 +31,68 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="grid-backdrop pointer-events-none absolute inset-0" />
-        <div className="relative mx-auto max-w-6xl px-5 pt-20 pb-24 sm:pt-28 sm:pb-32">
-          <p className="eyebrow">
-            {profile.role} · {profile.location}
-          </p>
-          <h1 className="mt-6 max-w-4xl text-5xl leading-[0.95] font-bold sm:text-7xl">
-            Dashboards teams
-            <span className="text-gradient-ember"> actually open every morning.</span>
-          </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            {profile.tagline}
-          </p>
-          <p className="mt-4 font-mono text-xs tracking-wider text-muted-foreground">
-            {profile.education} · {profile.openTo}
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link
-              to="/projects"
-              className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_8px_30px_-8px_color-mix(in_oklab,var(--ember)_50%,transparent)] transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_color-mix(in_oklab,var(--ember)_60%,transparent)]"
-            >
-              View selected work
-            </Link>
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary/30 hover:bg-secondary"
-            >
-              LinkedIn
-            </a>
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary/30 hover:bg-secondary"
-            >
-              GitHub
-            </a>
+        <div className="relative mx-auto max-w-6xl px-5 pt-16 pb-20 sm:pt-24 sm:pb-28">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+            <div>
+              <p className="eyebrow">
+                {profile.role} · {profile.location}
+              </p>
+              <h1 className="mt-5 max-w-3xl text-4xl leading-[1.05] font-bold sm:text-6xl lg:text-6xl">
+                Dashboards teams
+                <span className="text-gradient-ember"> actually open every morning.</span>
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                {profile.tagline}
+              </p>
+              <p className="mt-4 font-mono text-xs tracking-wider text-muted-foreground">
+                {profile.education} · {profile.openTo}
+              </p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <Link
+                  to="/projects"
+                  className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_8px_30px_-8px_color-mix(in_oklab,var(--ember)_50%,transparent)] transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_color-mix(in_oklab,var(--ember)_60%,transparent)]"
+                >
+                  View selected work
+                </Link>
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary/30 hover:bg-secondary"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-border px-6 py-3 text-sm font-semibold transition-colors hover:border-primary/30 hover:bg-secondary"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+              <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/20 via-transparent to-primary/10 blur-2xl" />
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-border/60 shadow-[var(--shadow-glow)]">
+                <img
+                  src={profile.avatar}
+                  alt={`${profile.name} at College of Engineering Guindy`}
+                  width={640}
+                  height={800}
+                  className="aspect-[4/5] w-full object-cover object-top"
+                  fetchPriority="high"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent px-5 pb-5 pt-16">
+                  <p className="font-display text-lg font-semibold">{profile.name}</p>
+                  <p className="mt-0.5 text-sm text-muted-foreground">{profile.headline}</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <dl className="mt-20 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border/80 shadow-[var(--shadow-lift)] sm:grid-cols-3">
+          <dl className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border bg-border/80 shadow-[var(--shadow-lift)] sm:grid-cols-3">
             {stats.map((s) => (
               <div key={s.label} className="bg-card/90 px-6 py-7 backdrop-blur-sm">
                 <dt className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
@@ -102,22 +123,6 @@ function Home() {
           ))}
         </div>
       </section>
-
-      {/* How I work */}
-      <section className="mx-auto max-w-6xl px-5 pb-24">
-        <p className="eyebrow">Approach</p>
-        <h2 className="mt-3 text-3xl font-bold sm:text-4xl">How I work</h2>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {principles.map((p) => (
-            <div key={p.title} className="surface-card rounded-2xl p-6">
-              <h3 className="text-base font-semibold">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <GitHubStats />
 
       {/* Selected work */}
       <section className="mx-auto max-w-6xl px-5 pb-24">
