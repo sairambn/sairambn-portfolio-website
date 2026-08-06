@@ -73,18 +73,18 @@ function Home() {
               </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-              <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/20 via-transparent to-primary/10 blur-2xl" />
+            <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
+              <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/25 via-transparent to-primary/10 blur-2xl" />
               <div className="relative overflow-hidden rounded-[1.75rem] border border-border/60 shadow-[var(--shadow-glow)]">
                 <img
                   src={profile.avatar}
                   alt={`${profile.name} at College of Engineering Guindy`}
                   width={640}
                   height={800}
-                  className="aspect-[4/5] w-full object-cover object-top"
+                  className="aspect-[3/4] w-full object-cover object-[center_15%]"
                   fetchPriority="high"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent px-5 pb-5 pt-16">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 via-background/50 to-transparent px-5 pb-5 pt-20">
                   <p className="font-display text-lg font-semibold">{profile.name}</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">{profile.headline}</p>
                 </div>

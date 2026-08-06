@@ -25,16 +25,16 @@ function About() {
   return (
     <div className="mx-auto max-w-4xl px-5 py-20">
       <p className="eyebrow">About</p>
-      <div className="mt-8 grid gap-10 sm:grid-cols-[240px_minmax(0,1fr)] sm:items-start">
+      <div className="mt-8 grid gap-10 sm:grid-cols-[260px_minmax(0,1fr)] sm:items-start">
         <div className="relative">
           <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-primary/25 via-transparent to-primary/10 blur-xl" />
           <img
             src={profile.avatar}
             alt={`Portrait of ${profile.name}`}
             loading="lazy"
-            width={240}
-            height={300}
-            className="relative aspect-[4/5] w-full rounded-2xl border border-border object-cover object-top shadow-[var(--shadow-lift)]"
+            width={260}
+            height={340}
+            className="relative aspect-[3/4] w-full rounded-2xl border border-border object-cover object-[center_15%] shadow-[var(--shadow-lift)]"
           />
         </div>
         <div className="min-w-0">
