@@ -38,8 +38,10 @@ function About() {
           />
         </div>
         <div className="min-w-0">
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">{profile.name}</h1>
-          <p className="mt-2.5 font-mono text-[11px] tracking-[0.16em] text-muted-foreground">
+          <h1 className="font-script text-[3.25rem] leading-none tracking-normal sm:text-[3.75rem]">
+            {profile.name}
+          </h1>
+          <p className="mt-3 font-mono text-[11px] tracking-[0.16em] text-muted-foreground">
             {profile.headline}
           </p>
           <p className="mt-6 text-[16px] leading-[1.7] text-muted-foreground">{profile.bio}</p>

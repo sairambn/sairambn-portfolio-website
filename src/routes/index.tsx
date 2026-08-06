@@ -85,8 +85,10 @@ function Home() {
                   fetchPriority="high"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/70 to-transparent px-5 pb-5 pt-24">
-                  <p className="font-display text-[17px] font-semibold tracking-tight">{profile.name}</p>
-                  <p className="mt-0.5 text-[13px] text-muted-foreground">{profile.headline}</p>
+                  <p className="font-script text-[2rem] leading-none text-foreground sm:text-[2.25rem]">
+                    {profile.name}
+                  </p>
+                  <p className="mt-1.5 text-[13px] text-muted-foreground">{profile.headline}</p>
                 </div>
               </div>
             </div>
