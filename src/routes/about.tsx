@@ -27,32 +27,31 @@ function About() {
     <div className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20">
       <p className="eyebrow">About</p>
 
-      <div className="mt-8 grid items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14">
-        <div className="relative order-2 lg:order-1">
-          <div className="absolute -inset-4 rounded-[1.75rem] bg-gradient-to-br from-primary/20 via-transparent to-primary/8 blur-2xl" />
-          <div className="relative overflow-hidden rounded-[1.5rem] border border-border/50 shadow-[var(--shadow-lift)]">
-            <img
-              src={profile.avatar}
-              alt={`Portrait of ${profile.name}`}
-              loading="lazy"
-              width={1551}
-              height={798}
-              className="aspect-[5/4] w-full object-cover object-[center_22%]"
-            />
-          </div>
+      {/* Full-width uncropped photo */}
+      <div className="relative mt-8">
+        <div className="absolute -inset-4 rounded-[1.75rem] bg-gradient-to-br from-primary/20 via-transparent to-primary/8 blur-2xl" />
+        <div className="relative overflow-hidden rounded-[1.5rem] border border-border/50 shadow-[var(--shadow-lift)]">
+          <img
+            src={profile.avatar}
+            alt={`Portrait of ${profile.name}`}
+            loading="lazy"
+            width={1551}
+            height={798}
+            className="h-auto w-full object-contain object-center"
+          />
         </div>
+      </div>
 
-        <div className="order-1 min-w-0 lg:order-2">
-          <h1 className="font-script text-[2.85rem] leading-[1.05] tracking-normal sm:text-[3.4rem]">
-            {profile.name}
-          </h1>
-          <p className="mt-3 font-mono text-[11px] tracking-[0.16em] text-muted-foreground">
-            {profile.headline}
-          </p>
-          <p className="mt-5 whitespace-pre-line text-[15.5px] leading-[1.7] text-muted-foreground">
-            {profile.bio}
-          </p>
-        </div>
+      <div className="mt-10">
+        <h1 className="font-script text-[2.85rem] leading-[1.05] tracking-normal sm:text-[3.4rem]">
+          {profile.name}
+        </h1>
+        <p className="mt-3 font-mono text-[11px] tracking-[0.16em] text-muted-foreground">
+          {profile.headline}
+        </p>
+        <p className="mt-5 whitespace-pre-line text-[15.5px] leading-[1.7] text-muted-foreground">
+          {profile.bio}
+        </p>
       </div>
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2">

@@ -44,85 +44,88 @@ function Home() {
 
   return (
     <div>
-      {/* ── Hero ─────────────────────────────────────────────── */}
+      {/* ── Hero — full-width photo, no crop ───────────────── */}
       <section className="relative overflow-hidden">
         <div className="grid-backdrop pointer-events-none absolute inset-0" />
-        <div className="relative mx-auto max-w-6xl px-5 pt-14 pb-16 sm:px-6 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16">
-            <div>
-              <p className="eyebrow">
-                {profile.role} · {profile.location}
-              </p>
-              <h1 className="mt-5 max-w-2xl text-[2.4rem] leading-[1.07] font-semibold tracking-tight sm:text-[3.15rem] lg:text-[3.5rem]">
-                I build clean, reliable software
-                <span className="text-gradient-ember"> that solves real problems.</span>
-              </h1>
-              <p className="mt-6 max-w-xl text-[16px] leading-[1.7] text-muted-foreground sm:text-[16.5px]">
-                {profile.tagline}
-              </p>
-              <p className="mt-4 font-mono text-[11px] tracking-[0.14em] text-muted-foreground/75">
-                {profile.education} · {profile.openTo}
-              </p>
-              <div className="mt-9 flex flex-wrap gap-2.5 sm:gap-3">
-                <Link
-                  to="/projects"
-                  className="rounded-full bg-primary px-6 py-2.5 text-[13.5px] font-semibold text-primary-foreground shadow-[0_8px_32px_-8px_color-mix(in_oklab,var(--ember)_55%,transparent)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_color-mix(in_oklab,var(--ember)_65%,transparent)] sm:px-7 sm:py-3 sm:text-[14px]"
-                >
-                  View selected work
-                </Link>
-                <a
-                  href={profile.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-border/80 px-5 py-2.5 text-[13.5px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60 sm:px-6 sm:py-3 sm:text-[14px]"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  href={profile.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-border/80 px-5 py-2.5 text-[13.5px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60 sm:px-6 sm:py-3 sm:text-[14px]"
-                >
-                  GitHub
-                </a>
-                <a
-                  href={profile.leetcode}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-border/80 px-5 py-2.5 text-[13.5px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60 sm:px-6 sm:py-3 sm:text-[14px]"
-                >
-                  LeetCode
-                </a>
-              </div>
-            </div>
 
-            {/* Portrait */}
-            <div className="relative mx-auto w-full max-w-[400px] lg:max-w-none">
-              <div className="absolute -inset-6 rounded-[2.25rem] bg-gradient-to-br from-primary/25 via-primary/5 to-transparent blur-3xl" />
-              <div className="relative overflow-hidden rounded-[1.5rem] border border-border/50 shadow-[var(--shadow-glow)]">
-                <img
-                  src={profile.avatar}
-                  alt={`${profile.name} at College of Engineering Guindy`}
-                  width={1551}
-                  height={798}
-                  className="aspect-[5/4] w-full object-cover object-[center_20%]"
-                  fetchPriority="high"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/85 to-transparent px-5 pb-5 pt-28">
-                  <p className="font-script text-[1.85rem] leading-none text-foreground sm:text-[2.1rem]">
-                    {profile.name}
-                  </p>
-                  <p className="mt-1.5 text-[12.5px] text-muted-foreground sm:text-[13px]">
-                    {profile.headline}
-                  </p>
-                </div>
-              </div>
+        {/* Full-bleed photo — native landscape, entire image visible */}
+        <div className="relative mx-auto max-w-6xl px-4 pt-8 sm:px-6 sm:pt-10 lg:pt-12">
+          <div className="relative overflow-hidden rounded-2xl border border-border/50 shadow-[var(--shadow-glow)] sm:rounded-[1.5rem]">
+            {/* Soft glow behind */}
+            <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/20 via-primary/5 to-transparent blur-3xl" />
+
+            <img
+              src={profile.avatar}
+              alt={`${profile.name} at College of Engineering Guindy`}
+              width={1551}
+              height={798}
+              className="h-auto w-full object-contain object-center"
+              fetchPriority="high"
+            />
+
+            {/* Name bar over the bottom of the photo */}
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/80 to-transparent px-5 pb-5 pt-20 sm:px-8 sm:pb-7 sm:pt-28">
+              <p className="font-script text-[2rem] leading-none text-foreground sm:text-[2.5rem] lg:text-[2.75rem]">
+                {profile.name}
+              </p>
+              <p className="mt-1.5 text-[13px] text-muted-foreground sm:text-[14px]">
+                {profile.headline}
+              </p>
             </div>
+          </div>
+        </div>
+
+        {/* Copy + CTAs under the full photo */}
+        <div className="relative mx-auto max-w-6xl px-5 pt-10 pb-16 sm:px-6 sm:pt-12 sm:pb-20 lg:pb-24">
+          <p className="eyebrow">
+            {profile.role} · {profile.location}
+          </p>
+          <h1 className="mt-4 max-w-3xl text-[2.25rem] leading-[1.08] font-semibold tracking-tight sm:text-[3rem] lg:text-[3.4rem]">
+            I build clean, reliable software
+            <span className="text-gradient-ember"> that solves real problems.</span>
+          </h1>
+          <p className="mt-5 max-w-2xl text-[16px] leading-[1.7] text-muted-foreground sm:text-[16.5px]">
+            {profile.tagline}
+          </p>
+          <p className="mt-4 font-mono text-[11px] tracking-[0.14em] text-muted-foreground/75">
+            {profile.education} · {profile.openTo}
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-2.5 sm:gap-3">
+            <Link
+              to="/projects"
+              className="rounded-full bg-primary px-6 py-2.5 text-[13.5px] font-semibold text-primary-foreground shadow-[0_8px_32px_-8px_color-mix(in_oklab,var(--ember)_55%,transparent)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_color-mix(in_oklab,var(--ember)_65%,transparent)] sm:px-7 sm:py-3 sm:text-[14px]"
+            >
+              View selected work
+            </Link>
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-border/80 px-5 py-2.5 text-[13.5px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60 sm:px-6 sm:py-3 sm:text-[14px]"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-border/80 px-5 py-2.5 text-[13.5px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60 sm:px-6 sm:py-3 sm:text-[14px]"
+            >
+              GitHub
+            </a>
+            <a
+              href={profile.leetcode}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-border/80 px-5 py-2.5 text-[13.5px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60 sm:px-6 sm:py-3 sm:text-[14px]"
+            >
+              LeetCode
+            </a>
           </div>
 
           {/* Stats strip */}
-          <dl className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/40 shadow-[var(--shadow-lift)] sm:mt-16 sm:grid-cols-3">
+          <dl className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/40 shadow-[var(--shadow-lift)] sm:mt-14 sm:grid-cols-3">
             {stats.map((s) => (
               <div key={s.label} className="bg-card/95 px-5 py-6 backdrop-blur-sm sm:px-6 sm:py-7">
                 <dt className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
