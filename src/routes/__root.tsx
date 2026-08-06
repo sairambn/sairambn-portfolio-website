@@ -74,16 +74,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sairam Nagarajan — Data Analyst" },
+      { title: "Sairam Nagarajan — Software Engineer" },
       {
         name: "description",
-        content: "Portfolio of Sairam Nagarajan, data analyst working in Power BI, SQL and Python.",
+        content:
+          "Portfolio of Sairam Nagarajan, software engineer focused on clean code, DSA, and preparing for SDE roles.",
       },
       { name: "author", content: "Sairam Nagarajan" },
-      { property: "og:title", content: "Sairam Nagarajan — Data Analyst" },
+      { property: "og:title", content: "Sairam Nagarajan — Software Engineer" },
       {
         property: "og:description",
-        content: "Portfolio of Sairam Nagarajan, data analyst working in Power BI, SQL and Python.",
+        content:
+          "I build clean, reliable software that solves real problems. Preparing for Software Development Engineer roles.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

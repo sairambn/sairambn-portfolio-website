@@ -2,15 +2,15 @@ export const profile = {
   name: "Sairam Nagarajan",
   shortName: "Sairam BN",
   handle: "sairambn",
-  role: "Data Analyst",
-  headline: "Data Analyst · Power BI · SQL · Python",
+  role: "Software Engineer",
+  headline: "Software Engineer · DSA · Python · Java",
   location: "Chennai, Tamil Nadu, India",
   openTo: "Open to Bangalore · Hyderabad · Remote",
   education: "M.E., College of Engineering Guindy (CEG) '25",
   email: "bnsairam14@gmail.com",
   tagline:
-    "I turn messy operational data into Power BI dashboards teams trust and open every morning — solid SQL, clean models, and clear decisions.",
-  bio: "Data Analyst with strong foundations in SQL, Power BI and Python. I own the full loop: understand the business question, model the data, build reliable measures, and ship dashboards people actually use. Looking for full-time Data Analyst / BI Analyst roles on high-bar product and analytics teams.",
+    "Strong focus on data structures, algorithms, and writing production-quality code. Currently preparing for Software Development Engineer roles with a preference for Google.",
+  bio: "I'm a software engineer focused on writing clean, efficient code and solving problems at scale. I have a strong foundation in Python and SQL, and I'm actively deepening my expertise in data structures, algorithms, and system design to prepare for Software Development Engineer roles at top companies, including Google.\n\nI care about clarity, correctness, and building things that last.",
   github: "https://github.com/sairambn",
   linkedin: "https://www.linkedin.com/in/sairambn/",
   portfolio: "https://bnsairam.vercel.app",
@@ -19,9 +19,9 @@ export const profile = {
 };
 
 export const stats = [
-  { label: "End-to-end Power BI builds", value: "5+" },
-  { label: "Live client sites shipped", value: "2" },
-  { label: "Core stack", value: "SQL · Power BI · Python" },
+  { label: "Daily DSA practice", value: "NeetCode" },
+  { label: "Live products shipped", value: "5+" },
+  { label: "Core stack", value: "Python · Java · TypeScript" },
 ];
 
 export const impact = [
@@ -54,20 +54,26 @@ export const impact = [
 
 export const skillGroups = [
   {
-    title: "Data & Analytics",
-    items: ["Advanced SQL", "Data Modeling", "ETL & Data Cleaning", "Power Query (M)", "Excel"],
+    title: "Core Skills",
+    items: [
+      "Data Structures & Algorithms",
+      "Python",
+      "Java",
+      "Problem Solving",
+      "Object-Oriented Programming",
+    ],
   },
   {
-    title: "BI & Visualization",
-    items: ["Power BI (Desktop + Service)", "DAX", "Tableau", "KPI Design", "Dashboard Storytelling"],
+    title: "Tools & Practices",
+    items: ["Git", "SQL", "Clean Code", "System Design Basics"],
   },
   {
-    title: "Programming",
-    items: ["Python (pandas)", "TypeScript", "React", "Data Structures & Algorithms"],
+    title: "Currently Strengthening",
+    items: ["Advanced DSA", "System Design", "Backend Development"],
   },
   {
-    title: "How I work",
-    items: ["End-to-end ownership", "Stakeholder communication", "Adoption-focused delivery", "Daily problem solving"],
+    title: "Also comfortable with",
+    items: ["TypeScript", "React", "Python (pandas)", "Excel"],
   },
 ];
 
@@ -75,43 +81,43 @@ export const skills = skillGroups.flatMap((g) => g.items);
 
 export const principles = [
   {
-    title: "Start with the decision",
-    body: "What should this dashboard help someone do this week? Everything else follows from that.",
+    title: "Clarity first",
+    body: "Code should be readable by the next person who touches it — including future me. Prefer simple solutions that are correct.",
   },
   {
-    title: "Build for trust",
-    body: "Clean models, clear measures, no black-box numbers. People only use what they believe.",
+    title: "Correctness over cleverness",
+    body: "Edge cases, invariants, and clear contracts matter more than short-term clever tricks.",
   },
   {
-    title: "Measure the outcome",
-    body: "Hours saved, revenue recovered, decisions made. If it doesn't move a number, it doesn't ship.",
+    title: "Practice compounds",
+    body: "Daily structured DSA practice builds the same muscle as writing production code under constraints.",
   },
   {
     title: "Ship complete",
-    body: "Raw data → published report → real user adoption. Half-finished work doesn't count.",
+    body: "From idea to working product. Half-finished work doesn't count.",
   },
 ];
 
 export const dailyIdeas = [
   {
     id: 1,
-    title: "Decision-first dashboards",
-    body: "Every visual should answer one decision someone has to make this week. If it doesn't, cut it.",
+    title: "Clarity first",
+    body: "Readable, correct code beats clever one-liners. The next person reading it might be you in six months.",
   },
   {
     id: 2,
-    title: "Trust is the real KPI",
-    body: "Teams only open reports they believe. Clean models and transparent measures beat fancy charts.",
+    title: "Practice compounds",
+    body: "One solid problem a day. Consistency on NeetCode builds the same discipline as shipping features.",
   },
   {
     id: 3,
-    title: "SQL before visuals",
-    body: "Get the grain and joins right first. Most dashboard bugs are data model bugs in disguise.",
+    title: "Model before you code",
+    body: "Get the data structures and invariants right first. Most bugs start as modeling mistakes.",
   },
   {
     id: 4,
     title: "Ship complete or don't ship",
-    body: "Raw data → published report → real adoption. Half-finished work doesn't count as delivery.",
+    body: "Idea → working product → real users. Half-finished work doesn't count as delivery.",
   },
   {
     id: 5,
@@ -120,8 +126,8 @@ export const dailyIdeas = [
   },
   {
     id: 6,
-    title: "One problem a day",
-    body: "Structured practice compounds. NeetCode daily builds the same muscle as clean analytical thinking.",
+    title: "Build for the long run",
+    body: "Clean interfaces, clear ownership, and tests where they matter. Things that last require care up front.",
   },
 ];
 

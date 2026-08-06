@@ -4,16 +4,16 @@ import { profile } from "@/data/portfolio";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Sairam Nagarajan — Data Analyst" },
+      { title: "Contact Sairam Nagarajan — Software Engineer" },
       {
         name: "description",
         content:
-          "Get in touch with Sairam Nagarajan about data analyst roles in Bangalore, Hyderabad or remote, freelance Power BI work and collaborations.",
+          "Get in touch with Sairam Nagarajan about Software Development Engineer roles in Bangalore, Hyderabad or remote, collaborations and opportunities.",
       },
       { property: "og:title", content: "Contact Sairam Nagarajan" },
       {
         property: "og:description",
-        content: "Open to data analyst roles in Bangalore, Hyderabad or remote.",
+        content: "Open to SDE roles in Bangalore, Hyderabad or remote. Preference for Google and high-bar teams.",
       },
       { property: "og:image", content: "https://bnsairam.vercel.app/content.png" },
     ],
@@ -26,11 +26,12 @@ function Contact() {
     <div className="mx-auto max-w-3xl px-5 py-24 sm:px-6">
       <p className="eyebrow">Contact</p>
       <h1 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-        Got data that needs <span className="text-gradient-ember">answers?</span>
+        Looking for clean, reliable <span className="text-gradient-ember">software?</span>
       </h1>
       <p className="mt-6 text-[17px] leading-[1.65] text-muted-foreground">
-        {profile.openTo}. Available for data analyst roles, freelance Power BI and SQL work, and
-        dashboard rescues. LinkedIn or email is the fastest way to reach me.
+        {profile.openTo}. Available for full-time Software Development Engineer roles, with a
+        preference for Google and high-bar product teams. LinkedIn or email is the fastest way to
+        reach me.
       </p>
 
       <div className="mt-10 flex flex-wrap gap-3">
@@ -67,7 +68,9 @@ function Contact() {
         <div className="surface-card rounded-2xl p-6">
           <dt className="eyebrow">Education</dt>
           <dd className="mt-3 text-[17px] font-semibold tracking-tight">{profile.education}</dd>
-          <dd className="mt-1 text-[13.5px] text-muted-foreground">Looking for full-time Data Analyst roles</dd>
+          <dd className="mt-1 text-[13.5px] text-muted-foreground">
+            Preparing for full-time SDE roles
+          </dd>
         </div>
       </dl>
 
@@ -76,19 +79,19 @@ function Contact() {
         <ul className="mt-5 space-y-3 text-[14px] text-muted-foreground">
           <li className="flex gap-2.5">
             <span className="text-primary">→</span>
-            End-to-end Power BI dashboards (model, DAX, publish, adoption)
+            Writing clean, production-quality code in Python and Java
           </li>
           <li className="flex gap-2.5">
             <span className="text-primary">→</span>
-            SQL + Python pipelines that keep reports fast and trustworthy
+            Strong data structures, algorithms, and problem-solving foundations
           </li>
           <li className="flex gap-2.5">
             <span className="text-primary">→</span>
-            Cleaning up existing dashboards that no one opens
+            Shipping complete products end-to-end (web + tooling)
           </li>
           <li className="flex gap-2.5">
             <span className="text-primary">→</span>
-            Full-time Data Analyst / BI Analyst roles on product teams
+            Full-time Software Development Engineer roles on high-bar teams
           </li>
         </ul>
       </div>

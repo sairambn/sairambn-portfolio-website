@@ -4,16 +4,17 @@ import { profile, skillGroups, impact, principles } from "@/data/portfolio";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Sairam Nagarajan — Data Analyst in Chennai" },
+      { title: "About Sairam Nagarajan — Software Engineer in Chennai" },
       {
         name: "description",
         content:
-          "About Sairam Nagarajan: Chennai-based data analyst (M.E. CEG '25) working in Power BI, SQL and Python to ship dashboards teams use daily.",
+          "About Sairam Nagarajan: Chennai-based software engineer (M.E. CEG '25) focused on clean code, DSA, and preparing for SDE roles at top companies including Google.",
       },
       { property: "og:title", content: "About Sairam Nagarajan" },
       {
         property: "og:description",
-        content: "Data analyst in Power BI, SQL and Python. M.E. CEG '25, based in Chennai.",
+        content:
+          "Software engineer focused on clean, efficient code and solving problems at scale. Preparing for SDE roles.",
       },
       { property: "og:image", content: "https://bnsairam.vercel.app/content.png" },
     ],
@@ -49,7 +50,9 @@ function About() {
           <p className="mt-3 font-mono text-[11px] tracking-[0.16em] text-muted-foreground">
             {profile.headline}
           </p>
-          <p className="mt-5 text-[15.5px] leading-[1.7] text-muted-foreground">{profile.bio}</p>
+          <p className="mt-5 whitespace-pre-line text-[15.5px] leading-[1.7] text-muted-foreground">
+            {profile.bio}
+          </p>
         </div>
       </div>
 

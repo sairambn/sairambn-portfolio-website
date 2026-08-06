@@ -5,16 +5,20 @@ import { ProjectCard } from "@/components/project-card";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sairam Nagarajan — Data Analyst | Power BI, SQL, Python" },
+      { title: "Sairam Nagarajan — Software Engineer | DSA, Python, Java" },
       {
         name: "description",
         content:
-          "Portfolio of Sairam Nagarajan (Sairam BN), a Chennai-based data analyst building Power BI dashboards on solid SQL and Python. Open to roles in Bangalore, Hyderabad or remote.",
+          "Portfolio of Sairam Nagarajan (Sairam BN), a Chennai-based software engineer focused on clean code, data structures & algorithms. Preparing for SDE roles, including Google. Open to Bangalore, Hyderabad or remote.",
       },
-      { property: "og:title", content: "Sairam Nagarajan — Data Analyst | Power BI, SQL, Python" },
+      {
+        property: "og:title",
+        content: "Sairam Nagarajan — Software Engineer | DSA, Python, Java",
+      },
       {
         property: "og:description",
-        content: "Power BI dashboards teams actually use, built on solid SQL and Python.",
+        content:
+          "I build clean, reliable software that solves real problems. Preparing for Software Development Engineer roles.",
       },
       { property: "og:image", content: "https://bnsairam.vercel.app/content.png" },
       { name: "twitter:image", content: "https://bnsairam.vercel.app/content.png" },
@@ -38,8 +42,8 @@ function Home() {
                 {profile.role} · {profile.location}
               </p>
               <h1 className="mt-5 max-w-2xl text-[2.5rem] leading-[1.08] font-semibold tracking-tight sm:text-[3.25rem] lg:text-[3.6rem]">
-                Dashboards teams
-                <span className="text-gradient-ember"> actually open every morning.</span>
+                I build clean, reliable software
+                <span className="text-gradient-ember"> that solves real problems.</span>
               </h1>
               <p className="mt-6 max-w-lg text-[16.5px] leading-[1.65] text-muted-foreground">
                 {profile.tagline}
@@ -175,11 +179,12 @@ function Home() {
         <div className="surface-card overflow-hidden rounded-[1.75rem] p-8 sm:p-12">
           <p className="eyebrow">Next step</p>
           <h2 className="mt-3 max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">
-            Looking for a data analyst who ships complete?
+            Looking for an SDE who writes clean, reliable code?
           </h2>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-            Open to full-time roles in Bangalore, Hyderabad or remote. LinkedIn or email is the
-            fastest way to reach me.
+            Open to full-time Software Development Engineer roles in Bangalore, Hyderabad or remote.
+            Preference for Google and high-bar product teams. LinkedIn or email is the fastest way to
+            reach me.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
