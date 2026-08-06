@@ -58,6 +58,7 @@ function Home() {
                 height={798}
                 className="h-auto w-full object-contain object-center"
                 fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>
