@@ -9,8 +9,8 @@ export const profile = {
   education: "M.E., College of Engineering Guindy (CEG) '25",
   email: "bnsairam14@gmail.com",
   tagline:
-    "I build Power BI dashboards that teams open every morning — clean models, fast queries, and visuals that answer the question without a manual.",
-  bio: "Data Analyst focused on Power BI, SQL and Python. I turn messy operational data into dashboards people trust: tight data models, reliable measures, and clear storytelling. Alongside analytics I ship full-stack side projects and solve one algorithm problem a day (NeetCode 250). Looking for full-time Data Analyst / BI Analyst roles on high-bar product and analytics teams.",
+    "I turn messy operational data into Power BI dashboards teams trust and open every morning — solid SQL, clean models, and clear decisions.",
+  bio: "Data Analyst with strong foundations in SQL, Power BI and Python. I own the full loop: understand the business question, model the data, build reliable measures, and ship dashboards people actually use. Looking for full-time Data Analyst / BI Analyst roles on high-bar product and analytics teams.",
   github: "https://github.com/sairambn",
   linkedin: "https://www.linkedin.com/in/sairambn/",
   portfolio: "https://bnsairam.vercel.app",
@@ -21,7 +21,7 @@ export const profile = {
 export const stats = [
   { label: "End-to-end Power BI builds", value: "5+" },
   { label: "Live client sites shipped", value: "2" },
-  { label: "Core stack", value: "Power BI · SQL · Python" },
+  { label: "Core stack", value: "SQL · Power BI · Python" },
 ];
 
 export const impact = [
@@ -52,22 +52,27 @@ export const impact = [
   },
 ];
 
-export const skills = [
-  "Power BI",
-  "DAX",
-  "Power Query",
-  "SQL",
-  "Python",
-  "Pandas",
-  "Data Modeling",
-  "ETL & Data Cleaning",
-  "Excel",
-  "Tableau",
-  "Data Visualization",
-  "TypeScript",
-  "React",
-  "Data Structures & Algorithms",
+export const skillGroups = [
+  {
+    title: "Data & Analytics",
+    items: ["Advanced SQL", "Data Modeling", "ETL & Data Cleaning", "Power Query (M)", "Excel"],
+  },
+  {
+    title: "BI & Visualization",
+    items: ["Power BI (Desktop + Service)", "DAX", "Tableau", "KPI Design", "Dashboard Storytelling"],
+  },
+  {
+    title: "Programming",
+    items: ["Python (pandas)", "TypeScript", "React", "Data Structures & Algorithms"],
+  },
+  {
+    title: "How I work",
+    items: ["End-to-end ownership", "Stakeholder communication", "Adoption-focused delivery", "Daily problem solving"],
+  },
 ];
+
+// flat list kept for any existing uses
+export const skills = skillGroups.flatMap((g) => g.items);
 
 export const principles = [
   {
