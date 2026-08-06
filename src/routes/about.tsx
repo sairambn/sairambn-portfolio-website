@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { profile, skills, impact, principles } from "@/data/portfolio";
+import { profile, skillGroups, impact, principles } from "@/data/portfolio";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -83,14 +83,21 @@ function About() {
       </div>
 
       <h2 className="mt-16 text-2xl font-semibold tracking-tight">Skills</h2>
-      <div className="mt-6 flex flex-wrap gap-2.5">
-        {skills.map((skill) => (
-          <span
-            key={skill}
-            className="rounded-full border border-border/70 bg-secondary/40 px-4 py-2 text-[13px] text-muted-foreground"
-          >
-            {skill}
-          </span>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        {skillGroups.map((group) => (
+          <div key={group.title} className="surface-card rounded-2xl p-5">
+            <h3 className="text-[13px] font-semibold tracking-tight text-primary">{group.title}</h3>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-border/70 bg-secondary/30 px-3 py-1.5 text-[12.5px] text-muted-foreground"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
 
