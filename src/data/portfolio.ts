@@ -71,7 +71,6 @@ export const skillGroups = [
   },
 ];
 
-// flat list kept for any existing uses
 export const skills = skillGroups.flatMap((g) => g.items);
 
 export const principles = [
@@ -90,6 +89,39 @@ export const principles = [
   {
     title: "Ship complete",
     body: "Raw data → published report → real user adoption. Half-finished work doesn't count.",
+  },
+];
+
+export const dailyIdeas = [
+  {
+    id: 1,
+    title: "Decision-first dashboards",
+    body: "Every visual should answer one decision someone has to make this week. If it doesn't, cut it.",
+  },
+  {
+    id: 2,
+    title: "Trust is the real KPI",
+    body: "Teams only open reports they believe. Clean models and transparent measures beat fancy charts.",
+  },
+  {
+    id: 3,
+    title: "SQL before visuals",
+    body: "Get the grain and joins right first. Most dashboard bugs are data model bugs in disguise.",
+  },
+  {
+    id: 4,
+    title: "Ship complete or don't ship",
+    body: "Raw data → published report → real adoption. Half-finished work doesn't count as delivery.",
+  },
+  {
+    id: 5,
+    title: "Measure what moved",
+    body: "Hours saved, revenue recovered, decisions made. If the number didn't move, the work isn't done.",
+  },
+  {
+    id: 6,
+    title: "One problem a day",
+    body: "Structured practice compounds. NeetCode daily builds the same muscle as clean analytical thinking.",
   },
 ];
 
