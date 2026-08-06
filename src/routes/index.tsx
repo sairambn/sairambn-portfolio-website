@@ -1,6 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { profile, projects, skillGroups, stats, impact } from "@/data/portfolio";
+import {
+  profile,
+  projects,
+  skillGroups,
+  stats,
+  impact,
+  principles,
+} from "@/data/portfolio";
 import { ProjectCard } from "@/components/project-card";
+import { GitHubStats } from "@/components/github-stats";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,7 +29,11 @@ export const Route = createFileRoute("/")({
           "I build clean, reliable software that solves real problems. Strong DSA foundations. Preparing for Software Development Engineer roles.",
       },
       { property: "og:image", content: "https://bnsairam.vercel.app/content.png" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://bnsairam.vercel.app" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://bnsairam.vercel.app/content.png" },
+      { name: "theme-color", content: "#1a1410" },
     ],
   }),
   component: Home,
@@ -32,29 +44,29 @@ function Home() {
 
   return (
     <div>
-      {/* Hero */}
+      {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden">
         <div className="grid-backdrop pointer-events-none absolute inset-0" />
-        <div className="relative mx-auto max-w-6xl px-5 pt-16 pb-20 sm:px-6 sm:pt-24 sm:pb-28">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+        <div className="relative mx-auto max-w-6xl px-5 pt-14 pb-16 sm:px-6 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16">
             <div>
               <p className="eyebrow">
                 {profile.role} · {profile.location}
               </p>
-              <h1 className="mt-5 max-w-2xl text-[2.5rem] leading-[1.08] font-semibold tracking-tight sm:text-[3.25rem] lg:text-[3.55rem]">
+              <h1 className="mt-5 max-w-2xl text-[2.4rem] leading-[1.07] font-semibold tracking-tight sm:text-[3.15rem] lg:text-[3.5rem]">
                 I build clean, reliable software
                 <span className="text-gradient-ember"> that solves real problems.</span>
               </h1>
-              <p className="mt-6 max-w-xl text-[16.5px] leading-[1.65] text-muted-foreground">
+              <p className="mt-6 max-w-xl text-[16px] leading-[1.7] text-muted-foreground sm:text-[16.5px]">
                 {profile.tagline}
               </p>
-              <p className="mt-4 font-mono text-[11px] tracking-[0.16em] text-muted-foreground/80">
+              <p className="mt-4 font-mono text-[11px] tracking-[0.14em] text-muted-foreground/75">
                 {profile.education} · {profile.openTo}
               </p>
-              <div className="mt-9 flex flex-wrap gap-3">
+              <div className="mt-9 flex flex-wrap gap-2.5 sm:gap-3">
                 <Link
                   to="/projects"
-                  className="rounded-full bg-primary px-7 py-3 text-[14px] font-semibold text-primary-foreground shadow-[0_8px_32px_-8px_color-mix(in_oklab,var(--ember)_55%,transparent)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_color-mix(in_oklab,var(--ember)_65%,transparent)]"
+                  className="rounded-full bg-primary px-6 py-2.5 text-[13.5px] font-semibold text-primary-foreground shadow-[0_8px_32px_-8px_color-mix(in_oklab,var(--ember)_55%,transparent)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_color-mix(in_oklab,var(--ember)_65%,transparent)] sm:px-7 sm:py-3 sm:text-[14px]"
                 >
                   View selected work
                 </Link>
@@ -62,7 +74,7 @@ function Home() {
                   href={profile.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full border border-border/80 px-6 py-3 text-[14px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60"
+                  className="rounded-full border border-border/80 px-5 py-2.5 text-[13.5px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60 sm:px-6 sm:py-3 sm:text-[14px]"
                 >
                   LinkedIn
                 </a>
@@ -70,7 +82,7 @@ function Home() {
                   href={profile.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full border border-border/80 px-6 py-3 text-[14px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60"
+                  className="rounded-full border border-border/80 px-5 py-2.5 text-[13.5px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60 sm:px-6 sm:py-3 sm:text-[14px]"
                 >
                   GitHub
                 </a>
@@ -78,15 +90,15 @@ function Home() {
                   href={profile.leetcode}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full border border-border/80 px-6 py-3 text-[14px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60"
+                  className="rounded-full border border-border/80 px-5 py-2.5 text-[13.5px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60 sm:px-6 sm:py-3 sm:text-[14px]"
                 >
                   LeetCode
                 </a>
               </div>
             </div>
 
-            {/* Full portrait — proper face framing, less aggressive crop */}
-            <div className="relative mx-auto w-full max-w-[440px] lg:max-w-none">
+            {/* Portrait */}
+            <div className="relative mx-auto w-full max-w-[400px] lg:max-w-none">
               <div className="absolute -inset-6 rounded-[2.25rem] bg-gradient-to-br from-primary/25 via-primary/5 to-transparent blur-3xl" />
               <div className="relative overflow-hidden rounded-[1.5rem] border border-border/50 shadow-[var(--shadow-glow)]">
                 <img
@@ -94,26 +106,29 @@ function Home() {
                   alt={`${profile.name} at College of Engineering Guindy`}
                   width={1551}
                   height={798}
-                  className="aspect-[5/4] w-full object-cover object-[center_22%]"
+                  className="aspect-[5/4] w-full object-cover object-[center_20%]"
                   fetchPriority="high"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/80 to-transparent px-5 pb-5 pt-24">
-                  <p className="font-script text-[1.9rem] leading-none text-foreground sm:text-[2.15rem]">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/85 to-transparent px-5 pb-5 pt-28">
+                  <p className="font-script text-[1.85rem] leading-none text-foreground sm:text-[2.1rem]">
                     {profile.name}
                   </p>
-                  <p className="mt-1.5 text-[13px] text-muted-foreground">{profile.headline}</p>
+                  <p className="mt-1.5 text-[12.5px] text-muted-foreground sm:text-[13px]">
+                    {profile.headline}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <dl className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/40 shadow-[var(--shadow-lift)] sm:grid-cols-3">
+          {/* Stats strip */}
+          <dl className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/40 shadow-[var(--shadow-lift)] sm:mt-16 sm:grid-cols-3">
             {stats.map((s) => (
-              <div key={s.label} className="bg-card/95 px-6 py-7 backdrop-blur-sm">
+              <div key={s.label} className="bg-card/95 px-5 py-6 backdrop-blur-sm sm:px-6 sm:py-7">
                 <dt className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
                   {s.label}
                 </dt>
-                <dd className="mt-2 font-display text-[1.55rem] font-semibold tracking-tight text-gradient-ember sm:text-[1.65rem]">
+                <dd className="mt-2 font-display text-[1.45rem] font-semibold tracking-tight text-gradient-ember sm:text-[1.6rem]">
                   {s.value}
                 </dd>
               </div>
@@ -122,13 +137,17 @@ function Home() {
         </div>
       </section>
 
-      {/* Impact — engineering signal */}
-      <section className="mx-auto max-w-6xl px-5 pb-24 sm:px-6">
+      {/* ── Signal ───────────────────────────────────────────── */}
+      <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
         <div>
           <p className="eyebrow">Signal</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
             What I've actually built
           </h2>
+          <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            Real systems — constraint engines, data pipelines, production sites, and daily
+            algorithm practice.
+          </p>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {impact.map((item) => (
@@ -141,8 +160,8 @@ function Home() {
         </div>
       </section>
 
-      {/* Selected work */}
-      <section className="mx-auto max-w-6xl px-5 pb-24 sm:px-6">
+      {/* ── Selected work ────────────────────────────────────── */}
+      <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
         <div className="flex items-end justify-between gap-4">
           <div>
             <p className="eyebrow">Selected work</p>
@@ -164,8 +183,24 @@ function Home() {
         </div>
       </section>
 
-      {/* Skills */}
-      <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6">
+      {/* ── How I work ───────────────────────────────────────── */}
+      <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
+        <div>
+          <p className="eyebrow">Approach</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">How I work</h2>
+        </div>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {principles.map((p) => (
+            <div key={p.title} className="surface-card rounded-2xl p-6">
+              <h3 className="text-[15px] font-semibold tracking-tight">{p.title}</h3>
+              <p className="mt-2.5 text-[13.5px] leading-relaxed text-muted-foreground">{p.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Skills ───────────────────────────────────────────── */}
+      <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
         <p className="eyebrow">Skills</p>
         <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">What I bring</h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
@@ -187,14 +222,18 @@ function Home() {
         </div>
       </section>
 
-      {/* Closing CTA */}
+      {/* ── GitHub activity ──────────────────────────────────── */}
+      <GitHubStats />
+
+      {/* ── Closing CTA ──────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-5 pb-28 sm:px-6">
-        <div className="surface-card overflow-hidden rounded-[1.75rem] p-8 sm:p-12">
+        <div className="surface-card relative overflow-hidden rounded-[1.75rem] p-8 sm:p-12">
+          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
           <p className="eyebrow">Next step</p>
           <h2 className="mt-3 max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">
             Looking for an SDE who writes clean, reliable code?
           </h2>
-          <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+          <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
             Open to full-time Software Development Engineer roles in Bangalore, Hyderabad or remote.
             High-bar product teams preferred. LinkedIn or email is the fastest way to reach me.
           </p>

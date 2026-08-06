@@ -2,7 +2,7 @@
 
 # Sairam BN — Portfolio
 
-**Data Analyst · Power BI · SQL · Python**
+**Software Engineer · DSA · Python · Java**
 
 [![Live](https://img.shields.io/badge/Live-bnsairam.vercel.app-black?style=for-the-badge&logo=vercel)](https://bnsairam.vercel.app)
 [![React 19](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
@@ -20,18 +20,18 @@
 
 Modern, deep-themed personal portfolio built with TanStack Start, React 19 and Tailwind CSS v4.
 
-Designed to show **impact**, not just tools: hospitality revenue recovery, supply-chain savings, sales lift, HR time saved, and production client sites.
+Positioned for **Software Development Engineer** roles: clean code, data structures & algorithms, production systems, and daily structured practice.
 
 ---
 
 ## Features
 
 - Deep charcoal + warm ember color system with layered gradients and glow shadows
-- Impact stories from real Power BI work (hospitality, supply chain, sales, HR, cricket)
-- Projects with live links (Total Fitness Studio, Naiyapudai, NeetCode daily, Timetable, Result Portal)
-- LinkedIn + GitHub + email integration
-- Fully responsive, polished typography (Space Grotesk / DM Sans / JetBrains Mono)
-- Shared **SR** geometric favicon
+- Engineering signal: constraint scheduling, result pipelines, production SSR sites, NeetCode daily
+- Projects with live links and GitHub sources
+- LinkedIn · GitHub · LeetCode · email integration
+- Fully responsive (mobile nav), polished typography (Space Grotesk / DM Sans / JetBrains Mono)
+- Shared **SN** geometric favicon
 
 ---
 
@@ -75,11 +75,11 @@ Framework preset: **TanStack Start** (`vercel.json`).
 | Project | Link |
 |---------|------|
 | Profile README | [github.com/sairambn/sairambn](https://github.com/sairambn/sairambn) |
-| Total Fitness Studio | [total-fitness-studio-livid.vercel.app](https://total-fitness-studio-livid.vercel.app) |
-| Naiyapudai | [naiyapudai.vercel.app](https://naiyapudai.vercel.app) |
 | Master Timetable Generator | [master-timetable-generator.vercel.app](https://master-timetable-generator.vercel.app) |
 | Result Analysis Portal | [aiml-stats-portal.vercel.app](https://aiml-stats-portal.vercel.app) |
 | NeetCode 250 Daily | [github.com/sairambn/neetcode-250-daily](https://github.com/sairambn/neetcode-250-daily) |
+| Total Fitness Studio | [total-fitness-studio-livid.vercel.app](https://total-fitness-studio-livid.vercel.app) |
+| Naiyapudai | [naiyapudai.vercel.app](https://naiyapudai.vercel.app) |
 
 ---
 
@@ -87,4 +87,4 @@ Framework preset: **TanStack Start** (`vercel.json`).
 
 [MIT](./LICENSE)
 
-Built by [Sairam BN](https://github.com/sairambn) · [linkedin.com/in/sairambn](https://www.linkedin.com/in/sairambn/) · **SR**
+Built by [Sairam BN](https://github.com/sairambn) · [linkedin.com/in/sairambn](https://www.linkedin.com/in/sairambn/) · **SN**
