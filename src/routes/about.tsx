@@ -15,7 +15,7 @@ export const Route = createFileRoute("/about")({
         property: "og:description",
         content: "Data analyst in Power BI, SQL and Python. M.E. CEG '25, based in Chennai.",
       },
-      { property: "og:image", content: "https://bnsairam.vercel.app/profile.jpg" },
+      { property: "og:image", content: "https://bnsairam.vercel.app/content.png" },
     ],
   }),
   component: About,

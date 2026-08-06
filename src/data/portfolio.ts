@@ -15,7 +15,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/sairambn/",
   portfolio: "https://bnsairam.vercel.app",
   leetcode: "https://leetcode.com/u/sairambn/",
-  avatar: "/profile.jpg",
+  avatar: "/content.png",
 };
 
 export const stats = [
