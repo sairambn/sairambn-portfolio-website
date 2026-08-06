@@ -25,28 +25,28 @@ export const Route = createFileRoute("/projects")({
 
 function Projects() {
   return (
-    <div className="mx-auto max-w-6xl px-5 py-20 sm:px-6">
+    <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24">
       <p className="eyebrow">Work</p>
-      <h1 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+      <h1 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.5rem]">
         Systems I've shipped.
       </h1>
-      <p className="mt-5 max-w-2xl text-[17px] leading-[1.65] text-muted-foreground">
+      <p className="mt-6 max-w-2xl text-[17px] leading-[1.7] text-muted-foreground">
         Constraint engines, analysis pipelines, production client sites, and daily algorithm
         practice — all open on GitHub with live demos where available.
       </p>
 
-      <div className="mt-14 grid gap-5 md:grid-cols-2">
+      <div className="mt-16 grid gap-6 md:grid-cols-2">
         {projects.map((p) => (
           <ProjectCard key={p.name} project={p} />
         ))}
       </div>
 
-      <div className="mt-16 text-center">
+      <div className="mt-20 text-center">
         <a
           href={profile.github}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-border/80 px-7 py-3 text-[14px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60"
+          className="inline-flex items-center gap-2 rounded-full border border-border/80 px-8 py-3.5 text-[14px] font-medium transition-all duration-300 hover:border-primary/35 hover:bg-secondary/60"
         >
           See everything on GitHub
           <span aria-hidden="true">↗</span>
