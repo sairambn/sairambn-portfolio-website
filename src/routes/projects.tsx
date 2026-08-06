@@ -24,6 +24,9 @@ export const Route = createFileRoute("/projects")({
 });
 
 function Projects() {
+  const featured = projects.filter((p) => p.featured);
+  const rest = projects.filter((p) => !p.featured);
+
   return (
     <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24">
       <p className="eyebrow">Work</p>
@@ -32,16 +35,41 @@ function Projects() {
       </h1>
       <p className="mt-6 max-w-2xl text-[17px] leading-[1.7] text-muted-foreground">
         Constraint engines, analysis pipelines, production client sites, and daily algorithm
-        practice — all open on GitHub with live demos where available.
+        practice — open on GitHub, with live demos where available.
       </p>
 
-      <div className="mt-16 grid gap-6 md:grid-cols-2">
-        {projects.map((p) => (
+      <div className="mt-10 flex flex-wrap gap-2.5">
+        {["Algorithms", "TypeScript", "DSA", "Production", "Python"].map((tag) => (
+          <span
+            key={tag}
+            className="rounded-full border border-border/70 bg-secondary/30 px-3.5 py-1.5 font-mono text-[12px] text-muted-foreground"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <h2 className="mt-16 text-xl font-semibold tracking-tight text-foreground/90">Featured</h2>
+      <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {featured.map((p) => (
           <ProjectCard key={p.name} project={p} />
         ))}
       </div>
 
-      <div className="mt-20 text-center">
+      {rest.length > 0 && (
+        <>
+          <h2 className="mt-16 text-xl font-semibold tracking-tight text-foreground/90">
+            Also shipped
+          </h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {rest.map((p) => (
+              <ProjectCard key={p.name} project={p} />
+            ))}
+          </div>
+        </>
+      )}
+
+      <div className="mt-20 flex flex-col items-center gap-4 text-center">
         <a
           href={profile.github}
           target="_blank"
@@ -50,6 +78,14 @@ function Projects() {
         >
           See everything on GitHub
           <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          href={profile.leetcode}
+          target="_blank"
+          rel="noreferrer"
+          className="text-[13px] text-muted-foreground transition-colors hover:text-primary"
+        >
+          Daily practice on LeetCode →
         </a>
       </div>
     </div>

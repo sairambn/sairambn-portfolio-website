@@ -32,7 +32,7 @@ function Contact() {
         </h1>
         <p className="mt-6 text-[17px] leading-[1.75] text-muted-foreground">
           {profile.openTo}. Available for full-time Software Development Engineer roles on high-bar
-          product teams. LinkedIn or email is the fastest way to reach me.
+          product teams — including Google. LinkedIn or email is the fastest way to reach me.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-3">

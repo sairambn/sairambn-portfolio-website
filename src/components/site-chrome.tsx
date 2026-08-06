@@ -36,6 +36,12 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <a
+            href={`mailto:${profile.email}`}
+            className="ml-2 rounded-full bg-primary/15 px-4 py-2 text-[13px] font-semibold text-primary transition-all duration-200 hover:bg-primary/25"
+          >
+            Email
+          </a>
         </nav>
 
         <button
@@ -84,6 +90,13 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
+            <a
+              href={`mailto:${profile.email}`}
+              onClick={() => setOpen(false)}
+              className="rounded-xl px-4 py-3 text-[14px] font-semibold text-primary transition-colors hover:bg-primary/10"
+            >
+              Email
+            </a>
           </div>
         </nav>
       )}
@@ -95,14 +108,19 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border/30 py-14">
       <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-5 text-[13px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
-        <p className="tracking-tight">
-          Designed & built by{" "}
-          <a href={profile.portfolio} className="text-foreground/90 transition-colors hover:text-primary">
-            {profile.shortName}
-          </a>
-          <span className="mx-1.5 text-border">·</span>
-          <span className="font-mono text-[11px]">Software Engineer</span>
-        </p>
+        <div>
+          <p className="tracking-tight">
+            Designed & built by{" "}
+            <a href={profile.portfolio} className="text-foreground/90 transition-colors hover:text-primary">
+              {profile.shortName}
+            </a>
+            <span className="mx-1.5 text-border">·</span>
+            <span className="font-mono text-[11px]">Software Engineer</span>
+          </p>
+          <p className="mt-1.5 font-mono text-[11px] text-muted-foreground/70">
+            Open to SDE · Bangalore · Hyderabad · Remote
+          </p>
+        </div>
         <div className="flex flex-wrap gap-6">
           <a href={profile.linkedin} target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">
             LinkedIn

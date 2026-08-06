@@ -102,6 +102,12 @@ function Home() {
               View selected work
             </Link>
             <a
+              href={`mailto:${profile.email}`}
+              className="rounded-full border border-primary/40 bg-primary/10 px-6 py-3.5 text-[14px] font-medium text-primary transition-all duration-300 hover:border-primary/60 hover:bg-primary/15"
+            >
+              Email me
+            </a>
+            <a
               href={profile.linkedin}
               target="_blank"
               rel="noreferrer"
@@ -248,6 +254,12 @@ function Home() {
               className="rounded-full bg-primary px-8 py-3.5 text-[14px] font-semibold text-primary-foreground shadow-[0_10px_40px_-8px_color-mix(in_oklab,var(--ember)_60%,transparent)] transition-all duration-300 hover:-translate-y-0.5"
             >
               Connect on LinkedIn
+            </a>
+            <a
+              href={`mailto:${profile.email}`}
+              className="rounded-full border border-primary/40 bg-primary/10 px-7 py-3.5 text-[14px] font-medium text-primary transition-all duration-300 hover:border-primary/60 hover:bg-primary/15"
+            >
+              Email me
             </a>
             <Link
               to="/contact"
