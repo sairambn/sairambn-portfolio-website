@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { profile, projects, skillGroups, stats, impact } from "@/data/portfolio";
 import { ProjectCard } from "@/components/project-card";
+import { DailyIdeas } from "@/components/daily-ideas";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -169,6 +170,9 @@ function Home() {
           ))}
         </div>
       </section>
+
+      {/* Daily Ideas — unlocks at 12 PM IST */}
+      <DailyIdeas />
 
       {/* Closing CTA */}
       <section className="mx-auto max-w-6xl px-5 pb-32 sm:px-6">
