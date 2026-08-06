@@ -23,32 +23,38 @@ export const Route = createFileRoute("/about")({
 
 function About() {
   return (
-    <div className="mx-auto max-w-4xl px-5 py-20 sm:px-6">
+    <div className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20">
       <p className="eyebrow">About</p>
-      <div className="mt-10 grid gap-12 sm:grid-cols-[240px_minmax(0,1fr)] sm:items-start">
-        <div className="relative">
-          <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/20 via-transparent to-primary/8 blur-2xl" />
-          <img
-            src={profile.avatar}
-            alt={`Portrait of ${profile.name}`}
-            loading="lazy"
-            width={240}
-            height={320}
-            className="relative aspect-[3/4] w-full rounded-2xl border border-border/50 object-cover object-[center_28%] shadow-[var(--shadow-lift)]"
-          />
+
+      {/* Hero block — photo + intro */}
+      <div className="mt-8 grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
+        <div className="relative order-2 lg:order-1">
+          <div className="absolute -inset-3 rounded-[1.75rem] bg-gradient-to-br from-primary/18 via-transparent to-primary/6 blur-2xl" />
+          <div className="relative overflow-hidden rounded-[1.35rem] border border-border/50 shadow-[var(--shadow-lift)]">
+            <img
+              src={profile.avatar}
+              alt={`Portrait of ${profile.name}`}
+              loading="lazy"
+              width={1551}
+              height={798}
+              className="aspect-[16/10] w-full object-cover object-center"
+            />
+          </div>
         </div>
-        <div className="min-w-0">
-          <h1 className="font-script text-[3.25rem] leading-none tracking-normal sm:text-[3.75rem]">
+
+        <div className="order-1 min-w-0 lg:order-2">
+          <h1 className="font-script text-[2.85rem] leading-[1.05] tracking-normal sm:text-[3.4rem]">
             {profile.name}
           </h1>
           <p className="mt-3 font-mono text-[11px] tracking-[0.16em] text-muted-foreground">
             {profile.headline}
           </p>
-          <p className="mt-6 text-[16px] leading-[1.7] text-muted-foreground">{profile.bio}</p>
+          <p className="mt-5 text-[15.5px] leading-[1.7] text-muted-foreground">{profile.bio}</p>
         </div>
       </div>
 
-      <div className="mt-16 grid gap-4 sm:grid-cols-2">
+      {/* Location + Education */}
+      <div className="mt-12 grid gap-4 sm:grid-cols-2">
         <div className="surface-card rounded-2xl p-6">
           <h2 className="text-[15px] font-semibold tracking-tight">Based in</h2>
           <p className="mt-2 text-[13.5px] text-muted-foreground">{profile.location}</p>
@@ -63,6 +69,7 @@ function About() {
         </div>
       </div>
 
+      {/* How I work */}
       <h2 className="mt-16 text-2xl font-semibold tracking-tight">How I work</h2>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {principles.map((p) => (
@@ -73,6 +80,7 @@ function About() {
         ))}
       </div>
 
+      {/* Impact */}
       <h2 className="mt-16 text-2xl font-semibold tracking-tight">Impact highlights</h2>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {impact.slice(0, 4).map((item) => (
@@ -84,6 +92,7 @@ function About() {
         ))}
       </div>
 
+      {/* Skills */}
       <h2 className="mt-16 text-2xl font-semibold tracking-tight">Skills</h2>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {skillGroups.map((group) => (
@@ -103,7 +112,8 @@ function About() {
         ))}
       </div>
 
-      <div className="mt-16 flex flex-wrap gap-3">
+      {/* CTA */}
+      <div className="mt-14 flex flex-wrap gap-3">
         <Link
           to="/projects"
           className="rounded-full bg-primary px-7 py-3 text-[14px] font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5"
