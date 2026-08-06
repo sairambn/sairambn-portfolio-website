@@ -8,7 +8,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "About Sairam Nagarajan: Chennai-based software engineer (M.E. CEG '25) focused on clean code, DSA, and preparing for SDE roles at top companies including Google.",
+          "About Sairam Nagarajan: Chennai-based software engineer (M.E. CEG '25) focused on clean code, DSA, and preparing for SDE roles at high-bar companies.",
       },
       { property: "og:title", content: "About Sairam Nagarajan" },
       {
@@ -27,18 +27,17 @@ function About() {
     <div className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20">
       <p className="eyebrow">About</p>
 
-      {/* Hero block — photo + intro */}
-      <div className="mt-8 grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
+      <div className="mt-8 grid items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14">
         <div className="relative order-2 lg:order-1">
-          <div className="absolute -inset-3 rounded-[1.75rem] bg-gradient-to-br from-primary/18 via-transparent to-primary/6 blur-2xl" />
-          <div className="relative overflow-hidden rounded-[1.35rem] border border-border/50 shadow-[var(--shadow-lift)]">
+          <div className="absolute -inset-4 rounded-[1.75rem] bg-gradient-to-br from-primary/20 via-transparent to-primary/8 blur-2xl" />
+          <div className="relative overflow-hidden rounded-[1.5rem] border border-border/50 shadow-[var(--shadow-lift)]">
             <img
               src={profile.avatar}
               alt={`Portrait of ${profile.name}`}
               loading="lazy"
               width={1551}
               height={798}
-              className="aspect-[16/10] w-full object-cover object-center"
+              className="aspect-[5/4] w-full object-cover object-[center_22%]"
             />
           </div>
         </div>
@@ -56,7 +55,6 @@ function About() {
         </div>
       </div>
 
-      {/* Location + Education */}
       <div className="mt-12 grid gap-4 sm:grid-cols-2">
         <div className="surface-card rounded-2xl p-6">
           <h2 className="text-[15px] font-semibold tracking-tight">Based in</h2>
@@ -67,12 +65,11 @@ function About() {
           <h2 className="text-[15px] font-semibold tracking-tight">Education</h2>
           <p className="mt-2 text-[13.5px] text-muted-foreground">{profile.education}</p>
           <p className="mt-1 text-[13.5px] text-muted-foreground">
-            Daily algorithm practice + full-stack side projects on GitHub.
+            Daily algorithm practice + systems shipped on GitHub.
           </p>
         </div>
       </div>
 
-      {/* How I work */}
       <h2 className="mt-16 text-2xl font-semibold tracking-tight">How I work</h2>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {principles.map((p) => (
@@ -83,8 +80,7 @@ function About() {
         ))}
       </div>
 
-      {/* Impact */}
-      <h2 className="mt-16 text-2xl font-semibold tracking-tight">Impact highlights</h2>
+      <h2 className="mt-16 text-2xl font-semibold tracking-tight">What I've built</h2>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {impact.slice(0, 4).map((item) => (
           <div key={item.title} className="surface-card rounded-2xl p-5">
@@ -95,7 +91,6 @@ function About() {
         ))}
       </div>
 
-      {/* Skills */}
       <h2 className="mt-16 text-2xl font-semibold tracking-tight">Skills</h2>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {skillGroups.map((group) => (
@@ -115,7 +110,6 @@ function About() {
         ))}
       </div>
 
-      {/* CTA */}
       <div className="mt-14 flex flex-wrap gap-3">
         <Link
           to="/projects"
@@ -129,6 +123,14 @@ function About() {
         >
           Get in touch
         </Link>
+        <a
+          href={profile.leetcode}
+          target="_blank"
+          rel="noreferrer"
+          className="rounded-full border border-border/80 px-6 py-3 text-[14px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60"
+        >
+          LeetCode
+        </a>
       </div>
     </div>
   );

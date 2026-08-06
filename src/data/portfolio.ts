@@ -9,8 +9,8 @@ export const profile = {
   education: "M.E., College of Engineering Guindy (CEG) '25",
   email: "bnsairam14@gmail.com",
   tagline:
-    "Strong focus on data structures, algorithms, and writing production-quality code. Currently preparing for Software Development Engineer roles with a preference for Google.",
-  bio: "I'm a software engineer focused on writing clean, efficient code and solving problems at scale. I have a strong foundation in Python and SQL, and I'm actively deepening my expertise in data structures, algorithms, and system design to prepare for Software Development Engineer roles at top companies, including Google.\n\nI care about clarity, correctness, and building things that last.",
+    "Strong foundation in data structures, algorithms, and production-quality code. Building reliable software end to end — from constraint solvers in the browser to live client systems.",
+  bio: "I'm a software engineer focused on writing clean, efficient code and solving problems at scale.\n\nI have a strong foundation in Python, Java, and SQL. I'm actively deepening expertise in data structures, algorithms, and system design to prepare for Software Development Engineer roles at high-bar companies.\n\nI care about clarity, correctness, and building things that last.",
   github: "https://github.com/sairambn",
   linkedin: "https://www.linkedin.com/in/sairambn/",
   portfolio: "https://bnsairam.vercel.app",
@@ -19,36 +19,44 @@ export const profile = {
 };
 
 export const stats = [
-  { label: "Daily DSA practice", value: "NeetCode" },
-  { label: "Live products shipped", value: "5+" },
-  { label: "Core stack", value: "Python · Java · TypeScript" },
+  { label: "Daily DSA",
+    value: "NeetCode 250" },
+  { label: "Languages",
+    value: "Python · Java · TS" },
+  { label: "Systems shipped",
+    value: "5+ live" },
 ];
 
 export const impact = [
   {
-    title: "Hospitality Revenue",
-    result: "Up to 20% lost revenue recovered",
-    detail: "Surfaced pricing and city gaps leadership could act on the next month.",
+    title: "Constraint scheduling",
+    result: "Zero-conflict timetables",
+    detail:
+      "Browser-side scheduling engine that models teacher/class constraints and produces conflict-free school & college timetables with CSV export.",
   },
   {
-    title: "Supply Chain (FMCG)",
-    result: "~20% expansion savings targeted",
-    detail: "OTIF% and route efficiency insights now drive weekly decisions.",
+    title: "Result analysis system",
+    result: "Exam-cell ready in one pass",
+    detail:
+      "TypeScript pipeline: mark-sheet upload → subject stats, toppers, arrear groups → professional FRONT + MARK Excel export for exam cells.",
   },
   {
-    title: "Sales Analytics",
-    result: "+7% projected revenue lift",
-    detail: "Category trends and forecasting used for next-quarter planning.",
+    title: "Production client sites",
+    result: "2 live businesses online",
+    detail:
+      "SSR sites with Schema.org local SEO, Maps alignment, and conversion CTAs — shipped and maintained for real clients.",
   },
   {
-    title: "HR Analytics",
-    result: "3–4 hours saved every day",
-    detail: "Automated attendance and performance tracking for the HR team.",
+    title: "Data → decision systems",
+    result: "Measurable business outcomes",
+    detail:
+      "Python + SQL pipelines and models that recovered revenue, cut expansion waste, and saved hours of manual work for operators.",
   },
   {
-    title: "T20 Cricket Analytics",
-    result: "90% projected win probability",
-    detail: "Scraped → cleaned (Python) → Power BI → Dream XI selections.",
+    title: "Structured practice",
+    result: "Daily NeetCode 250",
+    detail:
+      "One problem a day in Python, Java, and C++ — building the same discipline required for production engineering interviews.",
   },
 ];
 
@@ -65,15 +73,15 @@ export const skillGroups = [
   },
   {
     title: "Tools & Practices",
-    items: ["Git", "SQL", "Clean Code", "System Design Basics"],
+    items: ["Git", "SQL", "Clean Code", "System Design Basics", "TypeScript"],
   },
   {
     title: "Currently Strengthening",
     items: ["Advanced DSA", "System Design", "Backend Development"],
   },
   {
-    title: "Also comfortable with",
-    items: ["TypeScript", "React", "Python (pandas)", "Excel"],
+    title: "Also ship with",
+    items: ["React", "Python (pandas)", "Vite", "Vercel"],
   },
 ];
 
@@ -94,7 +102,7 @@ export const principles = [
   },
   {
     title: "Ship complete",
-    body: "From idea to working product. Half-finished work doesn't count.",
+    body: "From idea to working product used by real people. Half-finished work doesn't count.",
   },
 ];
 
@@ -146,71 +154,71 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "aiml-stats-portal",
-    title: "Result Analysis Portal",
-    description:
-      "Exam-cell ready result analysis. Upload mark sheets → diagrams, subject-wise stats, toppers, arrear groups → professional FRONT + MARK Excel export.",
-    language: "TypeScript",
-    stars: 0,
-    url: "https://github.com/sairambn/aiml-stats-portal",
-    live: "https://aiml-stats-portal.vercel.app",
-    featured: true,
-    tags: ["Analytics", "Excel", "Education"],
-    outcome: "Exam-cell ready in one pass",
-  },
-  {
     name: "master-timetable-generator",
     title: "Master Timetable Generator",
     description:
-      "Conflict-free school & college timetable builder. Smart scheduling, class/teacher views, CSV export — runs fully in the browser.",
+      "Constraint-based scheduling engine in the browser. Models teacher, class, and room constraints to produce conflict-free school & college timetables with class/teacher views and CSV export.",
     language: "JavaScript",
     stars: 0,
     url: "https://github.com/sairambn/master-timetable-generator",
     live: "https://master-timetable-generator.vercel.app",
     featured: true,
-    tags: ["Scheduling", "Education", "CSV"],
+    tags: ["Algorithms", "Constraints", "Scheduling"],
     outcome: "Zero-conflict schedules",
+  },
+  {
+    name: "aiml-stats-portal",
+    title: "Result Analysis Portal",
+    description:
+      "End-to-end TypeScript system for exam cells: upload mark sheets → compute subject stats, toppers, arrear groups → export professional FRONT + MARK Excel reports in one pass.",
+    language: "TypeScript",
+    stars: 0,
+    url: "https://github.com/sairambn/aiml-stats-portal",
+    live: "https://aiml-stats-portal.vercel.app",
+    featured: true,
+    tags: ["TypeScript", "Data", "Excel"],
+    outcome: "Exam-cell ready in one pass",
+  },
+  {
+    name: "neetcode-250-daily",
+    title: "NeetCode 250 Daily",
+    description:
+      "One problem a day until the full NeetCode 250 list is done. Structured solutions in Python, Java, and C++ with consistent practice discipline.",
+    language: "Python",
+    stars: 5,
+    url: "https://github.com/sairambn/neetcode-250-daily",
+    featured: true,
+    tags: ["DSA", "Python", "Java"],
+    outcome: "Daily structured practice",
   },
   {
     name: "TotalFitnessStudio",
     title: "Total Fitness Studio",
     description:
-      "Live client website for a 4.9★ Chromepet gym. SSR, Schema.org local SEO, Google Maps alignment, tel/WhatsApp CTAs.",
+      "Production client website for a 4.9★ gym. SSR architecture, Schema.org local SEO, Google Maps alignment, and high-intent tel/WhatsApp CTAs — live and serving customers.",
     language: "TypeScript",
     stars: 0,
     url: "https://github.com/sairambn/TotalFitnessStudio",
     live: "https://total-fitness-studio-livid.vercel.app",
-    featured: true,
-    tags: ["Client", "SSR", "Local SEO"],
+    tags: ["SSR", "TypeScript", "Production"],
     outcome: "Production client site",
   },
   {
     name: "naiyapudai-growth-studio",
     title: "Naiyapudai Growth Studio",
     description:
-      "Digital growth studio for Tamil Nadu. Web, local SEO, Google Maps ranking and performance marketing for local brands.",
+      "Full web product for a growth studio: site architecture, local SEO systems, Maps ranking, and conversion flows for Tamil Nadu brands.",
     language: "TypeScript",
     stars: 0,
     url: "https://github.com/sairambn/naiyapudai-growth-studio",
     live: "https://naiyapudai.vercel.app",
-    tags: ["Growth", "Local SEO", "Marketing"],
-    outcome: "Local brand growth system",
-  },
-  {
-    name: "neetcode-250-daily",
-    title: "NeetCode 250 Daily",
-    description:
-      "One problem a day until the full NeetCode 250 list is done. Structured practice with Python, Java and C++ solutions.",
-    language: "Python",
-    stars: 5,
-    url: "https://github.com/sairambn/neetcode-250-daily",
-    tags: ["DSA", "Python", "Daily"],
-    outcome: "Daily structured practice",
+    tags: ["TypeScript", "SSR", "SEO"],
+    outcome: "Live growth product",
   },
   {
     name: "sairambn",
     title: "Profile README",
-    description: "The GitHub profile README — a living index of what I'm building and learning.",
+    description: "Living GitHub profile index of what I'm building, practicing, and shipping.",
     language: "Markdown",
     stars: 0,
     url: "https://github.com/sairambn/sairambn",

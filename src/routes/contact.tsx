@@ -8,12 +8,12 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Get in touch with Sairam Nagarajan about Software Development Engineer roles in Bangalore, Hyderabad or remote, collaborations and opportunities.",
+          "Contact Sairam Nagarajan about Software Development Engineer roles in Bangalore, Hyderabad or remote.",
       },
       { property: "og:title", content: "Contact Sairam Nagarajan" },
       {
         property: "og:description",
-        content: "Open to SDE roles in Bangalore, Hyderabad or remote. Preference for Google and high-bar teams.",
+        content: "Open to SDE roles in Bangalore, Hyderabad or remote. High-bar product teams preferred.",
       },
       { property: "og:image", content: "https://bnsairam.vercel.app/content.png" },
     ],
@@ -29,9 +29,8 @@ function Contact() {
         Looking for clean, reliable <span className="text-gradient-ember">software?</span>
       </h1>
       <p className="mt-6 text-[17px] leading-[1.65] text-muted-foreground">
-        {profile.openTo}. Available for full-time Software Development Engineer roles, with a
-        preference for Google and high-bar product teams. LinkedIn or email is the fastest way to
-        reach me.
+        {profile.openTo}. Available for full-time Software Development Engineer roles on high-bar
+        product teams. LinkedIn or email is the fastest way to reach me.
       </p>
 
       <div className="mt-10 flex flex-wrap gap-3">
@@ -55,7 +54,15 @@ function Contact() {
           rel="noreferrer"
           className="rounded-full border border-border/80 px-6 py-3 text-[14px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60"
         >
-          Browse GitHub
+          GitHub
+        </a>
+        <a
+          href={profile.leetcode}
+          target="_blank"
+          rel="noreferrer"
+          className="rounded-full border border-border/80 px-6 py-3 text-[14px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60"
+        >
+          LeetCode
         </a>
       </div>
 
@@ -68,18 +75,16 @@ function Contact() {
         <div className="surface-card rounded-2xl p-6">
           <dt className="eyebrow">Education</dt>
           <dd className="mt-3 text-[17px] font-semibold tracking-tight">{profile.education}</dd>
-          <dd className="mt-1 text-[13.5px] text-muted-foreground">
-            Preparing for full-time SDE roles
-          </dd>
+          <dd className="mt-1 text-[13.5px] text-muted-foreground">Preparing for full-time SDE roles</dd>
         </div>
       </dl>
 
       <div className="surface-card mt-6 rounded-2xl p-6 sm:p-8">
-        <h2 className="text-[16px] font-semibold tracking-tight">What I can help with</h2>
+        <h2 className="text-[16px] font-semibold tracking-tight">What I bring</h2>
         <ul className="mt-5 space-y-3 text-[14px] text-muted-foreground">
           <li className="flex gap-2.5">
             <span className="text-primary">→</span>
-            Writing clean, production-quality code in Python and Java
+            Clean, production-quality code in Python and Java
           </li>
           <li className="flex gap-2.5">
             <span className="text-primary">→</span>
@@ -87,7 +92,7 @@ function Contact() {
           </li>
           <li className="flex gap-2.5">
             <span className="text-primary">→</span>
-            Shipping complete products end-to-end (web + tooling)
+            End-to-end ownership — constraint engines, data systems, live products
           </li>
           <li className="flex gap-2.5">
             <span className="text-primary">→</span>

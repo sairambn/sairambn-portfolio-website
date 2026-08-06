@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Sairam Nagarajan (Sairam BN), a Chennai-based software engineer focused on clean code, data structures & algorithms. Preparing for SDE roles, including Google. Open to Bangalore, Hyderabad or remote.",
+          "Software engineer from CEG Chennai. Strong in data structures, algorithms, Python and Java. Building clean, reliable software. Open to SDE roles in Bangalore, Hyderabad or remote.",
       },
       {
         property: "og:title",
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "I build clean, reliable software that solves real problems. Preparing for Software Development Engineer roles.",
+          "I build clean, reliable software that solves real problems. Strong DSA foundations. Preparing for Software Development Engineer roles.",
       },
       { property: "og:image", content: "https://bnsairam.vercel.app/content.png" },
       { name: "twitter:image", content: "https://bnsairam.vercel.app/content.png" },
@@ -36,16 +36,16 @@ function Home() {
       <section className="relative overflow-hidden">
         <div className="grid-backdrop pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-5 pt-16 pb-20 sm:px-6 sm:pt-24 sm:pb-28">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
             <div>
               <p className="eyebrow">
                 {profile.role} · {profile.location}
               </p>
-              <h1 className="mt-5 max-w-2xl text-[2.5rem] leading-[1.08] font-semibold tracking-tight sm:text-[3.25rem] lg:text-[3.6rem]">
+              <h1 className="mt-5 max-w-2xl text-[2.5rem] leading-[1.08] font-semibold tracking-tight sm:text-[3.25rem] lg:text-[3.55rem]">
                 I build clean, reliable software
                 <span className="text-gradient-ember"> that solves real problems.</span>
               </h1>
-              <p className="mt-6 max-w-lg text-[16.5px] leading-[1.65] text-muted-foreground">
+              <p className="mt-6 max-w-xl text-[16.5px] leading-[1.65] text-muted-foreground">
                 {profile.tagline}
               </p>
               <p className="mt-4 font-mono text-[11px] tracking-[0.16em] text-muted-foreground/80">
@@ -74,22 +74,31 @@ function Home() {
                 >
                   GitHub
                 </a>
+                <a
+                  href={profile.leetcode}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-border/80 px-6 py-3 text-[14px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60"
+                >
+                  LeetCode
+                </a>
               </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-[420px] lg:max-w-none">
-              <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-primary/20 via-transparent to-primary/8 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[1.35rem] border border-border/50 shadow-[var(--shadow-glow)]">
+            {/* Full portrait — proper face framing, less aggressive crop */}
+            <div className="relative mx-auto w-full max-w-[440px] lg:max-w-none">
+              <div className="absolute -inset-6 rounded-[2.25rem] bg-gradient-to-br from-primary/25 via-primary/5 to-transparent blur-3xl" />
+              <div className="relative overflow-hidden rounded-[1.5rem] border border-border/50 shadow-[var(--shadow-glow)]">
                 <img
                   src={profile.avatar}
                   alt={`${profile.name} at College of Engineering Guindy`}
                   width={1551}
                   height={798}
-                  className="aspect-[16/10] w-full object-cover object-center"
+                  className="aspect-[5/4] w-full object-cover object-[center_22%]"
                   fetchPriority="high"
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/75 to-transparent px-5 pb-5 pt-20">
-                  <p className="font-script text-[1.85rem] leading-none text-foreground sm:text-[2.1rem]">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/80 to-transparent px-5 pb-5 pt-24">
+                  <p className="font-script text-[1.9rem] leading-none text-foreground sm:text-[2.15rem]">
                     {profile.name}
                   </p>
                   <p className="mt-1.5 text-[13px] text-muted-foreground">{profile.headline}</p>
@@ -104,7 +113,7 @@ function Home() {
                 <dt className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
                   {s.label}
                 </dt>
-                <dd className="mt-2 font-display text-[1.65rem] font-semibold tracking-tight text-gradient-ember">
+                <dd className="mt-2 font-display text-[1.55rem] font-semibold tracking-tight text-gradient-ember sm:text-[1.65rem]">
                   {s.value}
                 </dd>
               </div>
@@ -113,11 +122,13 @@ function Home() {
         </div>
       </section>
 
-      {/* Impact */}
+      {/* Impact — engineering signal */}
       <section className="mx-auto max-w-6xl px-5 pb-24 sm:px-6">
         <div>
-          <p className="eyebrow">Impact</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Outcomes that matter</h2>
+          <p className="eyebrow">Signal</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+            What I've actually built
+          </h2>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {impact.map((item) => (
@@ -135,7 +146,9 @@ function Home() {
         <div className="flex items-end justify-between gap-4">
           <div>
             <p className="eyebrow">Selected work</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Things I've shipped</h2>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Things I've shipped
+            </h2>
           </div>
           <Link
             to="/projects"
@@ -183,8 +196,7 @@ function Home() {
           </h2>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
             Open to full-time Software Development Engineer roles in Bangalore, Hyderabad or remote.
-            Preference for Google and high-bar product teams. LinkedIn or email is the fastest way to
-            reach me.
+            High-bar product teams preferred. LinkedIn or email is the fastest way to reach me.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -201,6 +213,14 @@ function Home() {
             >
               Contact
             </Link>
+            <a
+              href={profile.leetcode}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-border/80 px-6 py-3 text-[14px] font-medium transition-all duration-300 hover:border-primary/30 hover:bg-secondary/60"
+            >
+              LeetCode
+            </a>
           </div>
         </div>
       </section>
