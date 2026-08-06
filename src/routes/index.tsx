@@ -81,7 +81,7 @@ function Home() {
                   alt={`${profile.name} at College of Engineering Guindy`}
                   width={640}
                   height={800}
-                  className="aspect-[3/4] w-full object-cover object-[center_12%]"
+                  className="aspect-[3/4] w-full object-cover object-[center_28%]"
                   fetchPriority="high"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/70 to-transparent px-5 pb-5 pt-24">

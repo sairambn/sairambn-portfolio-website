@@ -34,7 +34,7 @@ function About() {
             loading="lazy"
             width={240}
             height={320}
-            className="relative aspect-[3/4] w-full rounded-2xl border border-border/50 object-cover object-[center_12%] shadow-[var(--shadow-lift)]"
+            className="relative aspect-[3/4] w-full rounded-2xl border border-border/50 object-cover object-[center_28%] shadow-[var(--shadow-lift)]"
           />
         </div>
         <div className="min-w-0">
