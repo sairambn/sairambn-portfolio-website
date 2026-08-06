@@ -44,16 +44,14 @@ function Home() {
 
   return (
     <div>
-      {/* ── Hero — full-width photo, no crop ───────────────── */}
+      {/* ── Hero — full photo, arms visible ─────────────────── */}
       <section className="relative overflow-hidden">
         <div className="grid-backdrop pointer-events-none absolute inset-0" />
 
-        {/* Full-bleed photo — native landscape, entire image visible */}
         <div className="relative mx-auto max-w-6xl px-4 pt-8 sm:px-6 sm:pt-10 lg:pt-12">
+          {/* Photo — no overlay covering the body */}
           <div className="relative overflow-hidden rounded-2xl border border-border/50 shadow-[var(--shadow-glow)] sm:rounded-[1.5rem]">
-            {/* Soft glow behind */}
             <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/20 via-primary/5 to-transparent blur-3xl" />
-
             <img
               src={profile.avatar}
               alt={`${profile.name} at College of Engineering Guindy`}
@@ -62,21 +60,19 @@ function Home() {
               className="h-auto w-full object-contain object-center"
               fetchPriority="high"
             />
+          </div>
 
-            {/* Name bar over the bottom of the photo */}
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/80 to-transparent px-5 pb-5 pt-20 sm:px-8 sm:pb-7 sm:pt-28">
-              <p className="font-script text-[2rem] leading-none text-foreground sm:text-[2.5rem] lg:text-[2.75rem]">
-                {profile.name}
-              </p>
-              <p className="mt-1.5 text-[13px] text-muted-foreground sm:text-[14px]">
-                {profile.headline}
-              </p>
-            </div>
+          {/* Name under the photo — arms stay fully visible */}
+          <div className="mt-5 flex flex-col gap-1 sm:mt-6 sm:flex-row sm:items-baseline sm:gap-4">
+            <p className="font-script text-[2.15rem] leading-none text-foreground sm:text-[2.6rem]">
+              {profile.name}
+            </p>
+            <p className="text-[13px] text-muted-foreground sm:text-[14px]">{profile.headline}</p>
           </div>
         </div>
 
-        {/* Copy + CTAs under the full photo */}
-        <div className="relative mx-auto max-w-6xl px-5 pt-10 pb-16 sm:px-6 sm:pt-12 sm:pb-20 lg:pb-24">
+        {/* Copy + CTAs */}
+        <div className="relative mx-auto max-w-6xl px-5 pt-8 pb-16 sm:px-6 sm:pt-10 sm:pb-20 lg:pb-24">
           <p className="eyebrow">
             {profile.role} · {profile.location}
           </p>
@@ -124,7 +120,6 @@ function Home() {
             </a>
           </div>
 
-          {/* Stats strip */}
           <dl className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/40 shadow-[var(--shadow-lift)] sm:mt-14 sm:grid-cols-3">
             {stats.map((s) => (
               <div key={s.label} className="bg-card/95 px-5 py-6 backdrop-blur-sm sm:px-6 sm:py-7">
@@ -140,7 +135,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Signal ───────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
         <div>
           <p className="eyebrow">Signal</p>
@@ -163,7 +157,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Selected work ────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
         <div className="flex items-end justify-between gap-4">
           <div>
@@ -186,7 +179,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ── How I work ───────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
         <div>
           <p className="eyebrow">Approach</p>
@@ -202,7 +194,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Skills ───────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
         <p className="eyebrow">Skills</p>
         <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">What I bring</h2>
@@ -225,10 +216,8 @@ function Home() {
         </div>
       </section>
 
-      {/* ── GitHub activity ──────────────────────────────────── */}
       <GitHubStats />
 
-      {/* ── Closing CTA ──────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-5 pb-28 sm:px-6">
         <div className="surface-card relative overflow-hidden rounded-[1.75rem] p-8 sm:p-12">
           <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
