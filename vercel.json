@@ -21,9 +21,16 @@
       ]
     },
     {
-      "source": "/:path(.*\\.(js|css|woff2|svg|png|jpg|jpeg|webp|avif))",
+      "source": "/:file(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ],
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*"
+        }
       ]
     }
   ]
