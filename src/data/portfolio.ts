@@ -103,39 +103,6 @@ export const principles = [
   },
 ];
 
-export const dailyIdeas = [
-  {
-    id: 1,
-    title: "Clarity first",
-    body: "Readable, correct code beats clever one-liners. The next person reading it might be you in six months.",
-  },
-  {
-    id: 2,
-    title: "Practice compounds",
-    body: "One solid problem a day. Consistency on NeetCode builds the same discipline as shipping features.",
-  },
-  {
-    id: 3,
-    title: "Model before you code",
-    body: "Get the data structures and invariants right first. Most bugs start as modeling mistakes.",
-  },
-  {
-    id: 4,
-    title: "Ship complete or don't ship",
-    body: "Idea → working product → real users. Half-finished work doesn't count as delivery.",
-  },
-  {
-    id: 5,
-    title: "Measure what moved",
-    body: "Hours saved, revenue recovered, decisions made. If the number didn't move, the work isn't done.",
-  },
-  {
-    id: 6,
-    title: "Build for the long run",
-    body: "Clean interfaces, clear ownership, and tests where they matter. Things that last require care up front.",
-  },
-];
-
 export type Project = {
   name: string;
   title: string;
