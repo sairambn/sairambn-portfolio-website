@@ -44,12 +44,10 @@ function Home() {
 
   return (
     <div>
-      {/* ── Grand Hero ──────────────────────────────────────── */}
       <section className="relative overflow-hidden">
         <div className="grid-backdrop pointer-events-none absolute inset-0" />
 
         <div className="relative mx-auto max-w-7xl px-4 pt-10 sm:px-6 sm:pt-14 lg:pt-16">
-          {/* Cinematic full-width photo — arms fully visible */}
           <div className="relative">
             <div className="pointer-events-none absolute -inset-10 -z-10 rounded-[2.5rem] bg-gradient-to-br from-primary/30 via-primary/8 to-transparent blur-3xl" />
             <div className="hero-frame relative overflow-hidden rounded-2xl border border-border/40 sm:rounded-[1.75rem]">
@@ -64,7 +62,6 @@ function Home() {
             </div>
           </div>
 
-          {/* Name + role under photo */}
           <div className="mt-6 flex flex-col gap-1.5 sm:mt-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-5">
               <p className="font-script text-[2.4rem] leading-none text-foreground sm:text-[3rem] lg:text-[3.25rem]">
@@ -80,7 +77,6 @@ function Home() {
           </div>
         </div>
 
-        {/* Headline block */}
         <div className="relative mx-auto max-w-7xl px-5 pt-12 pb-20 sm:px-6 sm:pt-16 sm:pb-28">
           <p className="eyebrow">
             {profile.role} · {profile.location}
@@ -130,7 +126,6 @@ function Home() {
             </a>
           </div>
 
-          {/* Grand stats */}
           <dl className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border/50 bg-border/30 shadow-[var(--shadow-lift)] sm:grid-cols-3">
             {stats.map((s) => (
               <div key={s.label} className="bg-card/90 px-6 py-8 backdrop-blur-sm sm:px-8 sm:py-10">
@@ -146,7 +141,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Signal ───────────────────────────────────────────── */}
       <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-6 sm:pb-28">
         <div className="max-w-3xl">
           <p className="eyebrow">Signal</p>
@@ -154,8 +148,7 @@ function Home() {
             What I've actually built
           </h2>
           <p className="mt-4 text-[16px] leading-relaxed text-muted-foreground">
-            Real systems — constraint engines, data pipelines, production sites, and daily
-            algorithm practice.
+            Constraint engines, data pipelines, production sites, and daily algorithm practice.
           </p>
         </div>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -169,7 +162,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Selected work ────────────────────────────────────── */}
       <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-6 sm:pb-28">
         <div className="flex items-end justify-between gap-4">
           <div>
@@ -192,7 +184,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ── How I work ───────────────────────────────────────── */}
       <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-6 sm:pb-28">
         <div>
           <p className="eyebrow">Approach</p>
@@ -210,11 +201,10 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Skills ───────────────────────────────────────────── */}
       <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-6 sm:pb-28">
         <p className="eyebrow">Skills</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">What I bring</h2>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {skillGroups.map((group) => (
             <div key={group.title} className="surface-card rounded-2xl p-7">
               <h3 className="text-[15px] font-semibold tracking-tight text-primary">{group.title}</h3>
@@ -222,7 +212,7 @@ function Home() {
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-border/70 bg-secondary/30 px-4 py-1.5 text-[13.5px] text-muted-foreground"
+                    className="rounded-full border border-border/70 bg-secondary/30 px-3.5 py-1.5 text-[13px] text-muted-foreground"
                   >
                     {item}
                   </span>
@@ -237,7 +227,6 @@ function Home() {
         <GitHubStats />
       </div>
 
-      {/* ── Grand CTA ────────────────────────────────────────── */}
       <section className="mx-auto max-w-7xl px-5 pb-32 sm:px-6">
         <div className="surface-card relative overflow-hidden rounded-[2rem] p-10 sm:p-14 lg:p-16">
           <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-primary/15 blur-3xl" />

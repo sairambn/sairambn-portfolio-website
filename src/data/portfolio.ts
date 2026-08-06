@@ -9,8 +9,8 @@ export const profile = {
   education: "M.E., College of Engineering Guindy (CEG) '25",
   email: "bnsairam14@gmail.com",
   tagline:
-    "Strong foundation in data structures, algorithms, and production-quality code. Building reliable software end to end — from constraint solvers in the browser to live client systems.",
-  bio: "I'm a software engineer focused on writing clean, efficient code and solving problems at scale.\n\nI have a strong foundation in Python, Java, and SQL. I'm actively deepening expertise in data structures, algorithms, and system design to prepare for Software Development Engineer roles at high-bar companies.\n\nI care about clarity, correctness, and building things that last.",
+    "Strong focus on data structures, algorithms, and writing production-quality code. Currently preparing for Software Development Engineer roles with a preference for Google.",
+  bio: "I'm a software engineer focused on writing clean, efficient code and solving problems at scale.\n\nI have a strong foundation in Python and SQL, and I'm actively deepening my expertise in data structures, algorithms, and system design to prepare for Software Development Engineer roles at top companies, including Google.\n\nI care about clarity, correctness, and building things that last.",
   github: "https://github.com/sairambn",
   linkedin: "https://www.linkedin.com/in/sairambn/",
   portfolio: "https://bnsairam.vercel.app",
@@ -19,44 +19,41 @@ export const profile = {
 };
 
 export const stats = [
-  { label: "Daily DSA",
-    value: "NeetCode 250" },
-  { label: "Languages",
-    value: "Python · Java · TS" },
-  { label: "Systems shipped",
-    value: "5+ live" },
+  { label: "Daily DSA", value: "NeetCode 250" },
+  { label: "Languages", value: "Python · Java · TS" },
+  { label: "Systems shipped", value: "5+ live" },
 ];
 
 export const impact = [
   {
-    title: "Constraint scheduling",
+    title: "Constraint scheduling engine",
     result: "Zero-conflict timetables",
     detail:
-      "Browser-side scheduling engine that models teacher/class constraints and produces conflict-free school & college timetables with CSV export.",
+      "Browser-side constraint solver: models teachers, classes, and rooms; generates conflict-free school & college timetables with class/teacher views and CSV export.",
   },
   {
-    title: "Result analysis system",
+    title: "Result analysis pipeline",
     result: "Exam-cell ready in one pass",
     detail:
-      "TypeScript pipeline: mark-sheet upload → subject stats, toppers, arrear groups → professional FRONT + MARK Excel export for exam cells.",
+      "TypeScript system: mark-sheet upload → subject stats, toppers, arrear groups → professional FRONT + MARK Excel export for exam cells.",
   },
   {
-    title: "Production client sites",
-    result: "2 live businesses online",
+    title: "Production SSR products",
+    result: "2 live client businesses",
     detail:
-      "SSR sites with Schema.org local SEO, Maps alignment, and conversion CTAs — shipped and maintained for real clients.",
+      "Full TypeScript/React SSR sites with Schema.org SEO, Maps alignment, and conversion CTAs — shipped and maintained in production.",
   },
   {
-    title: "Data → decision systems",
-    result: "Measurable business outcomes",
-    detail:
-      "Python + SQL pipelines and models that recovered revenue, cut expansion waste, and saved hours of manual work for operators.",
-  },
-  {
-    title: "Structured practice",
+    title: "Structured interview practice",
     result: "Daily NeetCode 250",
     detail:
-      "One problem a day in Python, Java, and C++ — building the same discipline required for production engineering interviews.",
+      "One problem a day in Python, Java, and C++. Same discipline as shipping under constraints — clarity, edge cases, and consistent progress.",
+  },
+  {
+    title: "Data systems in Python & SQL",
+    result: "Pipelines that moved numbers",
+    detail:
+      "End-to-end Python + SQL systems that recovered revenue, cut operational waste, and automated hours of manual work.",
   },
 ];
 
@@ -176,7 +173,7 @@ export const projects: Project[] = [
     url: "https://github.com/sairambn/aiml-stats-portal",
     live: "https://aiml-stats-portal.vercel.app",
     featured: true,
-    tags: ["TypeScript", "Data", "Excel"],
+    tags: ["TypeScript", "Pipelines", "Excel"],
     outcome: "Exam-cell ready in one pass",
   },
   {
@@ -214,14 +211,5 @@ export const projects: Project[] = [
     live: "https://naiyapudai.vercel.app",
     tags: ["TypeScript", "SSR", "SEO"],
     outcome: "Live growth product",
-  },
-  {
-    name: "sairambn",
-    title: "Profile README",
-    description: "Living GitHub profile index of what I'm building, practicing, and shipping.",
-    language: "Markdown",
-    stars: 0,
-    url: "https://github.com/sairambn/sairambn",
-    tags: ["Profile", "Docs"],
   },
 ];
