@@ -37,6 +37,9 @@
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-script: "Great Vibes", cursive;
+  --font-script-alt: "Italianno", cursive;
+  --font-brush: "Alex Brush", cursive;
 }
 
 :root {
@@ -120,6 +123,18 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+@utility font-script {
+  font-family: var(--font-script);
+}
+
+@utility font-script-alt {
+  font-family: var(--font-script-alt);
+}
+
+@utility font-brush {
+  font-family: var(--font-brush);
 }
 
 @utility surface-card {
