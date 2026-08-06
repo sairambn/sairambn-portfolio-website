@@ -73,7 +73,8 @@ export function GitHubStats({
                   strokeWidth="6"
                 />
                 <circle
-                  cx="50"	colorbox cy="50"
+                  cx="50"
+                  cy="50"
                   r="42"
                   fill="none"
                   stroke="var(--ember)"
