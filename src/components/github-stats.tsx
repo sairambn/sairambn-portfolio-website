@@ -11,11 +11,11 @@ type GitHubStatsProps = {
 };
 
 export function GitHubStats({
-  totalContributions = 445,
-  currentStreak = 12,
-  longestStreak = 12,
+  totalContributions = 520,
+  currentStreak = 15,
+  longestStreak = 15,
   contributionsPeriod = "Jul 24 – Present",
-  streakPeriod = "Jul 24 – Aug 4",
+  streakPeriod = "Jul 24 – Aug 7",
 }: GitHubStatsProps) {
   const progress = 1;
   const offset = CIRCUMFERENCE * (1 - progress);

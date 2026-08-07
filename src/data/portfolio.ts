@@ -21,10 +21,16 @@ export const profile = {
 export const stats = [
   { label: "Daily DSA", value: "NeetCode 250" },
   { label: "Languages", value: "Python · Java · TS" },
-  { label: "Systems shipped", value: "5+ live" },
+  { label: "Systems shipped", value: "6+ live" },
 ];
 
 export const impact = [
+  {
+    title: "Live event platform",
+    result: "College hackathon running today",
+    detail:
+      "Full registration, problem assignment by team size, and solution submission flow for a department AI Problem Solve-a-Thon. Live and used by teams in real time.",
+  },
   {
     title: "Constraint scheduling engine",
     result: "Zero-conflict timetables",
@@ -48,12 +54,6 @@ export const impact = [
     result: "Daily NeetCode 250",
     detail:
       "One problem a day in Python, Java, and C++. Same discipline as shipping under constraints — clarity, edge cases, and consistent progress.",
-  },
-  {
-    title: "Data systems in Python & SQL",
-    result: "Pipelines that moved numbers",
-    detail:
-      "End-to-end Python + SQL systems that recovered revenue, cut operational waste, and automated hours of manual work.",
   },
 ];
 
@@ -117,6 +117,19 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    name: "AI-Competition",
+    title: "AI Problem Solve-a-Thon",
+    description:
+      "Live event platform for a department hackathon. Team registration, problem assignment by size, solution collection via GitHub PRs, and organizer tools. Used on the day of the event.",
+    language: "TypeScript",
+    stars: 0,
+    url: "https://github.com/sairambn/AI-Competition",
+    live: "https://ai-thon-one.vercel.app",
+    featured: true,
+    tags: ["TypeScript", "Event", "Live"],
+    outcome: "Running live event",
+  },
   {
     name: "master-timetable-generator",
     title: "Master Timetable Generator",

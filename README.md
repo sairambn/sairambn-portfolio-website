@@ -27,7 +27,7 @@ Positioned for **Software Development Engineer** roles: clean code, data structu
 ## Features
 
 - Deep charcoal + warm ember color system with layered gradients and glow shadows
-- Engineering signal: constraint scheduling, result pipelines, production SSR sites, NeetCode daily
+- Engineering signal: live event platform, constraint scheduling, result pipelines, production SSR sites, NeetCode daily
 - Projects with live links and GitHub sources
 - LinkedIn · GitHub · LeetCode · email integration
 - Fully responsive (mobile nav), polished typography (Space Grotesk / DM Sans / JetBrains Mono)
@@ -75,6 +75,7 @@ Framework preset: **TanStack Start** (`vercel.json`).
 | Project | Link |
 |---------|------|
 | Profile README | [github.com/sairambn/sairambn](https://github.com/sairambn/sairambn) |
+| AI Problem Solve-a-Thon | [ai-thon-one.vercel.app](https://ai-thon-one.vercel.app) |
 | Master Timetable Generator | [master-timetable-generator.vercel.app](https://master-timetable-generator.vercel.app) |
 | Result Analysis Portal | [aiml-stats-portal.vercel.app](https://aiml-stats-portal.vercel.app) |
 | NeetCode 250 Daily | [github.com/sairambn/neetcode-250-daily](https://github.com/sairambn/neetcode-250-daily) |
