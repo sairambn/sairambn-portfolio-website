@@ -24,12 +24,11 @@ export const Route = createFileRoute("/about")({
 
 function About() {
   return (
-    <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-24">
+    <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-20">
       <p className="eyebrow">About</p>
 
-      <div className="relative mt-10">
-        <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[2.5rem] bg-gradient-to-br from-primary/25 via-primary/5 to-transparent blur-3xl" />
-        <div className="hero-frame relative overflow-hidden rounded-2xl border border-border/40 sm:rounded-[1.75rem]">
+      <div className="relative mt-8">
+        <div className="hero-frame relative overflow-hidden rounded-2xl border border-border/50">
           <img
             src={profile.avatar}
             alt={`Portrait of ${profile.name}`}
@@ -41,64 +40,64 @@ function About() {
         </div>
       </div>
 
-      <div className="mt-10 max-w-3xl">
-        <h1 className="font-script text-[3rem] leading-[1.05] tracking-normal sm:text-[3.75rem]">
+      <div className="mt-8 max-w-2xl">
+        <h1 className="font-script text-[2.6rem] leading-[1.05] tracking-normal sm:text-[3.25rem]">
           {profile.name}
         </h1>
-        <p className="mt-3 font-mono text-[11px] tracking-[0.16em] text-muted-foreground">
+        <p className="mt-2.5 font-mono text-[11px] tracking-[0.14em] text-muted-foreground">
           {profile.headline}
         </p>
-        <p className="mt-6 whitespace-pre-line text-[16.5px] leading-[1.75] text-muted-foreground">
+        <p className="mt-5 whitespace-pre-line text-[15.5px] leading-[1.7] text-muted-foreground">
           {profile.bio}
         </p>
       </div>
 
-      <div className="mt-14 grid gap-5 sm:grid-cols-2">
-        <div className="surface-card rounded-2xl p-7">
-          <h2 className="text-[16px] font-semibold tracking-tight">Based in</h2>
-          <p className="mt-3 text-[14.5px] text-muted-foreground">{profile.location}</p>
-          <p className="mt-1 text-[14.5px] text-muted-foreground">{profile.openTo}</p>
+      <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <div className="surface-card rounded-xl p-6">
+          <h2 className="text-[15px] font-semibold tracking-tight">Based in</h2>
+          <p className="mt-2.5 text-[14px] text-muted-foreground">{profile.location}</p>
+          <p className="mt-1 text-[14px] text-muted-foreground">{profile.openTo}</p>
         </div>
-        <div className="surface-card rounded-2xl p-7">
-          <h2 className="text-[16px] font-semibold tracking-tight">Education</h2>
-          <p className="mt-3 text-[14.5px] text-muted-foreground">{profile.education}</p>
-          <p className="mt-1 text-[14.5px] text-muted-foreground">
+        <div className="surface-card rounded-xl p-6">
+          <h2 className="text-[15px] font-semibold tracking-tight">Education</h2>
+          <p className="mt-2.5 text-[14px] text-muted-foreground">{profile.education}</p>
+          <p className="mt-1 text-[14px] text-muted-foreground">
             Daily algorithm practice + systems shipped on GitHub.
           </p>
         </div>
       </div>
 
-      <h2 className="mt-20 text-3xl font-semibold tracking-tight sm:text-4xl">How I work</h2>
-      <div className="mt-8 grid gap-5 sm:grid-cols-2">
+      <h2 className="mt-16 text-[1.85rem] font-semibold tracking-tight sm:text-[2.25rem]">How I work</h2>
+      <div className="mt-7 grid gap-4 sm:grid-cols-2">
         {principles.map((p) => (
-          <div key={p.title} className="surface-card rounded-2xl p-7">
-            <h3 className="text-[16px] font-semibold tracking-tight">{p.title}</h3>
-            <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">{p.body}</p>
+          <div key={p.title} className="surface-card rounded-xl p-6">
+            <h3 className="text-[15px] font-semibold tracking-tight">{p.title}</h3>
+            <p className="mt-2.5 text-[14px] leading-relaxed text-muted-foreground">{p.body}</p>
           </div>
         ))}
       </div>
 
-      <h2 className="mt-20 text-3xl font-semibold tracking-tight sm:text-4xl">What I've built</h2>
-      <div className="mt-8 grid gap-5 sm:grid-cols-2">
+      <h2 className="mt-16 text-[1.85rem] font-semibold tracking-tight sm:text-[2.25rem]">What I've built</h2>
+      <div className="mt-7 grid gap-4 sm:grid-cols-2">
         {impact.slice(0, 4).map((item) => (
-          <div key={item.title} className="surface-card rounded-2xl p-7">
-            <h3 className="text-[16px] font-semibold tracking-tight">{item.title}</h3>
-            <p className="mt-2 text-[15px] text-primary">{item.result}</p>
-            <p className="mt-2 text-[14px] text-muted-foreground">{item.detail}</p>
+          <div key={item.title} className="surface-card rounded-xl p-6">
+            <h3 className="text-[15px] font-semibold tracking-tight">{item.title}</h3>
+            <p className="mt-2 text-[14px] text-primary">{item.result}</p>
+            <p className="mt-2 text-[13.5px] text-muted-foreground">{item.detail}</p>
           </div>
         ))}
       </div>
 
-      <h2 className="mt-20 text-3xl font-semibold tracking-tight sm:text-4xl">Skills</h2>
-      <div className="mt-8 grid gap-5 sm:grid-cols-2">
+      <h2 className="mt-16 text-[1.85rem] font-semibold tracking-tight sm:text-[2.25rem]">Skills</h2>
+      <div className="mt-7 grid gap-4 sm:grid-cols-2">
         {skillGroups.map((group) => (
-          <div key={group.title} className="surface-card rounded-2xl p-7">
-            <h3 className="text-[15px] font-semibold tracking-tight text-primary">{group.title}</h3>
-            <div className="mt-5 flex flex-wrap gap-2.5">
+          <div key={group.title} className="surface-card rounded-xl p-6">
+            <h3 className="text-[14px] font-semibold tracking-tight text-primary">{group.title}</h3>
+            <div className="mt-4 flex flex-wrap gap-2">
               {group.items.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-border/70 bg-secondary/30 px-4 py-1.5 text-[13.5px] text-muted-foreground"
+                  className="rounded-full border border-border/60 bg-secondary/25 px-3 py-1 text-[12.5px] text-muted-foreground"
                 >
                   {item}
                 </span>
@@ -108,16 +107,16 @@ function About() {
         ))}
       </div>
 
-      <div className="mt-16 flex flex-wrap gap-3">
+      <div className="mt-12 flex flex-wrap gap-2.5">
         <Link
           to="/projects"
-          className="rounded-full bg-primary px-8 py-3.5 text-[14px] font-semibold text-primary-foreground shadow-[0_10px_40px_-8px_color-mix(in_oklab,var(--ember)_60%,transparent)] transition-all duration-300 hover:-translate-y-0.5"
+          className="rounded-full bg-primary px-7 py-3 text-[13.5px] font-semibold text-primary-foreground transition-all duration-250 hover:-translate-y-0.5"
         >
           See the work
         </Link>
         <Link
           to="/contact"
-          className="rounded-full border border-border/80 px-7 py-3.5 text-[14px] font-medium transition-all duration-300 hover:border-primary/35 hover:bg-secondary/60"
+          className="rounded-full border border-border/70 px-6 py-3 text-[13.5px] font-medium transition-all duration-250 hover:border-primary/30 hover:bg-secondary/50"
         >
           Get in touch
         </Link>
@@ -125,7 +124,7 @@ function About() {
           href={profile.leetcode}
           target="_blank"
           rel="noreferrer"
-          className="rounded-full border border-border/80 px-7 py-3.5 text-[14px] font-medium transition-all duration-300 hover:border-primary/35 hover:bg-secondary/60"
+          className="rounded-full border border-border/70 px-6 py-3 text-[13.5px] font-medium transition-all duration-250 hover:border-primary/30 hover:bg-secondary/50"
         >
           LeetCode
         </a>
