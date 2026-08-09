@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Software engineer from CEG Chennai. Strong in data structures, algorithms, Python and Java. Building clean, reliable software. Open to SDE roles in Bangalore, Hyderabad or remote.",
+          "Software engineer from CEG Chennai. Python, Java, daily DSA. Open to SDE roles in Bangalore, Hyderabad or remote.",
       },
       {
         property: "og:title",
@@ -25,8 +25,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:description",
-        content:
-          "I build clean, reliable software that solves real problems. Strong DSA foundations. Preparing for Software Development Engineer roles.",
+        content: "Python, Java, daily DSA. Ships systems people use. Looking for an SDE role.",
       },
       { property: "og:image", content: "https://bnsairam.vercel.app/content.png" },
       { property: "og:type", content: "website" },
@@ -44,7 +43,6 @@ function Home() {
 
   return (
     <div>
-      {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="grid-backdrop pointer-events-none absolute inset-0" />
 
@@ -83,9 +81,9 @@ function Home() {
             {profile.role} · {profile.location}
           </p>
           <h1 className="mt-4 max-w-3xl text-[2.25rem] leading-[1.08] font-semibold tracking-tight sm:text-[3.15rem] lg:text-[3.6rem]">
-            I build clean, reliable software
+            Code that works.
             <br className="hidden sm:block" />
-            <span className="text-gradient-ember"> that solves real problems.</span>
+            <span className="text-gradient-ember"> Systems people use.</span>
           </h1>
           <p className="mt-5 max-w-xl text-[15.5px] leading-[1.7] text-muted-foreground sm:text-[16.5px]">
             {profile.tagline}
@@ -99,13 +97,13 @@ function Home() {
               to="/projects"
               className="rounded-full bg-primary px-7 py-3 text-[13.5px] font-semibold text-primary-foreground transition-all duration-250 hover:-translate-y-0.5 hover:shadow-[0_8px_28px_-6px_color-mix(in_oklab,var(--ember)_55%,transparent)]"
             >
-              View selected work
+              View work
             </Link>
             <a
               href={`mailto:${profile.email}`}
               className="rounded-full border border-primary/35 bg-primary/8 px-5 py-3 text-[13.5px] font-medium text-primary transition-all duration-250 hover:border-primary/55 hover:bg-primary/12"
             >
-              Email me
+              Email
             </a>
             <a
               href={profile.linkedin}
@@ -148,16 +146,12 @@ function Home() {
         </div>
       </section>
 
-      {/* Signal / Impact */}
       <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
         <div className="max-w-2xl">
-          <p className="eyebrow">Signal</p>
+          <p className="eyebrow">Built</p>
           <h2 className="mt-3 text-[1.85rem] font-semibold tracking-tight sm:text-[2.35rem]">
-            What I've actually built
+            What is live
           </h2>
-          <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-            Constraint engines, data pipelines, production sites, and daily algorithm practice.
-          </p>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {impact.map((item) => (
@@ -170,13 +164,12 @@ function Home() {
         </div>
       </section>
 
-      {/* Selected work */}
       <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <p className="eyebrow">Selected work</p>
+            <p className="eyebrow">Projects</p>
             <h2 className="mt-3 text-[1.85rem] font-semibold tracking-tight sm:text-[2.35rem]">
-              Things I've shipped
+              Selected work
             </h2>
           </div>
           <Link
@@ -193,7 +186,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Approach */}
       <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
         <div>
           <p className="eyebrow">Approach</p>
@@ -211,10 +203,9 @@ function Home() {
         </div>
       </section>
 
-      {/* Skills */}
       <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
         <p className="eyebrow">Skills</p>
-        <h2 className="mt-3 text-[1.85rem] font-semibold tracking-tight sm:text-[2.25rem]">What I bring</h2>
+        <h2 className="mt-3 text-[1.85rem] font-semibold tracking-tight sm:text-[2.25rem]">Stack</h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {skillGroups.map((group) => (
             <div key={group.title} className="surface-card rounded-xl p-6">
@@ -238,17 +229,15 @@ function Home() {
         <GitHubStats />
       </div>
 
-      {/* Final CTA */}
       <section className="mx-auto max-w-6xl px-5 pb-28 sm:px-6">
         <div className="surface-card relative overflow-hidden rounded-2xl p-8 sm:p-12">
           <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
-          <p className="eyebrow">Next step</p>
+          <p className="eyebrow">Contact</p>
           <h2 className="mt-3 max-w-xl text-[1.85rem] font-semibold tracking-tight sm:text-[2.35rem]">
-            Looking for an SDE who writes clean, reliable code?
+            Open to SDE roles
           </h2>
           <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
-            Open to full-time Software Development Engineer roles in Bangalore, Hyderabad or remote.
-            High-bar product teams preferred.
+            Bangalore, Hyderabad, or remote. LinkedIn or email works best.
           </p>
           <div className="mt-8 flex flex-wrap gap-2.5">
             <a
@@ -257,13 +246,13 @@ function Home() {
               rel="noreferrer"
               className="rounded-full bg-primary px-7 py-3 text-[13.5px] font-semibold text-primary-foreground transition-all duration-250 hover:-translate-y-0.5"
             >
-              Connect on LinkedIn
+              LinkedIn
             </a>
             <a
               href={`mailto:${profile.email}`}
               className="rounded-full border border-primary/35 bg-primary/8 px-6 py-3 text-[13.5px] font-medium text-primary transition-all duration-250 hover:border-primary/55 hover:bg-primary/12"
             >
-              Email me
+              Email
             </a>
             <Link
               to="/contact"

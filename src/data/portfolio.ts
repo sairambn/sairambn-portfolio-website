@@ -9,8 +9,8 @@ export const profile = {
   education: "M.E., College of Engineering Guindy (CEG) '25",
   email: "bnsairam14@gmail.com",
   tagline:
-    "Strong focus on data structures, algorithms, and writing production-quality code. Currently preparing for Software Development Engineer roles with a preference for Google.",
-  bio: "I'm a software engineer focused on writing clean, efficient code and solving problems at scale.\n\nI have a strong foundation in Python and SQL, and I'm actively deepening my expertise in data structures, algorithms, and system design to prepare for Software Development Engineer roles at top companies, including Google.\n\nI care about clarity, correctness, and building things that last.",
+    "I write code that works, practice DSA every day, and ship systems people actually use. Preparing for SDE roles.",
+  bio: "Software engineer from CEG Chennai.\n\nI work in Python and Java, practice DSA daily, and build full systems when I need them: scheduling engines, exam pipelines, event platforms, client sites.\n\nLooking for an SDE role where the work is real and the bar is high.",
   github: "https://github.com/sairambn",
   linkedin: "https://www.linkedin.com/in/sairambn/",
   portfolio: "https://bnsairam.vercel.app",
@@ -26,58 +26,58 @@ export const stats = [
 
 export const impact = [
   {
-    title: "Live event platform",
-    result: "College hackathon running today",
+    title: "College hackathon platform",
+    result: "Used on event day",
     detail:
-      "Full registration, problem assignment by team size, and solution submission flow for a department AI Problem Solve-a-Thon. Live and used by teams in real time.",
+      "Registration, team-size problem assignment, and solution collection for a department AI Problem Solve-a-Thon. Ran live during the event.",
   },
   {
-    title: "Constraint scheduling engine",
-    result: "Zero-conflict timetables",
+    title: "Timetable generator",
+    result: "No conflicts",
     detail:
-      "Browser-side constraint solver: models teachers, classes, and rooms; generates conflict-free school & college timetables with class/teacher views and CSV export.",
+      "Browser constraint solver for teachers, classes, and rooms. Outputs class and teacher views plus CSV export.",
   },
   {
-    title: "Result analysis pipeline",
-    result: "Exam-cell ready in one pass",
+    title: "Result analysis tool",
+    result: "One-pass Excel for exam cells",
     detail:
-      "TypeScript system: mark-sheet upload → subject stats, toppers, arrear groups → professional FRONT + MARK Excel export for exam cells.",
+      "Upload mark sheets, get subject stats, toppers, arrear groups, and FRONT + MARK Excel exports.",
   },
   {
-    title: "Production SSR products",
-    result: "2 live client businesses",
+    title: "Client websites",
+    result: "2 live businesses",
     detail:
-      "Full TypeScript/React SSR sites with Schema.org SEO, Maps alignment, and conversion CTAs — shipped and maintained in production.",
+      "SSR sites with local SEO, Maps setup, and call/WhatsApp CTAs. Still running in production.",
   },
   {
-    title: "Structured interview practice",
-    result: "Daily NeetCode 250",
+    title: "NeetCode 250",
+    result: "One problem a day",
     detail:
-      "One problem a day in Python, Java, and C++. Same discipline as shipping under constraints — clarity, edge cases, and consistent progress.",
+      "Python, Java, and C++ solutions. Same habit as shipping: show up, handle edge cases, move on.",
   },
 ];
 
 export const skillGroups = [
   {
-    title: "Core Skills",
+    title: "Core",
     items: [
       "Data Structures & Algorithms",
       "Python",
       "Java",
       "Problem Solving",
-      "Object-Oriented Programming",
+      "OOP",
     ],
   },
   {
-    title: "Tools & Practices",
-    items: ["Git", "SQL", "Clean Code", "System Design Basics", "TypeScript"],
+    title: "Tools",
+    items: ["Git", "SQL", "TypeScript", "System Design basics"],
   },
   {
-    title: "Currently Strengthening",
-    items: ["Advanced DSA", "System Design", "Backend Development"],
+    title: "Working on",
+    items: ["Advanced DSA", "System Design", "Backend"],
   },
   {
-    title: "Also ship with",
+    title: "Also use",
     items: ["React", "Python (pandas)", "Vite", "Vercel"],
   },
 ];
@@ -86,20 +86,20 @@ export const skills = skillGroups.flatMap((g) => g.items);
 
 export const principles = [
   {
-    title: "Clarity first",
-    body: "Code should be readable by the next person who touches it — including future me. Prefer simple solutions that are correct.",
+    title: "Readable code",
+    body: "Write it so the next person (or future me) can understand it without a walkthrough.",
   },
   {
-    title: "Correctness over cleverness",
-    body: "Edge cases, invariants, and clear contracts matter more than short-term clever tricks.",
+    title: "Correct first",
+    body: "Handle the edge cases. Clever code that breaks under load is not clever.",
   },
   {
-    title: "Practice compounds",
-    body: "Daily structured DSA practice builds the same muscle as writing production code under constraints.",
+    title: "Daily practice",
+    body: "DSA every day. Same discipline as shipping: consistent work, no drama.",
   },
   {
-    title: "Ship complete",
-    body: "From idea to working product used by real people. Half-finished work doesn't count.",
+    title: "Finish the job",
+    body: "If it is not used by real people, it is not done.",
   },
 ];
 
@@ -121,75 +121,75 @@ export const projects: Project[] = [
     name: "AI-Competition",
     title: "AI Problem Solve-a-Thon",
     description:
-      "Live event platform for a department hackathon. Team registration, problem assignment by size, solution collection via GitHub PRs, and organizer tools. Used on the day of the event.",
+      "Event platform for a department hackathon. Team registration, problem assignment by size, solution collection via GitHub PRs. Used on the day of the event.",
     language: "TypeScript",
     stars: 0,
     url: "https://github.com/sairambn/AI-Competition",
     live: "https://ai-thon-one.vercel.app",
     featured: true,
     tags: ["TypeScript", "Event", "Live"],
-    outcome: "Running live event",
+    outcome: "Ran live",
   },
   {
     name: "master-timetable-generator",
     title: "Master Timetable Generator",
     description:
-      "Constraint-based scheduling engine in the browser. Models teacher, class, and room constraints to produce conflict-free school & college timetables with class/teacher views and CSV export.",
+      "Constraint solver in the browser. Models teachers, classes, and rooms. Outputs conflict-free timetables with class/teacher views and CSV export.",
     language: "JavaScript",
     stars: 0,
     url: "https://github.com/sairambn/master-timetable-generator",
     live: "https://master-timetable-generator.vercel.app",
     featured: true,
     tags: ["Algorithms", "Constraints", "Scheduling"],
-    outcome: "Zero-conflict schedules",
+    outcome: "No conflicts",
   },
   {
     name: "aiml-stats-portal",
     title: "Result Analysis Portal",
     description:
-      "End-to-end TypeScript system for exam cells: upload mark sheets → compute subject stats, toppers, arrear groups → export professional FRONT + MARK Excel reports in one pass.",
+      "Exam-cell tool: upload mark sheets, get subject stats, toppers, arrear groups, and FRONT + MARK Excel reports.",
     language: "TypeScript",
     stars: 0,
     url: "https://github.com/sairambn/aiml-stats-portal",
     live: "https://aiml-stats-portal.vercel.app",
     featured: true,
     tags: ["TypeScript", "Pipelines", "Excel"],
-    outcome: "Exam-cell ready in one pass",
+    outcome: "One-pass export",
   },
   {
     name: "neetcode-250-daily",
     title: "NeetCode 250 Daily",
     description:
-      "One problem a day until the full NeetCode 250 list is done. Structured solutions in Python, Java, and C++ with consistent practice discipline.",
+      "One problem a day through the NeetCode 250 list. Solutions in Python, Java, and C++.",
     language: "Python",
     stars: 5,
     url: "https://github.com/sairambn/neetcode-250-daily",
     featured: true,
     tags: ["DSA", "Python", "Java"],
-    outcome: "Daily structured practice",
+    outcome: "Daily practice",
   },
   {
     name: "TotalFitnessStudio",
     title: "Total Fitness Studio",
     description:
-      "Production client website for a 4.9★ gym. SSR architecture, Schema.org local SEO, Google Maps alignment, and high-intent tel/WhatsApp CTAs — live and serving customers.",
+      "Client site for a 4.9 star gym. SSR, local SEO, Maps, tel and WhatsApp CTAs. Live in production.",
     language: "TypeScript",
     stars: 0,
     url: "https://github.com/sairambn/TotalFitnessStudio",
     live: "https://total-fitness-studio-livid.vercel.app",
     tags: ["SSR", "TypeScript", "Production"],
-    outcome: "Production client site",
+    outcome: "Live client site",
   },
   {
     name: "naiyapudai-growth-studio",
     title: "Naiyapudai Growth Studio",
     description:
-      "Full web product for a growth studio: site architecture, local SEO systems, Maps ranking, and conversion flows for Tamil Nadu brands.",
+      "Site and local SEO setup for a growth studio serving Tamil Nadu brands. Live.",
     language: "TypeScript",
     stars: 0,
     url: "https://github.com/sairambn/naiyapudai-growth-studio",
     live: "https://naiyapudai.vercel.app",
     tags: ["TypeScript", "SSR", "SEO"],
-    outcome: "Live growth product",
+    outcome: "Live",
   },
 ];

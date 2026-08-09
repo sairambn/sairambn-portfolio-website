@@ -8,13 +8,12 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "About Sairam Nagarajan: Chennai-based software engineer (M.E. CEG '25) focused on clean code, DSA, and preparing for SDE roles at high-bar companies.",
+          "Sairam Nagarajan, software engineer from CEG Chennai. Python, Java, daily DSA. Looking for SDE roles.",
       },
       { property: "og:title", content: "About Sairam Nagarajan" },
       {
         property: "og:description",
-        content:
-          "Software engineer focused on clean, efficient code and solving problems at scale. Preparing for SDE roles.",
+        content: "Software engineer from CEG. Python, Java, daily DSA practice.",
       },
       { property: "og:image", content: "https://bnsairam.vercel.app/content.png" },
     ],
@@ -62,7 +61,7 @@ function About() {
           <h2 className="text-[15px] font-semibold tracking-tight">Education</h2>
           <p className="mt-2.5 text-[14px] text-muted-foreground">{profile.education}</p>
           <p className="mt-1 text-[14px] text-muted-foreground">
-            Daily algorithm practice + systems shipped on GitHub.
+            Daily DSA practice. Systems on GitHub.
           </p>
         </div>
       </div>
@@ -77,7 +76,7 @@ function About() {
         ))}
       </div>
 
-      <h2 className="mt-16 text-[1.85rem] font-semibold tracking-tight sm:text-[2.25rem]">What I've built</h2>
+      <h2 className="mt-16 text-[1.85rem] font-semibold tracking-tight sm:text-[2.25rem]">What is live</h2>
       <div className="mt-7 grid gap-4 sm:grid-cols-2">
         {impact.slice(0, 4).map((item) => (
           <div key={item.title} className="surface-card rounded-xl p-6">
@@ -118,7 +117,7 @@ function About() {
           to="/contact"
           className="rounded-full border border-border/70 px-6 py-3 text-[13.5px] font-medium transition-all duration-250 hover:border-primary/30 hover:bg-secondary/50"
         >
-          Get in touch
+          Contact
         </Link>
         <a
           href={profile.leetcode}
