@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "https://bnsairam.vercel.app" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://bnsairam.vercel.app/content.png" },
-      { name: "theme-color", content: "#1a1410" },
+      { name: "theme-color", content: "#ffffff" },
     ],
   }),
   component: Home,
@@ -95,7 +95,7 @@ function Home() {
           <div className="mt-8 flex flex-wrap gap-2.5">
             <Link
               to="/projects"
-              className="rounded-full bg-primary px-7 py-3 text-[13.5px] font-semibold text-primary-foreground transition-all duration-250 hover:-translate-y-0.5 hover:shadow-[0_8px_28px_-6px_color-mix(in_oklab,var(--ember)_55%,transparent)]"
+              className="rounded-full bg-primary px-7 py-3 text-[13.5px] font-semibold text-primary-foreground transition-all duration-250 hover:-translate-y-0.5"
             >
               View work
             </Link>
