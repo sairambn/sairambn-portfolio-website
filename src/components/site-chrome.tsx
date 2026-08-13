@@ -13,33 +13,42 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
-      <div className="mx-auto max-w-5xl">
-        <div className="glass flex items-center justify-between rounded-full px-4 py-2.5 shadow-sm sm:px-5">
-          <Link to="/" className="group flex items-center gap-2.5" onClick={() => setOpen(false)}>
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-primary font-display text-[12px] font-bold text-primary-foreground transition-transform duration-200 group-hover:scale-105">
+    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-5 sm:pt-5">
+      <div className="mx-auto max-w-4xl">
+        <div className="glass flex items-center justify-between rounded-[22px] px-4 py-2.5 sm:rounded-full sm:px-5">
+          <Link
+            to="/"
+            className="group flex items-center gap-2.5"
+            onClick={() => setOpen(false)}
+          >
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-primary text-[11px] font-bold tracking-tight text-primary-foreground shadow-sm transition-transform duration-200 group-hover:scale-105">
               SN
             </span>
-            <span className="font-display text-[15px] font-semibold tracking-tight">
+            <span className="text-[15px] font-semibold tracking-tight">
               {profile.shortName}
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-0.5 text-[13px] font-medium sm:flex" aria-label="Main">
+          <nav
+            className="hidden items-center gap-0.5 text-[13px] font-medium sm:flex"
+            aria-label="Main"
+          >
             {nav.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 activeOptions={{ exact: item.to === "/" }}
                 className="rounded-full px-3.5 py-1.5 text-muted-foreground transition-colors duration-200 hover:text-foreground"
-                activeProps={{ className: "bg-primary/12 text-primary" }}
+                activeProps={{
+                  className: "bg-primary/15 text-primary font-semibold",
+                }}
               >
                 {item.label}
               </Link>
             ))}
             <a
               href={`mailto:${profile.email}`}
-              className="ml-1.5 rounded-full bg-primary px-4 py-1.5 text-[13px] font-semibold text-primary-foreground transition-opacity duration-200 hover:opacity-90"
+              className="ml-1.5 rounded-full bg-primary px-4 py-1.5 text-[13px] font-semibold text-primary-foreground shadow-sm transition-opacity duration-200 hover:opacity-90"
             >
               Email
             </a>
@@ -47,13 +56,19 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-foreground sm:hidden"
+            className="flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-black/5 hover:text-foreground sm:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
             <span className="sr-only">{open ? "Close" : "Menu"}</span>
-            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 18 18"
+              fill="none"
+              aria-hidden="true"
+            >
               {open ? (
                 <path
                   d="M4 4l10 10M14 4L4 14"
@@ -75,7 +90,7 @@ export function SiteHeader() {
 
         {open && (
           <nav
-            className="glass mt-2 rounded-2xl px-3 py-2 sm:hidden"
+            className="glass mt-2 overflow-hidden rounded-[20px] px-2 py-2 sm:hidden"
             aria-label="Mobile"
           >
             <div className="flex flex-col gap-0.5">
@@ -85,8 +100,10 @@ export function SiteHeader() {
                   to={item.to}
                   activeOptions={{ exact: item.to === "/" }}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-3.5 py-2.5 text-[14px] font-medium text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground"
-                  activeProps={{ className: "bg-primary/12 text-primary" }}
+                  className="rounded-[14px] px-4 py-3 text-[15px] font-medium text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground"
+                  activeProps={{
+                    className: "bg-primary/12 text-primary font-semibold",
+                  }}
                 >
                   {item.label}
                 </Link>
@@ -94,7 +111,7 @@ export function SiteHeader() {
               <a
                 href={`mailto:${profile.email}`}
                 onClick={() => setOpen(false)}
-                className="rounded-xl px-3.5 py-2.5 text-[14px] font-semibold text-primary transition-colors hover:bg-primary/10"
+                className="rounded-[14px] px-4 py-3 text-[15px] font-semibold text-primary transition-colors hover:bg-primary/10"
               >
                 Email
               </a>
@@ -108,32 +125,53 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="py-14">
-      <div className="mx-auto flex max-w-5xl flex-col items-start gap-5 px-5 text-[13px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <footer className="py-16">
+      <div className="mx-auto flex max-w-4xl flex-col items-start gap-5 px-5 text-[13px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <div>
           <p className="tracking-tight">
             Designed & built by{" "}
-            <a href={profile.portfolio} className="text-foreground/90 transition-colors hover:text-primary">
+            <a
+              href={profile.portfolio}
+              className="text-foreground transition-colors hover:text-primary"
+            >
               {profile.shortName}
             </a>
-            <span className="mx-1.5 opacity-40">·</span>
-            <span className="font-mono text-[11px]">Software Engineer</span>
+            <span className="mx-1.5 opacity-30">·</span>
+            <span className="text-[11px]">Software Engineer</span>
           </p>
-          <p className="mt-1 font-mono text-[11px] text-muted-foreground/65">
+          <p className="mt-1 text-[11px] text-muted-foreground/70">
             Open to SDE · Bangalore · Hyderabad · Remote
           </p>
         </div>
         <div className="flex flex-wrap gap-5">
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="transition-colors hover:text-foreground"
+          >
             LinkedIn
           </a>
-          <a href={profile.github} target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            className="transition-colors hover:text-foreground"
+          >
             GitHub
           </a>
-          <a href={profile.leetcode} target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">
+          <a
+            href={profile.leetcode}
+            target="_blank"
+            rel="noreferrer"
+            className="transition-colors hover:text-foreground"
+          >
             LeetCode
           </a>
-          <a href={`mailto:${profile.email}`} className="transition-colors hover:text-foreground">
+          <a
+            href={`mailto:${profile.email}`}
+            className="transition-colors hover:text-foreground"
+          >
             Email
           </a>
         </div>

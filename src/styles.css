@@ -34,26 +34,26 @@
   --color-ember-soft: var(--ember-soft);
   --color-surface: var(--surface);
   --color-glow: var(--glow);
-  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-script: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  --font-script-alt: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  --font-brush: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
+  --font-script: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  --font-script-alt: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  --font-brush: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
 }
 
 :root {
-  --radius: 1.25rem;
+  --radius: 1.35rem;
 
-  /* iOS 26 Liquid Glass light */
+  /* Closer to iOS 26 system light */
   --background: #f2f2f7;
-  --foreground: #1c1c1e;
+  --foreground: #000000;
 
-  --surface: rgba(255, 255, 255, 0.72);
-  --card: rgba(255, 255, 255, 0.78);
-  --card-foreground: #1c1c1e;
-  --popover: rgba(255, 255, 255, 0.85);
-  --popover-foreground: #1c1c1e;
+  --surface: rgba(255, 255, 255, 0.65);
+  --card: rgba(255, 255, 255, 0.72);
+  --card-foreground: #000000;
+  --popover: rgba(255, 255, 255, 0.82);
+  --popover-foreground: #000000;
 
   --primary: #007aff;
   --primary-foreground: #ffffff;
@@ -61,50 +61,57 @@
   --ember-soft: #64d2ff;
   --glow: #007aff;
 
-  --secondary: rgba(255, 255, 255, 0.55);
-  --secondary-foreground: #1c1c1e;
-  --muted: rgba(120, 120, 128, 0.12);
-  --muted-foreground: #8e8e93;
-  --accent: rgba(0, 122, 255, 0.12);
+  --secondary: rgba(255, 255, 255, 0.5);
+  --secondary-foreground: #000000;
+  --muted: rgba(60, 60, 67, 0.08);
+  --muted-foreground: #6c6c70;
+  --accent: rgba(0, 122, 255, 0.14);
   --accent-foreground: #007aff;
   --destructive: #ff3b30;
   --destructive-foreground: #ffffff;
 
-  --border: rgba(0, 0, 0, 0.06);
+  --border: rgba(0, 0, 0, 0.05);
   --input: rgba(0, 0, 0, 0.06);
   --ring: #007aff;
 
-  --gradient-ember: linear-gradient(135deg, #007aff, #5ac8fa);
-  --gradient-depth: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 122, 255, 0.08), transparent 60%);
-  --shadow-lift: 0 2px 12px -2px rgba(0, 0, 0, 0.06), 0 8px 28px -8px rgba(0, 0, 0, 0.08);
-  --shadow-glow: 0 8px 32px -6px rgba(0, 122, 255, 0.18), 0 4px 16px -4px rgba(0, 0, 0, 0.06);
-  --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  --gradient-ember: linear-gradient(135deg, #007aff 0%, #5ac8fa 100%);
+  --gradient-depth: 
+    radial-gradient(ellipse 100% 60% at 50% -10%, rgba(0, 122, 255, 0.07), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(90, 200, 250, 0.05), transparent 50%);
+  --shadow-lift: 
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 16px -2px rgba(0, 0, 0, 0.06),
+    0 12px 32px -8px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 
+    0 4px 20px -4px rgba(0, 122, 255, 0.22),
+    0 12px 40px -10px rgba(0, 0, 0, 0.1);
+  --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .dark {
   --background: #000000;
   --foreground: #f5f5f7;
-  --surface: rgba(28, 28, 30, 0.72);
-  --card: rgba(28, 28, 30, 0.78);
+  --surface: rgba(28, 28, 30, 0.68);
+  --card: rgba(28, 28, 30, 0.75);
   --card-foreground: #f5f5f7;
-  --popover: rgba(44, 44, 46, 0.85);
+  --popover: rgba(44, 44, 46, 0.82);
   --popover-foreground: #f5f5f7;
   --primary: #0a84ff;
   --primary-foreground: #ffffff;
   --ember: #0a84ff;
   --ember-soft: #64d2ff;
   --glow: #0a84ff;
-  --secondary: rgba(44, 44, 46, 0.7);
+  --secondary: rgba(44, 44, 46, 0.65);
   --secondary-foreground: #f5f5f7;
   --muted: rgba(120, 120, 128, 0.24);
   --muted-foreground: #98989d;
-  --accent: rgba(10, 132, 255, 0.18);
+  --accent: rgba(10, 132, 255, 0.2);
   --accent-foreground: #0a84ff;
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.1);
   --ring: #0a84ff;
-  --shadow-lift: 0 2px 12px -2px rgba(0, 0, 0, 0.4), 0 8px 28px -8px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 8px 32px -6px rgba(10, 132, 255, 0.25), 0 4px 16px -4px rgba(0, 0, 0, 0.4);
+  --shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px -6px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 4px 24px -4px rgba(10, 132, 255, 0.3), 0 12px 40px -8px rgba(0, 0, 0, 0.45);
   --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
@@ -125,17 +132,17 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    letter-spacing: -0.011em;
+    letter-spacing: -0.015em;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.03em;
-    font-weight: 600;
+    letter-spacing: -0.035em;
+    font-weight: 650;
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--primary) 28%, transparent);
+    background: color-mix(in srgb, var(--primary) 30%, transparent);
   }
 }
 
@@ -145,8 +152,8 @@
 
 @utility font-script {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-weight: 650;
+  letter-spacing: -0.035em;
 }
 
 @utility font-script-alt {
@@ -159,20 +166,24 @@
 
 @utility surface-card {
   background: var(--card);
-  backdrop-filter: saturate(180%) blur(24px);
-  -webkit-backdrop-filter: saturate(180%) blur(24px);
-  border: 1px solid var(--border);
+  backdrop-filter: saturate(200%) blur(40px);
+  -webkit-backdrop-filter: saturate(200%) blur(40px);
+  border: 0.5px solid rgba(255, 255, 255, 0.55);
   box-shadow: var(--shadow-lift), var(--shadow-inner);
   transition:
-    transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
-    box-shadow 0.4s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
     border-color 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px) scale(1.01);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-glow), var(--shadow-inner);
-    border-color: color-mix(in srgb, var(--primary) 25%, transparent);
+    border-color: rgba(0, 122, 255, 0.2);
   }
+}
+
+.dark .surface-card {
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
 }
 
 @utility grid-backdrop {
@@ -189,32 +200,38 @@
 }
 
 @utility glass {
-  background: var(--surface);
-  backdrop-filter: saturate(180%) blur(28px);
-  -webkit-backdrop-filter: saturate(180%) blur(28px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 4px 24px -4px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: saturate(200%) blur(40px);
+  -webkit-backdrop-filter: saturate(200%) blur(40px);
+  border: 0.5px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 8px 32px -8px rgba(0, 0, 0, 0.1),
+    0 2px 8px -2px rgba(0, 0, 0, 0.04);
 }
 
 .dark .glass {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 4px 24px -4px rgba(0, 0, 0, 0.4);
+  background: rgba(28, 28, 30, 0.65);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 8px 32px -8px rgba(0, 0, 0, 0.5);
 }
 
 @utility hero-frame {
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.04),
-    0 20px 50px -12px rgba(0, 0, 0, 0.12),
-    0 1px 0 rgba(255, 255, 255, 0.5) inset;
-  border-radius: 1.5rem;
+    0 0 0 0.5px rgba(0, 0, 0, 0.04),
+    0 24px 60px -16px rgba(0, 0, 0, 0.14),
+    0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  border-radius: 1.75rem;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 0.5px solid rgba(255, 255, 255, 0.65);
 }
 
 .dark .hero-frame {
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 20px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 0.5px rgba(255, 255, 255, 0.08),
+    0 24px 60px -16px rgba(0, 0, 0, 0.55),
     0 1px 0 rgba(255, 255, 255, 0.06) inset;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
 }
