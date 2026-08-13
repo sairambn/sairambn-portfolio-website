@@ -13,32 +13,32 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/25 bg-background/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-6">
         <Link to="/" className="group flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <span className="grid h-8 w-8 place-items-center rounded-full bg-primary font-display text-[12px] font-bold text-primary-foreground transition-transform duration-200 group-hover:scale-105">
             SN
           </span>
-          <span className="font-display text-[14.5px] font-semibold tracking-tight">
+          <span className="font-display text-[15px] font-semibold tracking-tight">
             {profile.shortName}
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-0.5 text-[13px] font-medium sm:flex" aria-label="Main">
+        <nav className="hidden items-center gap-1 text-[13px] font-medium sm:flex" aria-label="Main">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
               className="rounded-full px-3.5 py-1.5 text-muted-foreground transition-colors duration-200 hover:text-foreground"
-              activeProps={{ className: "bg-secondary/70 text-foreground" }}
+              activeProps={{ className: "bg-secondary text-foreground" }}
             >
               {item.label}
             </Link>
           ))}
           <a
             href={`mailto:${profile.email}`}
-            className="ml-2 rounded-full bg-primary/12 px-3.5 py-1.5 text-[13px] font-semibold text-primary transition-colors duration-200 hover:bg-primary/20"
+            className="ml-2 rounded-full bg-primary px-4 py-1.5 text-[13px] font-semibold text-primary-foreground transition-opacity duration-200 hover:opacity-90"
           >
             Email
           </a>
@@ -46,7 +46,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="flex h-8 w-8 items-center justify-center rounded-full border border-border/50 text-muted-foreground transition-colors hover:text-foreground sm:hidden"
+          className="flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:text-foreground sm:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -74,7 +74,7 @@ export function SiteHeader() {
 
       {open && (
         <nav
-          className="border-t border-border/25 bg-background/95 px-5 py-2.5 backdrop-blur-xl sm:hidden"
+          className="border-t border-border/40 bg-background/95 px-5 py-2.5 backdrop-blur-xl sm:hidden"
           aria-label="Mobile"
         >
           <div className="flex flex-col gap-0.5">
@@ -84,8 +84,8 @@ export function SiteHeader() {
                 to={item.to}
                 activeOptions={{ exact: item.to === "/" }}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3.5 py-2.5 text-[14px] font-medium text-muted-foreground transition-colors hover:bg-secondary/40 hover:text-foreground"
-                activeProps={{ className: "bg-secondary/70 text-foreground" }}
+                className="rounded-lg px-3.5 py-2.5 text-[14px] font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                activeProps={{ className: "bg-secondary text-foreground" }}
               >
                 {item.label}
               </Link>
@@ -106,7 +106,7 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border/25 py-12">
+    <footer className="border-t border-border/40 py-12">
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-5 px-5 text-[13px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <div>
           <p className="tracking-tight">
