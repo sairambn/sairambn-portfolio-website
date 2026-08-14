@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { projects, profile } from "@/data/portfolio";
 import { ProjectCard } from "@/components/project-card";
+import { ConnoisseurStackInteractor } from "@/components/ui/connoisseur-stack-interactor";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -37,6 +38,10 @@ function Projects() {
         Constraint engines, analysis pipelines, production client sites, and daily algorithm
         practice — open on GitHub, with live demos where available.
       </p>
+
+      <div className="mt-12">
+        <ConnoisseurStackInteractor />
+      </div>
 
       <div className="mt-10 flex flex-wrap gap-2.5">
         {["Algorithms", "TypeScript", "DSA", "Production", "Python"].map((tag) => (

@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { useRef, useState, useLayoutEffect } from "react";
-gsap from "gsap";
+import gsap from "gsap";
 
 interface MenuItem {
   num: string;
@@ -111,7 +111,6 @@ export function ConnoisseurStackInteractor({
         className,
       )}
     >
-      {/* LEFT: menu */}
       <div className="z-20 w-full md:w-1/2">
         <p className="mb-8 text-[13px] font-medium tracking-wide text-muted-foreground">
           Hover to explore
@@ -161,7 +160,6 @@ export function ConnoisseurStackInteractor({
         </nav>
       </div>
 
-      {/* RIGHT: SVG clip reveal */}
       <div className="relative mt-12 flex w-full items-center justify-center md:mt-0 md:w-1/2">
         <div className="absolute h-[120%] w-[120%] rounded-full bg-primary/10 blur-[100px] transition-opacity duration-1000 dark:bg-primary/5" />
 
@@ -229,5 +227,4 @@ export function ConnoisseurStackInteractor({
   );
 }
 
-/** Alias matching 21st.dev export style */
 export const Component = ConnoisseurStackInteractor;
