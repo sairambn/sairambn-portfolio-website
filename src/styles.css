@@ -125,9 +125,7 @@
   }
 
   body {
-    background-color: var(--color-background);
-    background-image: var(--gradient-depth);
-    background-attachment: fixed;
+    background-color: transparent;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -234,4 +232,95 @@
     0 24px 60px -16px rgba(0, 0, 0, 0.55),
     0 1px 0 rgba(255, 255, 255, 0.06) inset;
   border: 0.5px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 21st.dev-style animated mesh / aurora background */
+.bg-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #f2f2f7;
+}
+
+.bg-mesh::before,
+.bg-mesh::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.bg-mesh::before {
+  width: 55vw;
+  height: 55vw;
+  max-width: 720px;
+  max-height: 720px;
+  top: -12%;
+  left: -8%;
+  background: radial-gradient(circle, rgba(0, 122, 255, 0.35) 0%, rgba(90, 200, 250, 0.12) 45%, transparent 70%);
+  animation: mesh-float-a 18s ease-in-out infinite alternate;
+}
+
+.bg-mesh::after {
+  width: 50vw;
+  height: 50vw;
+  max-width: 640px;
+  max-height: 640px;
+  bottom: -10%;
+  right: -6%;
+  background: radial-gradient(circle, rgba(175, 82, 222, 0.18) 0%, rgba(0, 122, 255, 0.1) 40%, transparent 70%);
+  animation: mesh-float-b 22s ease-in-out infinite alternate;
+}
+
+.bg-mesh-blob {
+  position: absolute;
+  width: 40vw;
+  height: 40vw;
+  max-width: 480px;
+  max-height: 480px;
+  top: 40%;
+  left: 35%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(52, 199, 89, 0.12) 0%, rgba(0, 122, 255, 0.08) 40%, transparent 70%);
+  filter: blur(90px);
+  opacity: 0.5;
+  animation: mesh-float-c 26s ease-in-out infinite alternate;
+}
+
+@keyframes mesh-float-a {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(8%, 12%) scale(1.08); }
+}
+
+@keyframes mesh-float-b {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-10%, -8%) scale(1.12); }
+}
+
+@keyframes mesh-float-c {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(6%, -10%) scale(0.92); }
+}
+
+.dark .bg-mesh {
+  background: #000000;
+}
+
+.dark .bg-mesh::before {
+  background: radial-gradient(circle, rgba(10, 132, 255, 0.28) 0%, rgba(100, 210, 255, 0.08) 45%, transparent 70%);
+  opacity: 0.7;
+}
+
+.dark .bg-mesh::after {
+  background: radial-gradient(circle, rgba(191, 90, 242, 0.2) 0%, rgba(10, 132, 255, 0.1) 40%, transparent 70%);
+  opacity: 0.65;
+}
+
+.dark .bg-mesh-blob {
+  background: radial-gradient(circle, rgba(48, 209, 88, 0.12) 0%, rgba(10, 132, 255, 0.08) 40%, transparent 70%);
+  opacity: 0.55;
 }
