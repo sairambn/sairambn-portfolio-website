@@ -82,7 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Software engineer from CEG Chennai. Strong in data structures, algorithms, Python and Java. Building clean, reliable software. Open to SDE roles in Bangalore, Hyderabad or remote.",
       },
       { name: "author", content: "Sairam Nagarajan" },
-      { name: "theme-color", content: "#1a1410" },
+      { name: "theme-color", content: "#f2f2f7" },
       { property: "og:title", content: "Sairam Nagarajan — Software Engineer | DSA, Python, Java" },
       {
         property: "og:description",
@@ -171,7 +171,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
+      <div className="bg-mesh" aria-hidden="true">
+        <div className="bg-mesh-blob" />
+      </div>
+      <div className="relative z-0 flex min-h-screen flex-col">
         <SiteHeader />
         <main className="flex-1">
           <Outlet />
