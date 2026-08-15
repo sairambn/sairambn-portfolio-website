@@ -3,10 +3,12 @@
 @import "tw-animate-css";
 
 @theme inline {
-  --radius-sm: 4px;
-  --radius-md: 6px;
+  --radius-sm: 3px;
+  --radius-md: 5px;
   --radius-lg: 8px;
   --radius-xl: 12px;
+  --radius-2xl: 16px;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -21,83 +23,188 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-surface: var(--surface);
+
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --shadow-xs: 0 1px 2px rgba(20, 20, 19, 0.04);
+  --shadow-sm: 0 1px 2px rgba(20, 20, 19, 0.04), 0 2px 8px rgba(20, 20, 19, 0.04);
+  --shadow-md: 0 2px 4px rgba(20, 20, 19, 0.04), 0 8px 24px rgba(20, 20, 19, 0.06);
+  --shadow-lg: 0 4px 8px rgba(20, 20, 19, 0.04), 0 16px 40px rgba(20, 20, 19, 0.08);
 }
 
 :root {
-  --background: #f7f6f3;
-  --foreground: #141413;
-  --card: #ffffff;
-  --card-foreground: #141413;
-  --primary: #141413;
-  --primary-foreground: #f7f6f3;
-  --secondary: #ebe9e4;
-  --secondary-foreground: #141413;
-  --muted: #ebe9e4;
-  --muted-foreground: #6b6a66;
-  --accent: #ebe9e4;
-  --accent-foreground: #141413;
-  --border: #e2e0da;
-  --ring: #141413;
+  /* Warm paper / ink */
+  --background: #f6f5f1;
+  --foreground: #121211;
+  --card: #fffcf7;
+  --card-foreground: #121211;
+  --primary: #121211;
+  --primary-foreground: #f6f5f1;
+  --secondary: #ebe9e3;
+  --secondary-foreground: #121211;
+  --muted: #ebe9e3;
+  --muted-foreground: #6a6964;
+  --accent: #ebe9e3;
+  --accent-foreground: #121211;
+  --border: #dddace;
+  --ring: #121211;
+  --surface: #fffcf7;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --duration-fast: 120ms;
+  --duration: 200ms;
+  --duration-slow: 320ms;
 }
 
 @layer base {
-  * {
+  *,
+  *::before,
+  *::after {
     border-color: var(--color-border);
   }
 
   html {
     scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     background: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    font-feature-settings: "ss01" on, "cv11" on;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.55;
+    text-rendering: optimizeLegibility;
+    line-height: 1.6;
+    letter-spacing: -0.011em;
   }
 
   h1,
   h2,
-  h3 {
+  h3,
+  h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.03em;
     font-weight: 600;
-    line-height: 1.15;
+    letter-spacing: -0.035em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   ::selection {
-    background: #141413;
-    color: #f7f6f3;
+    background: var(--foreground);
+    color: var(--background);
   }
 
   a {
     color: inherit;
+    text-underline-offset: 0.18em;
+  }
+
+  /* Keyboard focus — visible only for keyboard */
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  :focus-visible:not(:focus-visible) {
+    outline: none;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Subtle, system-aware scrollbar */
+  @supports (scrollbar-width: thin) {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #c9c6bc transparent;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c9c6bc;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a8a59b;
+    background-clip: content-box;
   }
 }
 
-/* Quiet utilities — no floating glass theater */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ——— Utilities ——— */
+
 @utility surface-card {
   background: var(--card);
   border: 1px solid var(--border);
-  transition: border-color 0.15s ease;
+  border-radius: var(--radius-lg);
+  transition:
+    border-color var(--duration) var(--ease-out),
+    box-shadow var(--duration) var(--ease-out);
 
   &:hover {
-    border-color: #c9c7c0;
+    border-color: #c9c6bc;
+    box-shadow: var(--shadow-xs);
   }
 }
 
 @utility eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted-foreground);
-  font-weight: 500;
+  line-height: 1.4;
 }
 
 @utility text-gradient-ember {
@@ -105,16 +212,38 @@
 }
 
 @utility glass {
-  background: rgba(247, 246, 243, 0.9);
+  background: color-mix(in srgb, var(--background) 88%, transparent);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
 }
 
 @utility hero-frame {
-  border: 1px solid var(--border);
-  border-radius: 4px;
+  position: relative;
   overflow: hidden;
-  background: #e8e6e1;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: #e6e3db;
+  box-shadow: var(--shadow-md);
+
+  &::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    transition: transform var(--duration-slow) var(--ease-out);
+  }
+
+  &:hover img {
+    transform: scale(1.015);
+  }
 }
 
 @utility grid-backdrop {
@@ -124,11 +253,89 @@
 @utility font-script {
   font-family: var(--font-display);
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
 }
 
-/* Kill old mesh entirely */
+/* Primary action feel without component bloat */
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: var(--radius-md);
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 0.84375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding: 0.625rem 1rem;
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+
+  &:hover {
+    opacity: 0.88;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 0.84375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding: 0.625rem 1rem;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+
+  &:hover {
+    border-color: #c9c6bc;
+    background: #faf8f3;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Section divider rhythm */
+@utility rule {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* Kill legacy mesh */
 .bg-mesh,
 .bg-mesh-blob {
   display: none !important;
+}
+
+/* Link underlines that feel intentional */
+.prose-link {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--foreground) 25%, transparent);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color var(--duration-fast) var(--ease-out);
+}
+
+.prose-link:hover {
+  text-decoration-color: var(--foreground);
+}
+
+/* Sticky header polish when glass utility is used */
+header.glass,
+header:has(.glass) {
+  transition: border-color var(--duration) var(--ease-out),
+    background-color var(--duration) var(--ease-out);
 }
