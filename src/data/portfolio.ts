@@ -15,7 +15,6 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/sairambn/",
   portfolio: "https://bnsairam.vercel.app",
   leetcode: "https://leetcode.com/u/sairambn/",
-  avatar: "/content.png",
 };
 
 export const stats = [
@@ -60,13 +59,7 @@ export const impact = [
 export const skillGroups = [
   {
     title: "Core",
-    items: [
-      "Data Structures & Algorithms",
-      "Python",
-      "Java",
-      "Problem Solving",
-      "OOP",
-    ],
+    items: ["Data Structures & Algorithms", "Python", "Java", "Problem Solving", "OOP"],
   },
   {
     title: "Tools",
@@ -81,8 +74,6 @@ export const skillGroups = [
     items: ["React", "Python (pandas)", "Vite", "Vercel"],
   },
 ];
-
-export const skills = skillGroups.flatMap((g) => g.items);
 
 export const principles = [
   {
