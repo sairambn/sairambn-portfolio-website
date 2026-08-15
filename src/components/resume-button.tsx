@@ -20,10 +20,7 @@ export function ResumeButton() {
           fill="currentColor"
           opacity="0.95"
         />
-        <path
-          d="M3.5 7.5h5.8l1.4 1.6H3.5V7.5Z"
-          fill="#e8940a"
-        />
+        <path d="M3.5 7.5h5.8l1.4 1.6H3.5V7.5Z" fill="#e8940a" />
       </svg>
       <span className="hidden text-[13px] font-semibold tracking-tight text-foreground sm:inline">
         Resume

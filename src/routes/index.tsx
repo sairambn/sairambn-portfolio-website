@@ -74,7 +74,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="relative mx-auto max-w-5xl px-5 pt-9 pb-14 sm:px-6 sm:pt-12 sm:pb-18">
+        <div className="relative mx-auto max-w-5xl px-5 pt-9 pb-14 sm:px-6 sm:pt-12 sm:pb-16">
           <p className="eyebrow">
             {profile.role} · {profile.location}
           </p>
@@ -136,7 +136,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 pb-18 sm:px-6 sm:pb-22">
+      <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 sm:pb-20">
         <div className="max-w-2xl">
           <p className="eyebrow">Built</p>
           <h2 className="mt-2.5 text-[1.7rem] font-semibold tracking-tight sm:text-[2.1rem]">
@@ -154,7 +154,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 pb-18 sm:px-6 sm:pb-22">
+      <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 sm:pb-20">
         <div className="flex items-end justify-between gap-4">
           <div>
             <p className="eyebrow">Projects</p>
@@ -176,7 +176,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 pb-18 sm:px-6 sm:pb-22">
+      <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 sm:pb-20">
         <div>
           <p className="eyebrow">Approach</p>
           <h2 className="mt-2.5 text-[1.7rem] font-semibold tracking-tight sm:text-[2.1rem]">
@@ -193,7 +193,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 pb-18 sm:px-6 sm:pb-22">
+      <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 sm:pb-20">
         <p className="eyebrow">Skills</p>
         <h2 className="mt-2.5 text-[1.7rem] font-semibold tracking-tight sm:text-[2rem]">Stack</h2>
         <div className="mt-7 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
