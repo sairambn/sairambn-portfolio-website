@@ -11,6 +11,7 @@ import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { ResumeButton } from "@/components/resume-button";
 
 function NotFoundComponent() {
   return (
@@ -176,6 +177,7 @@ function RootComponent() {
       </div>
       <div className="relative z-0 flex min-h-screen flex-col">
         <SiteHeader />
+        <ResumeButton />
         <main className="flex-1">
           <Outlet />
         </main>
