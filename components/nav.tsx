@@ -17,7 +17,7 @@ export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-line/60 bg-canvas/80 backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-line bg-canvas">
       <div className="mx-auto flex h-14 max-w-site items-center justify-between px-5 md:px-8">
         <Link
           href="#intro"
@@ -66,25 +66,22 @@ export function Nav() {
         </button>
       </div>
 
-      <div
-        className={cn(
-          'md:hidden border-t border-line/60 bg-canvas',
-          open ? 'block' : 'hidden'
-        )}
-      >
-        <div className="flex flex-col gap-1 px-5 py-4">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="py-2 text-sm uppercase tracking-[0.12em] text-muted hover:text-paper"
-            >
-              {l.label}
-            </a>
-          ))}
+      {open && (
+        <div className="border-t border-line bg-canvas md:hidden">
+          <div className="flex flex-col gap-1 px-5 py-4">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="py-2 text-sm uppercase tracking-[0.12em] text-muted hover:text-paper"
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }

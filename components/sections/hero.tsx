@@ -16,20 +16,19 @@ export function Hero() {
       id="intro"
       className="relative min-h-[100svh] overflow-hidden border-b border-line"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-40 md:opacity-50">
+      <div className="pointer-events-none absolute inset-0 opacity-35">
         <VoxelTopographyGrid
           primaryColor="#c4a574"
-          wireColor="rgba(196, 165, 116, 0.18)"
+          wireColor="rgba(196, 165, 116, 0.16)"
           tileSize={30}
           maxHeight={64}
           speed={0.012}
         />
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-canvas via-canvas/60 to-canvas/30" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-canvas via-canvas/80 to-canvas/20" />
+      {/* Solid scrim — no soft multi-stop gradients */}
+      <div className="pointer-events-none absolute inset-0 bg-canvas/75" />
 
       <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-site grid-cols-1 items-end gap-10 px-5 pb-14 pt-24 md:grid-cols-12 md:items-center md:gap-12 md:px-8 md:pb-16 md:pt-20">
-        {/* Copy */}
         <div className="order-2 md:order-1 md:col-span-6 lg:col-span-7">
           <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
             Nº001 / Intro
@@ -39,7 +38,7 @@ export function Hero() {
             {profile.shortName}
           </h1>
 
-          <p className="mt-4 max-w-xl text-lg text-paper/85 md:text-xl">
+          <p className="mt-4 max-w-xl text-lg text-paper md:text-xl">
             {profile.headline}
           </p>
 
@@ -51,7 +50,7 @@ export function Hero() {
             {profile.openTo}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-8 border-t border-line/80 pt-7 md:gap-10">
+          <div className="mt-8 flex flex-wrap gap-8 border-t border-line pt-7 md:gap-10">
             {stats.map((s) => (
               <div key={s.label}>
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
@@ -83,10 +82,9 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Portrait — landscape source, left-weighted crop so face fills the frame */}
         <div className="order-1 md:order-2 md:col-span-6 lg:col-span-5">
           <figure className="relative mx-auto w-full max-w-[280px] md:ml-auto md:mr-0 md:max-w-[380px]">
-            <div className="relative aspect-[3/4] overflow-hidden border border-line/80 bg-line/30 shadow-[0_0_0_1px_rgba(247,246,243,0.04)]">
+            <div className="relative aspect-[3/4] overflow-hidden border border-line">
               <Image
                 src="/content.png"
                 alt={`${profile.name} at College of Engineering Guindy`}
@@ -95,11 +93,9 @@ export function Hero() {
                 sizes="(max-width: 768px) 280px, 380px"
                 className="object-cover object-[18%_42%]"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-canvas/50 via-transparent to-transparent" />
             </div>
-            <figcaption className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
-              <span>Portrait</span>
-              <span>CEG · Anna University</span>
+            <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-muted md:text-right">
+              CEG · Anna University
             </figcaption>
           </figure>
         </div>

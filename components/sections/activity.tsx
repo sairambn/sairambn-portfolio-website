@@ -13,7 +13,6 @@ export function Activity() {
               GitHub
             </h2>
             <p className="mt-3 max-w-lg text-sm text-muted">
-              Daily practice and shipped code live at{' '}
               <a
                 href={profile.github}
                 target="_blank"
@@ -22,17 +21,16 @@ export function Activity() {
               >
                 github.com/{profile.handle}
               </a>
-              .
             </p>
           </div>
         </div>
 
-        <div className="overflow-hidden rounded border border-line bg-line/30 p-2 md:p-4">
+        <div className="overflow-hidden border border-line p-2 md:p-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`https://ghchart.rshah.org/c4a574/${profile.handle}`}
             alt={`GitHub contribution chart for ${profile.handle}`}
-            className="h-auto w-full opacity-90"
+            className="h-auto w-full"
             loading="lazy"
           />
         </div>

@@ -19,13 +19,7 @@ export function Contact() {
             <h2 className="font-display text-display-md font-semibold text-paper">
               Open to SDE roles
             </h2>
-            <p className="mt-3 flex items-center gap-2 text-sm text-muted">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-              </span>
-              {profile.openTo}
-            </p>
+            <p className="mt-3 text-sm text-muted">{profile.openTo}</p>
 
             <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
               {links.map((l) => (
@@ -33,7 +27,11 @@ export function Contact() {
                   <a
                     href={l.href}
                     target={l.href.startsWith('mailto') ? undefined : '_blank'}
-                    rel={l.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                    rel={
+                      l.href.startsWith('mailto')
+                        ? undefined
+                        : 'noopener noreferrer'
+                    }
                     className="font-display text-lg text-paper transition-colors hover:text-accent md:text-xl"
                   >
                     {l.label}

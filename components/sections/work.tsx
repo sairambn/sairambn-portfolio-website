@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { projects } from '@/lib/data';
 
@@ -17,21 +14,17 @@ export function Work() {
               Systems shipped
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-              Case-file rows — not app-store cards. Each entry ran for real people:
-              event day, exam cell, classroom schedule, or a live business.
+              Event platforms, constraint solvers, exam pipelines, client sites.
+              Built for real use, not demos.
             </p>
           </div>
         </div>
 
         <ul className="divide-y divide-line">
           {projects.map((p, i) => (
-            <motion.li
+            <li
               key={p.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-10% 0px' }}
-              transition={{ duration: 0.45, delay: i * 0.04 }}
-              className="group grid gap-4 py-8 md:grid-cols-[minmax(0,1fr)_140px_100px] md:items-start md:gap-8"
+              className="grid gap-4 py-8 md:grid-cols-[minmax(0,1fr)_140px_100px] md:items-start md:gap-8"
             >
               <div>
                 <div className="flex flex-wrap items-baseline gap-3">
@@ -76,7 +69,7 @@ export function Work() {
               <p className="hidden font-mono text-[11px] text-paper/25 md:block md:text-right">
                 {String(i + 1).padStart(2, '0')}
               </p>
-            </motion.li>
+            </li>
           ))}
         </ul>
       </div>
