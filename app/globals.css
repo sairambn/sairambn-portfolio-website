@@ -5,33 +5,50 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
     }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   body {
-    @apply bg-canvas text-paper font-body antialiased;
+    @apply bg-canvas text-paper font-body;
   }
 
   ::selection {
-    background: rgba(196, 165, 116, 0.35);
+    background: rgba(196, 165, 116, 0.4);
     color: #f7f6f3;
+  }
+
+  :focus-visible {
+    outline: 1px solid #c4a574;
+    outline-offset: 3px;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 1px solid #c4a574;
+    outline-offset: 3px;
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
   .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee 28s linear infinite;
+    animation: marquee 32s linear infinite;
   }
 
   @keyframes marquee {

@@ -9,19 +9,21 @@ const links = [
 
 export function Contact() {
   return (
-    <footer id="contact" className="border-t border-line">
+    <footer id="contact">
       <div className="mx-auto max-w-site px-5 py-20 md:px-8 md:py-28">
-        <div className="grid gap-10 md:grid-cols-[minmax(0,200px)_1fr]">
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+        <div className="grid gap-10 border-t border-line pt-16 md:grid-cols-[minmax(0,180px)_1fr] md:gap-8">
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
             Nº006 / Contact
           </p>
           <div>
             <h2 className="font-display text-display-md font-semibold text-paper">
               Open to SDE roles
             </h2>
-            <p className="mt-3 text-sm text-muted">{profile.openTo}</p>
+            <p className="mt-3 max-w-md text-[15px] text-muted">
+              {profile.openTo}. LinkedIn or email works best.
+            </p>
 
-            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+            <ul className="mt-12 flex flex-wrap gap-x-10 gap-y-4">
               {links.map((l) => (
                 <li key={l.label}>
                   <a
@@ -32,7 +34,7 @@ export function Contact() {
                         ? undefined
                         : 'noopener noreferrer'
                     }
-                    className="font-display text-lg text-paper transition-colors hover:text-accent md:text-xl"
+                    className="font-display text-xl text-paper transition-colors hover:text-accent md:text-2xl"
                   >
                     {l.label}
                   </a>
@@ -40,8 +42,11 @@ export function Contact() {
               ))}
             </ul>
 
-            <p className="mt-16 font-mono text-[11px] text-muted">
-              © {new Date().getFullYear()} {profile.name} · {profile.education}
+            <p className="mt-20 font-mono text-[11px] leading-relaxed text-muted">
+              © {new Date().getFullYear()} {profile.name}
+              <br className="md:hidden" />
+              <span className="hidden md:inline"> · </span>
+              {profile.education}
             </p>
           </div>
         </div>

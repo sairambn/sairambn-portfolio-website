@@ -12,7 +12,7 @@ export const profile = {
   github: 'https://github.com/sairambn',
   linkedin: 'https://www.linkedin.com/in/sairambn/',
   leetcode: 'https://leetcode.com/u/sairambn/',
-  resume: '#',
+  resume: 'https://github.com/sairambn',
 };
 
 export const stats = [
@@ -112,7 +112,7 @@ export const projects: Project[] = [
     title: 'Total Fitness Studio',
     outcome: 'Live client site',
     description:
-      'SSR business site for a 4.9★ gym. Local SEO, Maps, tel and WhatsApp CTAs. In production.',
+      'SSR business site for a 4.9-star gym. Local SEO, Maps, tel and WhatsApp CTAs. In production.',
     stack: 'TypeScript · SSR',
     live: 'https://total-fitness-studio-livid.vercel.app',
     github: 'https://github.com/sairambn/TotalFitnessStudio',
