@@ -25,7 +25,6 @@ export function Hero() {
           speed={0.012}
         />
       </div>
-      {/* Solid scrim — no soft multi-stop gradients */}
       <div className="pointer-events-none absolute inset-0 bg-canvas/75" />
 
       <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-site grid-cols-1 items-end gap-10 px-5 pb-14 pt-24 md:grid-cols-12 md:items-center md:gap-12 md:px-8 md:pb-16 md:pt-20">
@@ -34,11 +33,11 @@ export function Hero() {
             Nº001 / Intro
           </p>
 
-          <h1 className="font-display text-display-xl font-semibold text-paper">
+          <h1 className="font-script text-script-xl text-paper">
             {profile.shortName}
           </h1>
 
-          <p className="mt-4 max-w-xl text-lg text-paper md:text-xl">
+          <p className="mt-6 max-w-xl font-display text-lg text-paper md:text-xl">
             {profile.headline}
           </p>
 

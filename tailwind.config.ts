@@ -18,11 +18,25 @@ const config: Config = {
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],
         body: ['var(--font-body)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
+        script: ['var(--font-script)', 'cursive'],
       },
       fontSize: {
-        'display-xl': ['clamp(3.5rem, 12vw, 9rem)', { lineHeight: '0.9', letterSpacing: '-0.04em' }],
-        'display-lg': ['clamp(2.5rem, 7vw, 5rem)', { lineHeight: '0.95', letterSpacing: '-0.03em' }],
-        'display-md': ['clamp(1.75rem, 4vw, 2.75rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+        'display-xl': [
+          'clamp(3.5rem, 12vw, 9rem)',
+          { lineHeight: '0.9', letterSpacing: '-0.04em' },
+        ],
+        'display-lg': [
+          'clamp(2.5rem, 7vw, 5rem)',
+          { lineHeight: '0.95', letterSpacing: '-0.03em' },
+        ],
+        'display-md': [
+          'clamp(1.75rem, 4vw, 2.75rem)',
+          { lineHeight: '1.05', letterSpacing: '-0.02em' },
+        ],
+        'script-xl': [
+          'clamp(4.5rem, 14vw, 10rem)',
+          { lineHeight: '1.05', letterSpacing: '0.01em' },
+        ],
       },
       maxWidth: {
         site: '1400px',

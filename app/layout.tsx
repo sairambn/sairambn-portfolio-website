@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Space_Grotesk, DM_Sans, JetBrains_Mono } from 'next/font/google';
+import { Space_Grotesk, DM_Sans, JetBrains_Mono, Allura } from 'next/font/google';
 import './globals.css';
 
 const display = Space_Grotesk({
@@ -21,6 +21,13 @@ const mono = JetBrains_Mono({
   variable: '--font-mono',
   display: 'swap',
   weight: ['400', '500'],
+});
+
+const script = Allura({
+  subsets: ['latin'],
+  variable: '--font-script',
+  display: 'swap',
+  weight: '400',
 });
 
 export const metadata: Metadata = {
@@ -68,7 +75,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${mono.variable} ${script.variable}`}
+    >
       <body className="min-h-screen bg-canvas text-paper">{children}</body>
     </html>
   );
