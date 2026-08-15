@@ -18,18 +18,20 @@ export function Work() {
           </div>
         </div>
 
-        <ul className="divide-y divide-line border-t border-line">
+        <ul className="border-t border-line">
           {projects.map((p, i) => (
             <li
               key={p.title}
-              className="grid gap-5 py-9 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-12"
+              className="group grid gap-5 border-b border-line py-9 transition-colors md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-12 md:hover:bg-paper/[0.02]"
             >
               <div className="min-w-0">
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <span className="font-mono text-[10px] text-paper/30">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="font-display text-display-sm text-paper">{p.title}</h3>
+                  <h3 className="font-display text-display-sm text-paper transition-colors md:group-hover:text-accent">
+                    {p.title}
+                  </h3>
                   <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-accent">
                     {p.outcome}
                   </span>

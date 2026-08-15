@@ -5,13 +5,11 @@ export function Activity() {
     <section id="activity" className="border-b border-line">
       <div className="mx-auto max-w-site px-5 py-20 md:px-8 md:py-28">
         <div className="mb-12 grid gap-4 md:grid-cols-[minmax(0,180px)_1fr] md:gap-8">
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+          <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">
             Nº005 / Activity
           </p>
           <div>
-            <h2 className="font-display text-display-md font-semibold text-paper">
-              GitHub
-            </h2>
+            <h2 className="font-display text-display-md text-paper">GitHub</h2>
             <p className="mt-3 text-sm text-muted">
               <a
                 href={profile.github}

@@ -16,6 +16,7 @@ export default function HomePage() {
         <Marquee text="SHIPS SYSTEMS PEOPLE USE" />
         <Work />
         <Approach />
+        <Marquee text="DAILY DSA · PYTHON · JAVA · TYPESCRIPT" />
         <Stack />
         <Activity />
         <Contact />

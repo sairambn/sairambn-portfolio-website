@@ -7,6 +7,7 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -24,7 +25,13 @@
   }
 
   body {
-    @apply bg-canvas text-paper font-body;
+    @apply bg-canvas font-body text-paper;
+  }
+
+  /* Fixed nav offset for in-page anchors */
+  section[id],
+  footer[id] {
+    scroll-margin-top: 4.5rem;
   }
 
   ::selection {
@@ -48,7 +55,7 @@
   .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee 32s linear infinite;
+    animation: marquee 36s linear infinite;
   }
 
   @keyframes marquee {

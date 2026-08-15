@@ -16,7 +16,7 @@ export function Hero() {
       id="intro"
       className="relative min-h-[100svh] overflow-hidden border-b border-line"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-28">
+      <div className="pointer-events-none absolute inset-0 opacity-25 md:opacity-30">
         <VoxelTopographyGrid
           primaryColor="#c4a574"
           wireColor="rgba(196, 165, 116, 0.14)"
@@ -29,7 +29,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-site grid-cols-1 items-end gap-12 px-5 pb-16 pt-28 md:grid-cols-12 md:items-center md:gap-10 md:px-8 md:pb-20 md:pt-24">
         <div className="order-2 md:order-1 md:col-span-7">
-          <p className="mb-6 font-mono text-[10px] uppercase tracking-[0.24em] text-accent">
+          <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.24em] text-accent">
             Nº001 / Intro
           </p>
 
@@ -37,7 +37,11 @@ export function Hero() {
             {profile.shortName}
           </h1>
 
-          <p className="mt-8 max-w-xl font-display text-lg font-medium tracking-tight text-paper md:text-xl">
+          <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+            {profile.education}
+          </p>
+
+          <p className="mt-7 max-w-xl font-display text-lg font-medium tracking-tight text-paper md:text-xl">
             {profile.headline}
           </p>
 
@@ -84,10 +88,6 @@ export function Hero() {
         <div className="order-1 md:order-2 md:col-span-5">
           <figure className="mx-auto w-full max-w-[280px] sm:max-w-[320px] md:ml-auto md:mr-0 md:max-w-[400px]">
             <div className="relative aspect-[4/5] overflow-hidden border border-line bg-line">
-              {/*
-                Plain img — bypasses next/image optimizer which was soft-compressing
-                the portrait and causing the blur.
-              */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/content.png"
