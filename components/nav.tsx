@@ -29,7 +29,7 @@ export function Nav() {
               alt=""
               fill
               sizes="28px"
-              className="object-cover object-[center_12%]"
+              className="object-cover object-[18%_38%]"
               priority
             />
           </span>

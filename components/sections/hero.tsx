@@ -16,21 +16,21 @@ export function Hero() {
       id="intro"
       className="relative min-h-[100svh] overflow-hidden border-b border-line"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-50 md:opacity-60">
+      <div className="pointer-events-none absolute inset-0 opacity-40 md:opacity-50">
         <VoxelTopographyGrid
           primaryColor="#c4a574"
-          wireColor="rgba(196, 165, 116, 0.2)"
+          wireColor="rgba(196, 165, 116, 0.18)"
           tileSize={30}
           maxHeight={64}
           speed={0.012}
         />
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-canvas via-canvas/50 to-canvas/20" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-canvas via-canvas/70 to-transparent md:via-canvas/40" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-canvas via-canvas/60 to-canvas/30" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-canvas via-canvas/80 to-canvas/20" />
 
-      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-site grid-cols-1 items-end gap-8 px-5 pb-14 pt-24 md:grid-cols-12 md:gap-10 md:px-8 md:pb-20 md:pt-28">
-        {/* Copy column */}
-        <div className="md:col-span-7 lg:col-span-7">
+      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-site grid-cols-1 items-end gap-10 px-5 pb-14 pt-24 md:grid-cols-12 md:items-center md:gap-12 md:px-8 md:pb-16 md:pt-20">
+        {/* Copy */}
+        <div className="order-2 md:order-1 md:col-span-6 lg:col-span-7">
           <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
             Nº001 / Intro
           </p>
@@ -83,24 +83,25 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Portrait column — editorial crop, not a circle avatar */}
-        <div className="relative md:col-span-5 lg:col-span-5">
-          <div className="relative mx-auto aspect-[3/4] w-full max-w-[320px] overflow-hidden border border-line bg-line/40 md:ml-auto md:max-w-none md:aspect-[4/5]">
-            <Image
-              src="/content.png"
-              alt={`${profile.name} at College of Engineering Guindy`}
-              fill
-              priority
-              sizes="(max-width: 768px) 320px, 40vw"
-              className="object-cover object-[center_15%] contrast-[1.02] saturate-[0.92]"
-            />
-            {/* Subtle edge fade into canvas */}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-canvas/80 via-transparent to-transparent" />
-            <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-paper/5" />
-          </div>
-          <p className="mt-3 text-right font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
-            CEG · Anna University
-          </p>
+        {/* Portrait — landscape source, left-weighted crop so face fills the frame */}
+        <div className="order-1 md:order-2 md:col-span-6 lg:col-span-5">
+          <figure className="relative mx-auto w-full max-w-[280px] md:ml-auto md:mr-0 md:max-w-[380px]">
+            <div className="relative aspect-[3/4] overflow-hidden border border-line/80 bg-line/30 shadow-[0_0_0_1px_rgba(247,246,243,0.04)]">
+              <Image
+                src="/content.png"
+                alt={`${profile.name} at College of Engineering Guindy`}
+                fill
+                priority
+                sizes="(max-width: 768px) 280px, 380px"
+                className="object-cover object-[18%_42%]"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-canvas/50 via-transparent to-transparent" />
+            </div>
+            <figcaption className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+              <span>Portrait</span>
+              <span>CEG · Anna University</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
