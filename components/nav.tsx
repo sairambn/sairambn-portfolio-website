@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
@@ -24,14 +23,14 @@ export function Nav() {
           onClick={() => setOpen(false)}
         >
           <span className="relative h-7 w-7 shrink-0 overflow-hidden border border-line">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/content.png"
               alt=""
-              fill
-              sizes="56px"
-              quality={100}
-              className="object-cover object-[18%_36%]"
-              priority
+              width={56}
+              height={56}
+              className="h-full w-full object-cover"
+              style={{ objectPosition: '18% 36%' }}
             />
           </span>
           <span className="font-script text-[1.75rem] font-normal leading-none">

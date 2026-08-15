@@ -1,7 +1,6 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
 import { profile, stats } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 
@@ -84,21 +83,21 @@ export function Hero() {
 
         <div className="order-1 md:order-2 md:col-span-5">
           <figure className="mx-auto w-full max-w-[280px] sm:max-w-[320px] md:ml-auto md:mr-0 md:max-w-[400px]">
-            {/*
-              Source is landscape (1551×798). Use a milder aspect + left-weighted
-              position so more source pixels cover the face (less upscale = sharper).
-              quality={100} + explicit sizes avoids Next soft recompression.
-            */}
             <div className="relative aspect-[4/5] overflow-hidden border border-line bg-line">
-              <Image
+              {/*
+                Plain img — bypasses next/image optimizer which was soft-compressing
+                the portrait and causing the blur.
+              */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/content.png"
                 alt={`${profile.name} at College of Engineering Guindy`}
-                fill
-                priority
-                quality={100}
-                sizes="(max-width: 640px) 320px, (max-width: 1024px) 400px, 480px"
-                className="object-cover object-[20%_38%]"
-                style={{ imageRendering: 'auto' }}
+                width={1551}
+                height={798}
+                decoding="async"
+                fetchPriority="high"
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ objectPosition: '20% 38%' }}
               />
             </div>
             <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted md:text-right">
