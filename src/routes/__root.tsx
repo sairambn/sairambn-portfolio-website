@@ -11,28 +11,27 @@ import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
-import { ResumeButton } from "@/components/resume-button";
 
 function NotFoundComponent() {
   return (
-    <div className="mx-auto flex min-h-[70vh] max-w-7xl flex-col items-center justify-center px-5 py-24 text-center sm:px-6">
+    <div className="mx-auto flex min-h-[60vh] max-w-5xl flex-col items-start justify-center px-5 py-24 sm:px-6">
       <p className="eyebrow">404</p>
-      <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">Page not found</h1>
-      <p className="mt-4 max-w-md text-[15px] text-muted-foreground">
-        This route doesn't exist. Head back home or open selected work.
+      <h1 className="mt-3 text-3xl font-semibold tracking-tight">Page not found</h1>
+      <p className="mt-3 max-w-md text-[15px] text-muted-foreground">
+        This route doesn't exist.
       </p>
-      <div className="mt-8 flex flex-wrap justify-center gap-3">
+      <div className="mt-8 flex gap-3">
         <Link
           to="/"
-          className="rounded-full bg-primary px-7 py-3 text-[14px] font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5"
+          className="rounded-md bg-foreground px-4 py-2 text-[13.5px] font-medium text-background"
         >
-          Go home
+          Home
         </Link>
         <Link
           to="/projects"
-          className="rounded-full border border-border/80 px-6 py-3 text-[14px] font-medium transition-all duration-300 hover:border-primary/35 hover:bg-secondary/60"
+          className="rounded-md border border-border px-4 py-2 text-[13.5px] font-medium"
         >
-          View work
+          Work
         </Link>
       </div>
     </div>
@@ -44,27 +43,21 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
 
   return (
-    <div className="mx-auto flex min-h-[70vh] max-w-7xl flex-col items-center justify-center px-5 py-24 text-center sm:px-6">
+    <div className="mx-auto flex min-h-[60vh] max-w-5xl flex-col items-start justify-center px-5 py-24 sm:px-6">
       <p className="eyebrow">Error</p>
-      <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">This page didn't load</h1>
-      <p className="mt-4 max-w-md text-[15px] text-muted-foreground">
-        Something went wrong. Try again or go home.
-      </p>
-      <div className="mt-8 flex flex-wrap justify-center gap-3">
+      <h1 className="mt-3 text-3xl font-semibold tracking-tight">Something went wrong</h1>
+      <div className="mt-8 flex gap-3">
         <button
           onClick={() => {
             router.invalidate();
             reset();
           }}
-          className="rounded-full bg-primary px-7 py-3 text-[14px] font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5"
+          className="rounded-md bg-foreground px-4 py-2 text-[13.5px] font-medium text-background"
         >
           Try again
         </button>
-        <a
-          href="/"
-          className="rounded-full border border-border/80 px-6 py-3 text-[14px] font-medium transition-all duration-300 hover:border-primary/35 hover:bg-secondary/60"
-        >
-          Go home
+        <a href="/" className="rounded-md border border-border px-4 py-2 text-[13.5px] font-medium">
+          Home
         </a>
       </div>
     </div>
@@ -76,19 +69,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sairam Nagarajan — Software Engineer | DSA, Python, Java" },
+      { title: "Sairam Nagarajan — Software Engineer" },
       {
         name: "description",
         content:
-          "Software engineer from CEG Chennai. Strong in data structures, algorithms, Python and Java. Building clean, reliable software. Open to SDE roles in Bangalore, Hyderabad or remote.",
+          "Software engineer from CEG Chennai. Python, Java, daily DSA. Open to SDE roles in Bangalore, Hyderabad or remote.",
       },
       { name: "author", content: "Sairam Nagarajan" },
-      { name: "theme-color", content: "#f2f2f7" },
-      { property: "og:title", content: "Sairam Nagarajan — Software Engineer | DSA, Python, Java" },
+      { name: "theme-color", content: "#f7f6f3" },
+      { property: "og:title", content: "Sairam Nagarajan — Software Engineer" },
       {
         property: "og:description",
-        content:
-          "I build clean, reliable software that solves real problems. Strong DSA foundations. Preparing for Software Development Engineer roles.",
+        content: "Python, Java, daily DSA. Ships systems people use.",
       },
       { property: "og:image", content: "https://bnsairam.vercel.app/content.png" },
       { property: "og:type", content: "website" },
@@ -102,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Alex+Brush&family=DM+Sans:wght@400;500&family=Great+Vibes&family=Italianno&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap",
       },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "canonical", href: "https://bnsairam.vercel.app" },
@@ -134,14 +126,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "https://www.linkedin.com/in/sairambn/",
             "https://leetcode.com/u/sairambn/",
           ],
-          knowsAbout: [
-            "Data Structures",
-            "Algorithms",
-            "Python",
-            "Java",
-            "Software Engineering",
-            "System Design",
-          ],
         }),
       },
     ],
@@ -172,12 +156,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="bg-mesh" aria-hidden="true">
-        <div className="bg-mesh-blob" />
-      </div>
-      <div className="relative z-0 flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col bg-background text-foreground">
         <SiteHeader />
-        <ResumeButton />
         <main className="flex-1">
           <Outlet />
         </main>

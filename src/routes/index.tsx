@@ -13,26 +13,23 @@ import { GitHubStats } from "@/components/github-stats";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sairam Nagarajan — Software Engineer | DSA, Python, Java" },
+      { title: "Sairam Nagarajan — Software Engineer" },
       {
         name: "description",
         content:
           "Software engineer from CEG Chennai. Python, Java, daily DSA. Open to SDE roles in Bangalore, Hyderabad or remote.",
       },
-      {
-        property: "og:title",
-        content: "Sairam Nagarajan — Software Engineer | DSA, Python, Java",
-      },
+      { property: "og:title", content: "Sairam Nagarajan — Software Engineer" },
       {
         property: "og:description",
-        content: "Python, Java, daily DSA. Ships systems people use. Looking for an SDE role.",
+        content: "Python, Java, daily DSA. Ships systems people use.",
       },
       { property: "og:image", content: "https://bnsairam.vercel.app/content.png" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://bnsairam.vercel.app" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://bnsairam.vercel.app/content.png" },
-      { name: "theme-color", content: "#ffffff" },
+      { name: "theme-color", content: "#f7f6f3" },
     ],
   }),
   component: Home,
@@ -43,210 +40,185 @@ function Home() {
 
   return (
     <div>
-      <section className="relative overflow-hidden">
-        <div className="grid-backdrop pointer-events-none absolute inset-0" />
+      {/* Hero */}
+      <section className="mx-auto max-w-5xl px-5 pt-12 sm:px-6 sm:pt-16 lg:pt-20">
+        <div className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
+          <div>
+            <p className="font-mono text-[12px] text-muted-foreground">
+              {profile.education}
+            </p>
+            <h1 className="mt-4 text-[2.4rem] font-semibold tracking-tight sm:text-[3rem] lg:text-[3.25rem]">
+              {profile.name}
+            </h1>
+            <p className="mt-3 text-[17px] text-muted-foreground sm:text-[18px]">
+              {profile.headline}
+            </p>
+            <p className="mt-6 max-w-md text-[15.5px] leading-relaxed text-muted-foreground">
+              {profile.tagline}
+            </p>
+            <p className="mt-3 font-mono text-[12px] text-muted-foreground/80">
+              {profile.openTo}
+            </p>
 
-        <div className="relative mx-auto max-w-5xl px-5 pt-6 sm:px-6 sm:pt-10 lg:pt-12">
-          <div className="hero-frame relative overflow-hidden">
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/projects"
+                className="rounded-md bg-foreground px-4 py-2.5 text-[13.5px] font-medium text-background transition-opacity hover:opacity-85"
+              >
+                View work
+              </Link>
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-md border border-border bg-card px-4 py-2.5 text-[13.5px] font-medium transition-colors hover:border-[#c9c7c0]"
+              >
+                LinkedIn
+              </a>
+              <a
+                href={`mailto:${profile.email}`}
+                className="rounded-md border border-border bg-card px-4 py-2.5 text-[13.5px] font-medium transition-colors hover:border-[#c9c7c0]"
+              >
+                Email
+              </a>
+            </div>
+
+            <dl className="mt-12 grid grid-cols-3 gap-4 border-t border-border pt-8">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <dt className="font-mono text-[11px] text-muted-foreground">{s.label}</dt>
+                  <dd className="mt-1 text-[14px] font-semibold tracking-tight sm:text-[15px]">
+                    {s.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="hero-frame">
             <img
               src={profile.avatar}
               alt={`${profile.name} at College of Engineering Guindy`}
-              width={1551}
-              height={798}
-              className="aspect-[16/9] h-auto w-full object-cover object-[center_28%] sm:aspect-[2/1] sm:object-[center_30%]"
+              width={800}
+              height={1000}
+              className="aspect-[4/5] w-full object-cover object-[center_20%]"
               fetchPriority="high"
               decoding="async"
             />
           </div>
-
-          <div className="mt-5 flex flex-col gap-1 sm:mt-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-            <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-3">
-              <p className="text-[1.65rem] font-semibold leading-none tracking-tight text-foreground sm:text-[1.9rem]">
-                {profile.name}
-              </p>
-              <p className="text-[13px] text-muted-foreground sm:text-[14px]">
-                {profile.headline}
-              </p>
-            </div>
-            <p className="font-mono text-[10.5px] tracking-[0.1em] text-muted-foreground/70 sm:text-[11px]">
-              {profile.education}
-            </p>
-          </div>
-        </div>
-
-        <div className="relative mx-auto max-w-5xl px-5 pt-9 pb-14 sm:px-6 sm:pt-12 sm:pb-16">
-          <p className="eyebrow">
-            {profile.role} · {profile.location}
-          </p>
-          <h1 className="mt-3 max-w-2xl text-[2.1rem] leading-[1.08] font-semibold tracking-tight sm:text-[2.85rem] lg:text-[3.25rem]">
-            Code that works.
-            <br className="hidden sm:block" />
-            <span className="text-gradient-ember">Systems people use.</span>
-          </h1>
-          <p className="mt-4 max-w-lg text-[15px] leading-[1.7] text-muted-foreground sm:text-[16px]">
-            {profile.tagline}
-          </p>
-          <p className="mt-2.5 font-mono text-[10.5px] tracking-[0.12em] text-muted-foreground/65">
-            {profile.openTo}
-          </p>
-
-          <div className="mt-7 flex flex-wrap gap-2">
-            <Link
-              to="/projects"
-              className="rounded-full bg-primary px-6 py-2.5 text-[13.5px] font-semibold text-primary-foreground shadow-sm transition-all duration-250 hover:-translate-y-0.5 hover:shadow-md"
-            >
-              View work
-            </Link>
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-border/80 bg-white/50 px-5 py-2.5 text-[13.5px] font-medium transition-all duration-250 hover:border-primary/30 hover:bg-secondary/60"
-            >
-              LinkedIn
-            </a>
-            <a
-              href={`mailto:${profile.email}`}
-              className="rounded-full border border-primary/30 bg-primary/8 px-5 py-2.5 text-[13.5px] font-medium text-primary transition-all duration-250 hover:border-primary/50 hover:bg-primary/12"
-            >
-              Email
-            </a>
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-border/80 bg-white/50 px-5 py-2.5 text-[13.5px] font-medium transition-all duration-250 hover:border-primary/30 hover:bg-secondary/60"
-            >
-              GitHub
-            </a>
-          </div>
-
-          <dl className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border/50 bg-border/20 sm:grid-cols-3">
-            {stats.map((s) => (
-              <div key={s.label} className="bg-white/80 px-5 py-5 backdrop-blur-sm sm:px-6 sm:py-7">
-                <dt className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
-                  {s.label}
-                </dt>
-                <dd className="mt-1.5 text-[1.35rem] font-semibold tracking-tight text-gradient-ember sm:text-[1.55rem]">
-                  {s.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 sm:pb-20">
-        <div className="max-w-2xl">
-          <p className="eyebrow">Built</p>
-          <h2 className="mt-2.5 text-[1.7rem] font-semibold tracking-tight sm:text-[2.1rem]">
-            What is live
-          </h2>
-        </div>
-        <div className="mt-8 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Live systems */}
+      <section className="mx-auto max-w-5xl px-5 pt-20 sm:px-6 sm:pt-28">
+        <p className="eyebrow">Built</p>
+        <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-[1.85rem]">
+          What is live
+        </h2>
+        <div className="mt-10 divide-y divide-border border-t border-border">
           {impact.map((item) => (
-            <div key={item.title} className="surface-card rounded-2xl p-5 sm:p-6">
-              <h3 className="text-[15px] font-semibold tracking-tight">{item.title}</h3>
-              <p className="mt-2 text-[13.5px] font-medium text-primary">{item.result}</p>
-              <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground">{item.detail}</p>
+            <div key={item.title} className="grid gap-2 py-6 sm:grid-cols-[200px_1fr] sm:gap-8">
+              <div>
+                <h3 className="text-[15px] font-semibold tracking-tight">{item.title}</h3>
+                <p className="mt-1 font-mono text-[12px] text-muted-foreground">{item.result}</p>
+              </div>
+              <p className="text-[14.5px] leading-relaxed text-muted-foreground">{item.detail}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 sm:pb-20">
+      {/* Projects */}
+      <section className="mx-auto max-w-5xl px-5 pt-16 sm:px-6 sm:pt-24">
         <div className="flex items-end justify-between gap-4">
           <div>
             <p className="eyebrow">Projects</p>
-            <h2 className="mt-2.5 text-[1.7rem] font-semibold tracking-tight sm:text-[2.1rem]">
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-[1.85rem]">
               Selected work
             </h2>
           </div>
-          <Link
-            to="/projects"
-            className="shrink-0 text-[13px] font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            All projects →
+          <Link to="/projects" className="text-[13px] text-muted-foreground hover:text-foreground">
+            All →
           </Link>
         </div>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <div className="mt-6 border-t border-border">
           {featured.map((p) => (
             <ProjectCard key={p.name} project={p} />
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 sm:pb-20">
-        <div>
-          <p className="eyebrow">Approach</p>
-          <h2 className="mt-2.5 text-[1.7rem] font-semibold tracking-tight sm:text-[2.1rem]">
-            How I work
-          </h2>
-        </div>
-        <div className="mt-8 grid gap-3.5 sm:grid-cols-2">
-          {principles.map((p) => (
-            <div key={p.title} className="surface-card rounded-2xl p-5 sm:p-6">
-              <h3 className="text-[15px] font-semibold tracking-tight">{p.title}</h3>
-              <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">{p.body}</p>
+      {/* Approach */}
+      <section className="mx-auto max-w-5xl px-5 pt-16 sm:px-6 sm:pt-24">
+        <p className="eyebrow">Approach</p>
+        <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-[1.85rem]">
+          How I work
+        </h2>
+        <div className="mt-10 grid gap-8 sm:grid-cols-2">
+          {principles.map((p, i) => (
+            <div key={p.title} className="border-t border-border pt-5">
+              <p className="font-mono text-[12px] text-muted-foreground">
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <h3 className="mt-2 text-[16px] font-semibold tracking-tight">{p.title}</h3>
+              <p className="mt-2 text-[14.5px] leading-relaxed text-muted-foreground">{p.body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 sm:pb-20">
+      {/* Skills */}
+      <section className="mx-auto max-w-5xl px-5 pt-16 sm:px-6 sm:pt-24">
         <p className="eyebrow">Skills</p>
-        <h2 className="mt-2.5 text-[1.7rem] font-semibold tracking-tight sm:text-[2rem]">Stack</h2>
-        <div className="mt-7 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
+        <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-[1.85rem]">Stack</h2>
+        <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {skillGroups.map((group) => (
-            <div key={group.title} className="surface-card rounded-2xl p-5">
-              <h3 className="text-[13.5px] font-semibold tracking-tight text-primary">{group.title}</h3>
-              <div className="mt-3.5 flex flex-wrap gap-1.5">
+            <div key={group.title}>
+              <h3 className="text-[13px] font-semibold tracking-tight">{group.title}</h3>
+              <ul className="mt-3 space-y-1.5">
                 {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-border/60 bg-secondary/30 px-2.5 py-1 text-[12px] text-muted-foreground"
-                  >
+                  <li key={item} className="text-[14px] text-muted-foreground">
                     {item}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </div>
       </section>
 
-      <div className="mx-auto max-w-5xl">
+      <div className="pt-16 sm:pt-24">
         <GitHubStats />
       </div>
 
-      <section className="mx-auto max-w-5xl px-5 pb-24 sm:px-6 sm:pb-28">
-        <div className="surface-card relative overflow-hidden rounded-3xl p-7 sm:p-11">
-          <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
+      {/* Contact */}
+      <section className="mx-auto max-w-5xl px-5 pb-24 sm:px-6 sm:pb-32">
+        <div className="border-t border-border pt-12">
           <p className="eyebrow">Contact</p>
-          <h2 className="mt-2.5 max-w-xl text-[1.7rem] font-semibold tracking-tight sm:text-[2.15rem]">
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-[1.85rem]">
             Open to SDE roles
           </h2>
-          <p className="mt-3.5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+          <p className="mt-3 max-w-md text-[15px] text-muted-foreground">
             Bangalore, Hyderabad, or remote. LinkedIn or email works best.
           </p>
-          <div className="mt-7 flex flex-wrap gap-2">
+          <div className="mt-6 flex flex-wrap gap-3">
             <a
               href={profile.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="rounded-full bg-primary px-6 py-2.5 text-[13.5px] font-semibold text-primary-foreground shadow-sm transition-all duration-250 hover:-translate-y-0.5"
+              className="rounded-md bg-foreground px-4 py-2.5 text-[13.5px] font-medium text-background transition-opacity hover:opacity-85"
             >
               LinkedIn
             </a>
             <a
               href={`mailto:${profile.email}`}
-              className="rounded-full border border-primary/30 bg-primary/8 px-5 py-2.5 text-[13.5px] font-medium text-primary transition-all duration-250 hover:border-primary/50 hover:bg-primary/12"
+              className="rounded-md border border-border bg-card px-4 py-2.5 text-[13.5px] font-medium transition-colors hover:border-[#c9c7c0]"
             >
               Email
             </a>
             <Link
               to="/contact"
-              className="rounded-full border border-border/80 px-5 py-2.5 text-[13.5px] font-medium transition-all duration-250 hover:border-primary/30 hover:bg-secondary/50"
+              className="rounded-md border border-border bg-card px-4 py-2.5 text-[13.5px] font-medium transition-colors hover:border-[#c9c7c0]"
             >
               Contact
             </Link>
