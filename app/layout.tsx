@@ -26,7 +26,7 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Sairam BN — Software Engineer · DSA · Python · Java',
   description:
-    'Software engineer, M.E. from CEG Anna University \'25. Daily DSA (NeetCode 250). Ships systems people use. Open to SDE roles in Bangalore, Hyderabad, or remote.',
+    "Software engineer, M.E. from CEG Anna University '25. Daily DSA (NeetCode 250). Ships systems people use. Open to SDE roles in Bangalore, Hyderabad, or remote.",
   metadataBase: new URL('https://bnsairam.vercel.app'),
   openGraph: {
     title: 'Sairam BN — Software Engineer',
@@ -35,12 +35,21 @@ export const metadata: Metadata = {
     url: 'https://bnsairam.vercel.app',
     siteName: 'Sairam BN',
     type: 'website',
+    images: [
+      {
+        url: '/content.png',
+        width: 1200,
+        height: 630,
+        alt: 'Sairam Nagarajan — Software Engineer',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Sairam BN — Software Engineer',
     description:
       'I write code that works, practice DSA every day, and ship systems people actually use.',
+    images: ['/content.png'],
   },
   icons: {
     icon: '/favicon.svg',
