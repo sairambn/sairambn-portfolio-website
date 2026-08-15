@@ -28,8 +28,9 @@ export function Nav() {
               src="/content.png"
               alt=""
               fill
-              sizes="28px"
-              className="object-cover object-[18%_38%]"
+              sizes="56px"
+              quality={100}
+              className="object-cover object-[18%_36%]"
               priority
             />
           </span>

@@ -83,15 +83,22 @@ export function Hero() {
         </div>
 
         <div className="order-1 md:order-2 md:col-span-5">
-          <figure className="mx-auto w-full max-w-[260px] sm:max-w-[300px] md:ml-auto md:mr-0 md:max-w-[360px]">
-            <div className="relative aspect-[3/4] overflow-hidden border border-line">
+          <figure className="mx-auto w-full max-w-[280px] sm:max-w-[320px] md:ml-auto md:mr-0 md:max-w-[400px]">
+            {/*
+              Source is landscape (1551×798). Use a milder aspect + left-weighted
+              position so more source pixels cover the face (less upscale = sharper).
+              quality={100} + explicit sizes avoids Next soft recompression.
+            */}
+            <div className="relative aspect-[4/5] overflow-hidden border border-line bg-line">
               <Image
                 src="/content.png"
                 alt={`${profile.name} at College of Engineering Guindy`}
                 fill
                 priority
-                sizes="(max-width: 768px) 300px, 360px"
-                className="object-cover object-[18%_42%]"
+                quality={100}
+                sizes="(max-width: 640px) 320px, (max-width: 1024px) 400px, 480px"
+                className="object-cover object-[20%_38%]"
+                style={{ imageRendering: 'auto' }}
               />
             </div>
             <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted md:text-right">

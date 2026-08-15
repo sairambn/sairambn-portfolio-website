@@ -2,16 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    formats: ['image/avif', 'image/webp'],
+    formats: ['image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [64, 128, 256, 384, 480, 640, 750],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
   },
   eslint: {
-    // Legacy TanStack tree under src/ is excluded from the product;
-    // keep it out of the production build gate until fully removed.
     dirs: ['app', 'components', 'lib'],
-  },
-  typescript: {
-    // tsconfig already scopes include to app/components/lib
-    ignoreBuildErrors: false,
   },
 };
 
