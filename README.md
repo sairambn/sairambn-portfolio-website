@@ -1,48 +1,40 @@
-# Sairam BN — macOS Portfolio
+# Sairam BN — Editorial Portfolio
 
-Interactive macOS-style portfolio for Sairam Nagarajan.
+**Software Engineer · DSA · Python · Java**
 
-**Live intent:** bnsairam.vercel.app
+Production portfolio rebuilt in the pxpush-inspired editorial system: numbered sections, kinetic type, near-monochrome canvas, case-file project rows, and a pointer-reactive isometric voxel hero.
 
-Software Engineer · DSA · Python · Java · CEG Chennai '25
-
-## What you get
-
-- Lock screen with clock and unlock
-- Desktop wallpaper, menu bar, clock
-- Draggable, resizable, minimizable, maximizable windows
-- Dock with open indicators
-- Spotlight search (⌘K / Ctrl+K)
-- Apps: About, Projects, Terminal (interactive), Contact
-- Full project list with live links and GitHub
+**Live intent:** [bnsairam.vercel.app](https://bnsairam.vercel.app)
 
 ## Stack
 
-| Layer | Tech |
+| Layer | Technology |
 | --- | --- |
-| Framework | TanStack Start + React 19 |
-| Language | TypeScript |
-| Styling | Tailwind CSS v4 |
-| Build | Vite |
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript (strict) |
+| Styling | Tailwind CSS + custom type scale |
+| Motion | Framer Motion |
+| Fonts | Space Grotesk · DM Sans · JetBrains Mono |
 | Deploy | Vercel |
+
+## Branch
+
+This rebuild lives on `editorial-next`. The previous TanStack Start / macOS glass version remains on `main`.
 
 ## Local
 
 ```bash
-bun install   # or npm i
-bun run dev   # or npm run dev
-bun run build && bun run preview
+npm install
+npm run dev
 ```
-
-Requires Bun or Node 20+.
 
 ## Deploy
 
-Push to `main` and connect Vercel with the TanStack Start preset.
+Point a Vercel project at branch `editorial-next` with framework preset **Next.js**.
 
 ## Content
 
-Edit `src/data/portfolio.ts` for profile, projects, skills, and impact.
+Edit `lib/data.ts` for profile, projects, principles, and skills.
 
 ## License
 
