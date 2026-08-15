@@ -40,27 +40,26 @@ function Home() {
 
   return (
     <div>
-      {/* Hero */}
       <section className="mx-auto max-w-5xl px-5 pt-12 sm:px-6 sm:pt-16 lg:pt-20">
-        <div className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           <div>
             <p className="font-mono text-[12px] text-muted-foreground">
               {profile.education}
             </p>
-            <h1 className="mt-4 text-[2.4rem] font-semibold tracking-tight sm:text-[3rem] lg:text-[3.25rem]">
+            <h1 className="mt-4 text-[2.35rem] font-semibold tracking-tight sm:text-[2.85rem] lg:text-[3.15rem]">
               {profile.name}
             </h1>
-            <p className="mt-3 text-[17px] text-muted-foreground sm:text-[18px]">
+            <p className="mt-3 text-[16.5px] text-muted-foreground sm:text-[17px]">
               {profile.headline}
             </p>
-            <p className="mt-6 max-w-md text-[15.5px] leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground sm:text-[15.5px]">
               {profile.tagline}
             </p>
-            <p className="mt-3 font-mono text-[12px] text-muted-foreground/80">
+            <p className="mt-2.5 font-mono text-[11.5px] text-muted-foreground/80">
               {profile.openTo}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-2.5">
               <Link
                 to="/projects"
                 className="rounded-md bg-foreground px-4 py-2.5 text-[13.5px] font-medium text-background transition-opacity hover:opacity-85"
@@ -83,11 +82,11 @@ function Home() {
               </a>
             </div>
 
-            <dl className="mt-12 grid grid-cols-3 gap-4 border-t border-border pt-8">
+            <dl className="mt-11 grid grid-cols-3 gap-4 border-t border-border pt-7">
               {stats.map((s) => (
                 <div key={s.label}>
                   <dt className="font-mono text-[11px] text-muted-foreground">{s.label}</dt>
-                  <dd className="mt-1 text-[14px] font-semibold tracking-tight sm:text-[15px]">
+                  <dd className="mt-1 text-[13.5px] font-semibold tracking-tight sm:text-[14.5px]">
                     {s.value}
                   </dd>
                 </div>
@@ -95,13 +94,13 @@ function Home() {
             </dl>
           </div>
 
-          <div className="hero-frame">
+          <div className="hero-frame mx-auto w-full max-w-md lg:max-w-none">
             <img
               src={profile.avatar}
               alt={`${profile.name} at College of Engineering Guindy`}
               width={800}
               height={1000}
-              className="aspect-[4/5] w-full object-cover object-[center_20%]"
+              className="aspect-[4/5] w-full object-cover object-[18%_8%]"
               fetchPriority="high"
               decoding="async"
             />
@@ -109,7 +108,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Live systems */}
       <section className="mx-auto max-w-5xl px-5 pt-20 sm:px-6 sm:pt-28">
         <p className="eyebrow">Built</p>
         <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-[1.85rem]">
@@ -128,7 +126,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Projects */}
       <section className="mx-auto max-w-5xl px-5 pt-16 sm:px-6 sm:pt-24">
         <div className="flex items-end justify-between gap-4">
           <div>
@@ -148,7 +145,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Approach */}
       <section className="mx-auto max-w-5xl px-5 pt-16 sm:px-6 sm:pt-24">
         <p className="eyebrow">Approach</p>
         <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-[1.85rem]">
@@ -167,7 +163,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Skills */}
       <section className="mx-auto max-w-5xl px-5 pt-16 sm:px-6 sm:pt-24">
         <p className="eyebrow">Skills</p>
         <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-[1.85rem]">Stack</h2>
@@ -191,7 +186,6 @@ function Home() {
         <GitHubStats />
       </div>
 
-      {/* Contact */}
       <section className="mx-auto max-w-5xl px-5 pb-24 sm:px-6 sm:pb-32">
         <div className="border-t border-border pt-12">
           <p className="eyebrow">Contact</p>
@@ -201,7 +195,7 @@ function Home() {
           <p className="mt-3 max-w-md text-[15px] text-muted-foreground">
             Bangalore, Hyderabad, or remote. LinkedIn or email works best.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-2.5">
             <a
               href={profile.linkedin}
               target="_blank"

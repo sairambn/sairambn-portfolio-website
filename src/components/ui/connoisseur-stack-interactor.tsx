@@ -105,18 +105,17 @@ export function ConnoisseurStackInteractor({
     <div
       ref={containerRef}
       className={cn(
-        "flex w-full flex-col items-center justify-between overflow-hidden rounded-[1.75rem] p-8 transition-colors duration-500 md:flex-row md:p-12",
-        "bg-white/70 dark:bg-[#050505]/70",
-        "border border-white/50 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.08)] backdrop-blur-xl",
+        "flex w-full flex-col items-center justify-between overflow-hidden rounded-2xl p-8 md:flex-row md:p-10 lg:p-12",
+        "bg-[#1c1c1a] text-white",
         className,
       )}
     >
-      <div className="z-20 w-full md:w-1/2">
-        <p className="mb-8 text-[13px] font-medium tracking-wide text-muted-foreground">
+      <div className="z-20 w-full md:w-[48%]">
+        <p className="mb-8 font-mono text-[11px] tracking-wide text-white/45">
           Hover to explore
         </p>
         <nav>
-          <ul className="flex flex-col gap-10 md:gap-12">
+          <ul className="flex flex-col gap-8 md:gap-10">
             {items.map((item, index) => (
               <li
                 key={item.num}
@@ -127,17 +126,15 @@ export function ConnoisseurStackInteractor({
                   href={item.href}
                   target={item.href ? "_blank" : undefined}
                   rel={item.href ? "noreferrer" : undefined}
-                  className="flex items-start gap-5"
+                  className="flex items-baseline gap-4"
                   onClick={(e) => {
                     if (!item.href) e.preventDefault();
                   }}
                 >
                   <span
                     className={cn(
-                      "mt-1 text-2xl font-bold transition-all duration-500",
-                      activeIndex === index
-                        ? "scale-110 text-primary"
-                        : "text-zinc-400 dark:text-zinc-600",
+                      "font-mono text-[13px] transition-colors duration-300",
+                      activeIndex === index ? "text-white" : "text-white/35",
                     )}
                   >
                     {item.num}
@@ -145,10 +142,10 @@ export function ConnoisseurStackInteractor({
 
                   <h2
                     className={cn(
-                      "text-4xl font-black uppercase leading-[0.9] tracking-tighter transition-all duration-700 md:text-5xl",
+                      "text-3xl font-semibold uppercase leading-none tracking-tight transition-all duration-300 md:text-4xl",
                       activeIndex === index
-                        ? "translate-x-3 text-zinc-950 opacity-100 dark:text-white"
-                        : "translate-x-0 text-zinc-500 opacity-40 dark:text-transparent dark:[-webkit-text-stroke:1.5px_#52525b]",
+                        ? "text-white opacity-100"
+                        : "text-white/30",
                     )}
                   >
                     {item.name}
@@ -160,12 +157,10 @@ export function ConnoisseurStackInteractor({
         </nav>
       </div>
 
-      <div className="relative mt-12 flex w-full items-center justify-center md:mt-0 md:w-1/2">
-        <div className="absolute h-[120%] w-[120%] rounded-full bg-primary/10 blur-[100px] transition-opacity duration-1000 dark:bg-primary/5" />
-
+      <div className="relative mt-10 flex w-full items-center justify-center md:mt-0 md:w-1/2">
         <svg
           viewBox="0 0 500 500"
-          className="z-10 h-auto w-full max-w-[420px] drop-shadow-xl dark:drop-shadow-[0_0_60px_rgba(0,0,0,0.8)]"
+          className="z-10 h-auto w-full max-w-[380px]"
         >
           <defs>
             <clipPath id="clip-original">

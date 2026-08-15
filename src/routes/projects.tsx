@@ -6,7 +6,7 @@ import { ConnoisseurStackInteractor } from "@/components/ui/connoisseur-stack-in
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Sairam Nagarajan | Software Engineer" },
+      { title: "Projects — Sairam Nagarajan" },
       {
         name: "description",
         content:
@@ -29,33 +29,33 @@ function Projects() {
   const rest = projects.filter((p) => !p.featured);
 
   return (
-    <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24">
+    <div className="mx-auto max-w-5xl px-5 py-14 sm:px-6 sm:py-20">
       <p className="eyebrow">Work</p>
-      <h1 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.5rem]">
-        Systems I've shipped.
+      <h1 className="mt-2 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
+        Systems I've shipped
       </h1>
-      <p className="mt-6 max-w-2xl text-[17px] leading-[1.7] text-muted-foreground">
+      <p className="mt-4 max-w-xl text-[15.5px] leading-relaxed text-muted-foreground">
         Constraint engines, analysis pipelines, production client sites, and daily algorithm
-        practice — open on GitHub, with live demos where available.
+        practice.
       </p>
 
-      <div className="mt-12">
+      <div className="mt-10">
         <ConnoisseurStackInteractor />
       </div>
 
-      <div className="mt-10 flex flex-wrap gap-2.5">
+      <div className="mt-6 flex flex-wrap gap-2">
         {["Algorithms", "TypeScript", "DSA", "Production", "Python"].map((tag) => (
           <span
             key={tag}
-            className="rounded-full border border-border/70 bg-secondary/30 px-3.5 py-1.5 font-mono text-[12px] text-muted-foreground"
+            className="rounded-full border border-border bg-card px-3 py-1 font-mono text-[11.5px] text-muted-foreground"
           >
             {tag}
           </span>
         ))}
       </div>
 
-      <h2 className="mt-16 text-xl font-semibold tracking-tight text-foreground/90">Featured</h2>
-      <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <h2 className="mt-16 text-lg font-semibold tracking-tight">Featured</h2>
+      <div className="mt-4 border-t border-border">
         {featured.map((p) => (
           <ProjectCard key={p.name} project={p} />
         ))}
@@ -63,10 +63,8 @@ function Projects() {
 
       {rest.length > 0 && (
         <>
-          <h2 className="mt-16 text-xl font-semibold tracking-tight text-foreground/90">
-            Also shipped
-          </h2>
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
+          <h2 className="mt-14 text-lg font-semibold tracking-tight">Also shipped</h2>
+          <div className="mt-4 border-t border-border">
             {rest.map((p) => (
               <ProjectCard key={p.name} project={p} />
             ))}
@@ -74,21 +72,20 @@ function Projects() {
         </>
       )}
 
-      <div className="mt-20 flex flex-col items-center gap-4 text-center">
+      <div className="mt-16 flex flex-col gap-3 border-t border-border pt-10 sm:flex-row sm:items-center sm:justify-between">
         <a
           href={profile.github}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-border/80 px-8 py-3.5 text-[14px] font-medium transition-all duration-300 hover:border-primary/35 hover:bg-secondary/60"
+          className="text-[14px] font-medium hover:underline hover:underline-offset-4"
         >
-          See everything on GitHub
-          <span aria-hidden="true">↗</span>
+          Everything on GitHub →
         </a>
         <a
           href={profile.leetcode}
           target="_blank"
           rel="noreferrer"
-          className="text-[13px] text-muted-foreground transition-colors hover:text-primary"
+          className="text-[13px] text-muted-foreground hover:text-foreground"
         >
           Daily practice on LeetCode →
         </a>
