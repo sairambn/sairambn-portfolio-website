@@ -33,7 +33,7 @@ export function Nav() {
               priority
             />
           </span>
-          <span className="font-script text-[1.65rem] leading-none tracking-wide">
+          <span className="font-script text-[1.75rem] font-normal leading-none">
             Sairam BN
           </span>
         </Link>
@@ -43,7 +43,7 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted transition-colors hover:text-paper"
+              className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-muted transition-colors hover:text-paper"
             >
               {l.label}
             </a>
@@ -52,7 +52,7 @@ export function Nav() {
             href="https://github.com/sairambn"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] font-medium uppercase tracking-[0.16em] text-accent transition-colors hover:text-paper"
+            className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-accent transition-colors hover:text-paper"
           >
             Resume
           </a>
@@ -77,7 +77,7 @@ export function Nav() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="py-3 text-sm uppercase tracking-[0.12em] text-muted hover:text-paper"
+                className="py-3 font-mono text-xs uppercase tracking-[0.16em] text-muted hover:text-paper"
               >
                 {l.label}
               </a>
@@ -87,7 +87,7 @@ export function Nav() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="py-3 text-sm uppercase tracking-[0.12em] text-accent"
+              className="py-3 font-mono text-xs uppercase tracking-[0.16em] text-accent"
             >
               Resume
             </a>

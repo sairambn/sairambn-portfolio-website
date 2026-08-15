@@ -1,33 +1,46 @@
 import type { Metadata, Viewport } from 'next';
-import { Space_Grotesk, DM_Sans, JetBrains_Mono, Allura } from 'next/font/google';
+import {
+  Bricolage_Grotesque,
+  Source_Sans_3,
+  IBM_Plex_Mono,
+  Corinthia,
+} from 'next/font/google';
 import './globals.css';
 
-const display = Space_Grotesk({
+/*
+  Type system (intentional, not template defaults):
+  - Script:   Corinthia — calligraphic name only (not Allura/Great Vibes)
+  - Display:  Bricolage Grotesque — industrial editorial heads
+  - Body:     Source Sans 3 — long-form, neutral, readable
+  - Mono:     IBM Plex Mono — engineering labels / indices
+*/
+
+const display = Bricolage_Grotesque({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
   weight: ['400', '500', '600', '700'],
 });
 
-const body = DM_Sans({
+const body = Source_Sans_3({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
   weight: ['400', '500', '600'],
 });
 
-const mono = JetBrains_Mono({
+const mono = IBM_Plex_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
   display: 'swap',
   weight: ['400', '500'],
 });
 
-const script = Allura({
+const script = Corinthia({
   subsets: ['latin'],
   variable: '--font-script',
   display: 'swap',
-  weight: '400',
+  weight: ['400', '700'],
 });
 
 const siteUrl = 'https://bnsairam.vercel.app';
@@ -65,13 +78,8 @@ export const metadata: Metadata = {
       'I write code that works, practice DSA every day, and ship systems people actually use.',
     images: ['/content.png'],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  icons: {
-    icon: '/favicon.svg',
-  },
+  robots: { index: true, follow: true },
+  icons: { icon: '/favicon.svg' },
 };
 
 export const viewport: Viewport = {
@@ -118,7 +126,7 @@ export default function RootLayout({
       lang="en"
       className={`${display.variable} ${body.variable} ${mono.variable} ${script.variable}`}
     >
-      <body className="min-h-screen bg-canvas text-paper">
+      <body className="min-h-screen bg-canvas font-body text-paper">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

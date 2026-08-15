@@ -17,7 +17,7 @@ export function Hero() {
       id="intro"
       className="relative min-h-[100svh] overflow-hidden border-b border-line"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-30">
+      <div className="pointer-events-none absolute inset-0 opacity-28">
         <VoxelTopographyGrid
           primaryColor="#c4a574"
           wireColor="rgba(196, 165, 116, 0.14)"
@@ -30,7 +30,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-site grid-cols-1 items-end gap-12 px-5 pb-16 pt-28 md:grid-cols-12 md:items-center md:gap-10 md:px-8 md:pb-20 md:pt-24">
         <div className="order-2 md:order-1 md:col-span-7">
-          <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+          <p className="mb-6 font-mono text-[10px] uppercase tracking-[0.24em] text-accent">
             Nº001 / Intro
           </p>
 
@@ -38,25 +38,25 @@ export function Hero() {
             {profile.shortName}
           </h1>
 
-          <p className="mt-7 max-w-xl font-display text-lg font-medium text-paper md:text-xl">
+          <p className="mt-8 max-w-xl font-display text-lg font-medium tracking-tight text-paper md:text-xl">
             {profile.headline}
           </p>
 
-          <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted md:text-base">
+          <p className="mt-4 max-w-md text-[15px] leading-[1.65] text-muted md:text-base">
             {profile.tagline}
           </p>
 
-          <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
+          <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
             {profile.openTo}
           </p>
 
           <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-6 border-t border-line pt-8">
             {stats.map((s) => (
               <div key={s.label}>
-                <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+                <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
                   {s.label}
                 </dt>
-                <dd className="mt-1.5 font-display text-lg font-medium text-paper md:text-xl">
+                <dd className="mt-1.5 font-display text-lg font-medium tracking-tight text-paper md:text-xl">
                   {s.value}
                 </dd>
               </div>
@@ -94,7 +94,7 @@ export function Hero() {
                 className="object-cover object-[18%_42%]"
               />
             </div>
-            <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-muted md:text-right">
+            <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted md:text-right">
               CEG · Anna University · class of &apos;25
             </figcaption>
           </figure>
