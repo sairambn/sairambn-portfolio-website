@@ -2,9 +2,19 @@
 
 **Software Engineer · DSA · Python · Java**
 
-Editorial, type-led personal site. Numbered sections, kinetic marquee, case-file project rows, pointer-reactive voxel hero.
+Editorial, type-led personal site. Numbered sections, kinetic marquee, case-file project rows, and a pointer-reactive voxel hero.
 
 **Live** → [bnsairam.vercel.app](https://bnsairam.vercel.app)
+
+---
+
+## What this site shows
+
+- Real systems shipped (client work, event platforms, college tools)
+- Daily DSA discipline (NeetCode 250)
+- Clean product thinking and measurable impact
+
+---
 
 ## Stack
 
@@ -17,7 +27,9 @@ Editorial, type-led personal site. Numbered sections, kinetic marquee, case-file
 | Fonts | Space Grotesk · DM Sans · JetBrains Mono |
 | Deploy | Vercel |
 
-## Local
+---
+
+## Local development
 
 ```bash
 npm install
@@ -30,9 +42,13 @@ npm run build && npm start
 
 Requires Node 18.18+.
 
+---
+
 ## Content
 
 Edit `lib/data.ts` for profile, projects, principles, and skills.
+
+---
 
 ## License
 
