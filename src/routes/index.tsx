@@ -43,36 +43,52 @@ function Home() {
 
   return (
     <div>
-      {/* Cinematic hero — full-bleed photo */}
-      <section className="relative flex min-h-[min(92svh,920px)] flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={profile.avatar}
-            alt={`${profile.name} at College of Engineering Guindy`}
-            className="h-full w-full object-cover object-center"
-            fetchPriority="high"
-            decoding="async"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
+      <section className="relative overflow-hidden">
+        <div className="grid-backdrop pointer-events-none absolute inset-0" />
+
+        <div className="relative mx-auto max-w-6xl px-5 pt-8 sm:px-6 sm:pt-12 lg:pt-14">
+          <div className="relative">
+            <div className="hero-frame relative overflow-hidden rounded-2xl border border-border/50">
+              <img
+                src={profile.avatar}
+                alt={`${profile.name} at College of Engineering Guindy`}
+                width={1551}
+                height={798}
+                className="h-auto w-full object-contain object-center"
+                fetchPriority="high"
+                decoding="async"
+              />
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-col gap-1 sm:mt-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
+              <p className="font-script text-[2.2rem] leading-none text-foreground sm:text-[2.75rem]">
+                {profile.name}
+              </p>
+              <p className="text-[13px] tracking-wide text-muted-foreground sm:text-[14.5px]">
+                {profile.headline}
+              </p>
+            </div>
+            <p className="font-mono text-[11px] tracking-[0.12em] text-muted-foreground/75">
+              {profile.education}
+            </p>
+          </div>
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-12 pt-28 sm:px-6 sm:pb-16 sm:pt-32">
-          <p className="font-mono text-[11px] tracking-[0.14em] text-muted-foreground">
-            {profile.education}
+        <div className="relative mx-auto max-w-6xl px-5 pt-10 pb-16 sm:px-6 sm:pt-14 sm:pb-20">
+          <p className="eyebrow">
+            {profile.role} · {profile.location}
           </p>
-
-          <h1 className="mt-4 max-w-3xl text-[2.35rem] leading-[1.05] font-semibold tracking-tight sm:text-[3.25rem] lg:text-[3.75rem]">
+          <h1 className="mt-4 max-w-3xl text-[2.25rem] leading-[1.08] font-semibold tracking-tight sm:text-[3.15rem] lg:text-[3.6rem]">
             Code that works.
-            <br />
-            <span className="text-gradient-ember">Systems people use.</span>
+            <br className="hidden sm:block" />
+            <span className="text-gradient-ember"> Systems people use.</span>
           </h1>
-
           <p className="mt-5 max-w-xl text-[15.5px] leading-[1.7] text-muted-foreground sm:text-[16.5px]">
             {profile.tagline}
           </p>
-
-          <p className="mt-2 font-mono text-[11px] tracking-[0.12em] text-muted-foreground/80">
+          <p className="mt-3 font-mono text-[11px] tracking-[0.14em] text-muted-foreground/70">
             {profile.openTo}
           </p>
 
@@ -84,28 +100,44 @@ function Home() {
               View work
             </Link>
             <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-border/70 bg-background/50 px-5 py-3 text-[13.5px] font-medium backdrop-blur-sm transition-all duration-250 hover:border-primary/30 hover:bg-secondary/50"
-            >
-              LinkedIn
-            </a>
-            <a
               href={`mailto:${profile.email}`}
               className="rounded-full border border-primary/35 bg-primary/8 px-5 py-3 text-[13.5px] font-medium text-primary transition-all duration-250 hover:border-primary/55 hover:bg-primary/12"
             >
               Email
             </a>
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-border/70 px-5 py-3 text-[13.5px] font-medium transition-all duration-250 hover:border-primary/30 hover:bg-secondary/50"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-border/70 px-5 py-3 text-[13.5px] font-medium transition-all duration-250 hover:border-primary/30 hover:bg-secondary/50"
+            >
+              GitHub
+            </a>
+            <a
+              href={profile.leetcode}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-border/70 px-5 py-3 text-[13.5px] font-medium transition-all duration-250 hover:border-primary/30 hover:bg-secondary/50"
+            >
+              LeetCode
+            </a>
           </div>
 
-          <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-border/40 pt-8">
+          <dl className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border/40 bg-border/25 sm:grid-cols-3">
             {stats.map((s) => (
-              <div key={s.label}>
-                <dt className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
+              <div key={s.label} className="bg-card/95 px-5 py-6 sm:px-6 sm:py-8">
+                <dt className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase">
                   {s.label}
                 </dt>
-                <dd className="mt-1.5 text-[14px] font-semibold tracking-tight sm:text-[15px]">
+                <dd className="mt-2 font-display text-[1.55rem] font-semibold tracking-tight text-gradient-ember sm:text-[1.75rem]">
                   {s.value}
                 </dd>
               </div>
@@ -114,7 +146,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-6 sm:py-24">
+      <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-6 sm:pb-24">
         <div className="max-w-2xl">
           <p className="eyebrow">Built</p>
           <h2 className="mt-3 text-[1.85rem] font-semibold tracking-tight sm:text-[2.35rem]">
