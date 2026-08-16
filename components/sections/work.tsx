@@ -22,7 +22,7 @@ export function Work() {
           {projects.map((p, i) => (
             <li
               key={p.title}
-              className="group grid gap-5 border-b border-line py-9 transition-colors md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-12 md:hover:bg-paper/[0.02]"
+              className="group grid gap-5 border-b border-line px-0 py-9 transition-colors md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-12 md:px-3 md:hover:bg-paper/[0.02]"
             >
               <div className="min-w-0">
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -52,7 +52,8 @@ export function Work() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.16em] text-paper transition-colors hover:text-accent"
                   >
-                    Live <ArrowUpRight size={13} strokeWidth={1.5} />
+                    Live <ArrowUpRight size={13} strokeWidth={1.5} aria-hidden />
+                    <span className="sr-only">(opens in new tab)</span>
                   </a>
                 )}
                 {p.github && (
@@ -62,7 +63,8 @@ export function Work() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-paper"
                   >
-                    Source <ArrowUpRight size={13} strokeWidth={1.5} />
+                    Source <ArrowUpRight size={13} strokeWidth={1.5} aria-hidden />
+                    <span className="sr-only">(opens in new tab)</span>
                   </a>
                 )}
               </div>

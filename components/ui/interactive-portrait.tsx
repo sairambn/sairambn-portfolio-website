@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 
 type InteractivePortraitProps = {
@@ -12,7 +12,7 @@ type InteractivePortraitProps = {
 
 /**
  * Lightweight cursor-reactive portrait.
- * Uses direct transform updates (no React re-renders, no spring stacks).
+ * Direct transform updates only — no React re-renders on move.
  */
 export function InteractivePortrait({
   src,
@@ -28,6 +28,12 @@ export function InteractivePortrait({
   const currentRef = useRef({ x: 0, y: 0 });
   const activeRef = useRef(false);
 
+  useEffect(() => {
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
   function tick() {
     const frame = frameRef.current;
     const img = imgRef.current;
@@ -39,16 +45,16 @@ export function InteractivePortrait({
     cur.x += (tgt.x - cur.x) * 0.14;
     cur.y += (tgt.y - cur.y) * 0.14;
 
-    const rx = (-cur.y * 8).toFixed(2);
-    const ry = (cur.x * 8).toFixed(2);
-    const tx = (cur.x * 6).toFixed(2);
-    const ty = (cur.y * 4).toFixed(2);
+    const rx = (-cur.y * 7).toFixed(2);
+    const ry = (cur.x * 7).toFixed(2);
+    const tx = (cur.x * 5).toFixed(2);
+    const ty = (cur.y * 3.5).toFixed(2);
     const gx = ((cur.x + 0.5) * 100).toFixed(1);
     const gy = ((cur.y + 0.5) * 100).toFixed(1);
 
     frame.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
-    img.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${activeRef.current ? 1.03 : 1})`;
-    glare.style.background = `radial-gradient(380px circle at ${gx}% ${gy}%, rgba(247,246,243,0.18), transparent 55%)`;
+    img.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${activeRef.current ? 1.025 : 1})`;
+    glare.style.background = `radial-gradient(360px circle at ${gx}% ${gy}%, rgba(247,246,243,0.16), transparent 55%)`;
     glare.style.opacity = activeRef.current ? '1' : '0';
 
     const settled =
@@ -67,24 +73,29 @@ export function InteractivePortrait({
     }
   }
 
-  function handleMove(e: React.MouseEvent<HTMLDivElement>) {
+  function updateFromEvent(clientX: number, clientY: number) {
     const el = frameRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
     targetRef.current = {
-      x: (e.clientX - rect.left) / rect.width - 0.5,
-      y: (e.clientY - rect.top) / rect.height - 0.5,
+      x: (clientX - rect.left) / rect.width - 0.5,
+      y: (clientY - rect.top) / rect.height - 0.5,
     };
     activeRef.current = true;
     ensureTick();
   }
 
-  function handleEnter() {
-    activeRef.current = true;
-    ensureTick();
+  function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
+    updateFromEvent(e.clientX, e.clientY);
   }
 
-  function handleLeave() {
+  function handlePointerEnter(e: React.PointerEvent<HTMLDivElement>) {
+    activeRef.current = true;
+    updateFromEvent(e.clientX, e.clientY);
+  }
+
+  function handlePointerLeave() {
     activeRef.current = false;
     targetRef.current = { x: 0, y: 0 };
     ensureTick();
@@ -94,9 +105,9 @@ export function InteractivePortrait({
     <div
       className={cn(className)}
       style={{ perspective: '1000px' }}
-      onMouseMove={handleMove}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
+      onPointerMove={handlePointerMove}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
     >
       <div
         ref={frameRef}
@@ -114,10 +125,7 @@ export function InteractivePortrait({
           fetchPriority="high"
           draggable={false}
           className="absolute inset-0 h-full w-full select-none object-cover will-change-transform"
-          style={{
-            objectPosition,
-            transition: 'transform 0.2s ease-out',
-          }}
+          style={{ objectPosition }}
         />
 
         <div

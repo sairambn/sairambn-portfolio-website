@@ -10,7 +10,6 @@ const nextConfig = {
   eslint: {
     dirs: ['app', 'components', 'lib'],
   },
-  transpilePackages: ['@splinetool/react-spline', '@splinetool/runtime'],
 };
 
 export default nextConfig;

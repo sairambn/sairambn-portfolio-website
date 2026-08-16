@@ -1,21 +1,38 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const links = [
   { href: '#intro', label: 'Home' },
   { href: '#work', label: 'Work' },
   { href: '#approach', label: 'About' },
+  { href: '#stack', label: 'Stack' },
   { href: '#contact', label: 'Contact' },
 ];
 
 export function Nav() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-line bg-canvas">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-line bg-canvas/95 backdrop-blur-sm">
       <div className="mx-auto flex h-14 max-w-site items-center justify-between px-5 md:px-8">
         <Link
           href="#intro"
@@ -38,7 +55,7 @@ export function Nav() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
           {links.map((l) => (
             <a
               key={l.href}
@@ -54,7 +71,7 @@ export function Nav() {
             rel="noopener noreferrer"
             className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-accent transition-colors hover:text-paper"
           >
-            Resume
+            GitHub
           </a>
         </nav>
 
@@ -89,7 +106,7 @@ export function Nav() {
               onClick={() => setOpen(false)}
               className="py-3 font-mono text-xs uppercase tracking-[0.16em] text-accent"
             >
-              Resume
+              GitHub
             </a>
           </nav>
         </div>

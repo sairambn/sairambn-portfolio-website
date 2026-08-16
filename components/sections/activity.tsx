@@ -43,12 +43,17 @@ export function Activity() {
               </p>
             </div>
 
-            {/* Toggle */}
-            <div className="flex items-center gap-1 rounded-full border border-line bg-canvas p-1">
+            <div
+              className="flex items-center gap-1 rounded-full border border-line bg-canvas p-1"
+              role="group"
+              aria-label="Chart view"
+            >
               {(Object.keys(views) as ViewKey[]).map((key) => (
                 <button
                   key={key}
+                  type="button"
                   onClick={() => setView(key)}
+                  aria-pressed={view === key}
                   className={`rounded-full px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-all ${
                     view === key
                       ? 'bg-paper text-canvas'
@@ -100,6 +105,7 @@ export function Activity() {
             alt={`GitHub ${views[view].label.toLowerCase()} for ${profile.handle}`}
             className="h-auto w-full"
             loading="lazy"
+            decoding="async"
           />
         </div>
 

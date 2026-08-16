@@ -91,12 +91,8 @@ export function Hero() {
             ))}
           </dl>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <LiquidButton
-              href="#work"
-              size="lg"
-              className="font-mono text-[11px] uppercase tracking-[0.14em]"
-            >
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <LiquidButton href="#work" size="lg">
               View work
             </LiquidButton>
             <Button variant="outline" asChild>

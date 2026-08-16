@@ -49,6 +49,11 @@
     outline: 1px solid #c4a574;
     outline-offset: 3px;
   }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 @layer utilities {
@@ -73,7 +78,6 @@
     }
   }
 
-  /* Spline / 3D scene loading indicator */
   .loader {
     width: 28px;
     height: 28px;
