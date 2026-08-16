@@ -1,6 +1,26 @@
+'use client';
+
+import { useState } from 'react';
 import { profile } from '@/lib/data';
 
+const views = {
+  calendar: {
+    label: 'Calendar',
+    src: 'https://ghchart.rshah.org/40c463/sairambn',
+    note: 'Classic contribution calendar',
+  },
+  trend: {
+    label: 'Trend',
+    src: 'https://github-readme-activity-graph.vercel.app/graph?username=sairambn&theme=github-dark&hide_border=true&bg_color=0d1117&color=40c463&line=40c463&point=40c463&area=true&area_color=40c463',
+    note: 'Contribution trend over time',
+  },
+} as const;
+
+type ViewKey = keyof typeof views;
+
 export function Activity() {
+  const [view, setView] = useState<ViewKey>('trend');
+
   return (
     <section id="activity" className="border-b border-line">
       <div className="mx-auto max-w-site px-5 py-20 md:px-8 md:py-28">
@@ -8,18 +28,37 @@ export function Activity() {
           <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">
             Nº005 / Activity
           </p>
-          <div>
-            <h2 className="font-display text-display-md text-paper">GitHub</h2>
-            <p className="mt-3 text-sm text-muted">
-              <a
-                href={profile.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-paper underline-offset-4 hover:underline"
-              >
-                github.com/{profile.handle}
-              </a>
-            </p>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 className="font-display text-display-md text-paper">GitHub</h2>
+              <p className="mt-3 text-sm text-muted">
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-paper underline-offset-4 hover:underline"
+                >
+                  github.com/{profile.handle}
+                </a>
+              </p>
+            </div>
+
+            {/* Toggle */}
+            <div className="flex items-center gap-1 rounded-full border border-line bg-canvas p-1">
+              {(Object.keys(views) as ViewKey[]).map((key) => (
+                <button
+                  key={key}
+                  onClick={() => setView(key)}
+                  className={`rounded-full px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-all ${
+                    view === key
+                      ? 'bg-paper text-canvas'
+                      : 'text-muted hover:text-paper'
+                  }`}
+                >
+                  {views[key].label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -53,18 +92,19 @@ export function Activity() {
           </div>
         </div>
 
-        <div className="overflow-hidden rounded border border-line">
+        <div className="overflow-hidden rounded border border-line bg-[#0d1117]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://github-readme-activity-graph.vercel.app/graph?username=sairambn&theme=github-dark&hide_border=true&bg_color=0d1117&color=40c463&line=40c463&point=40c463&area=true&area_color=40c463"
-            alt="GitHub contribution activity for sairambn"
+            key={view}
+            src={views[view].src}
+            alt={`GitHub ${views[view].label.toLowerCase()} for ${profile.handle}`}
             className="h-auto w-full"
             loading="lazy"
           />
         </div>
 
         <p className="mt-5 font-mono text-[10px] text-muted/60">
-          Live activity graph · Numbers current as of August 2026
+          {views[view].note} · Numbers current as of August 2026
         </p>
       </div>
     </section>
