@@ -56,7 +56,7 @@ export function Activity() {
         <div className="border border-line p-3 md:p-5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`https://ghchart.rshah.org/c4a574/${profile.handle}`}
+            src={`https://ghchart.rshah.org/40c463/${profile.handle}`}
             alt={`GitHub contribution activity for ${profile.handle}`}
             className="h-auto w-full"
             loading="lazy"
