@@ -26,16 +26,18 @@ export function Hero() {
       id="intro"
       className="relative min-h-[100svh] overflow-hidden border-b border-line"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-20 md:opacity-25">
+      {/* Full-bleed voxel terrain — reacts to cursor across the hero */}
+      <div className="absolute inset-0 opacity-[0.28] md:opacity-[0.34]">
         <VoxelTopographyGrid
           primaryColor="#c4a574"
-          wireColor="rgba(196, 165, 116, 0.12)"
-          tileSize={40}
-          maxHeight={44}
-          speed={0.007}
+          wireColor="rgba(196, 165, 116, 0.2)"
+          backgroundColor="#0a0a0a"
+          tileSize={30}
+          maxHeight={52}
+          speed={0.011}
         />
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-canvas/80" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-canvas/55 via-canvas/70 to-canvas" />
 
       <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-site grid-cols-1 items-end gap-12 px-5 pb-16 pt-28 md:grid-cols-12 md:items-center md:gap-10 md:px-8 md:pb-20 md:pt-24">
         <div className="order-2 md:order-1 md:col-span-7">
