@@ -39,6 +39,12 @@ export function InteractivePortrait({
   const glareX = useTransform(mouseX, [-0.5, 0.5], ['0%', '100%']);
   const glareY = useTransform(mouseY, [-0.5, 0.5], ['0%', '100%']);
 
+  const glareBackground = useTransform(
+    [glareX, glareY],
+    ([gx, gy]) =>
+      `radial-gradient(420px circle at ${gx} ${gy}, rgba(247,246,243,0.22), transparent 55%)`
+  );
+
   function handleMove(e: React.MouseEvent<HTMLDivElement>) {
     const el = ref.current;
     if (!el) return;
@@ -56,10 +62,7 @@ export function InteractivePortrait({
   }
 
   return (
-    <div
-      className={cn('perspective-[1200px]', className)}
-      style={{ perspective: '1200px' }}
-    >
+    <div className={cn(className)} style={{ perspective: '1200px' }}>
       <motion.div
         ref={ref}
         onMouseMove={handleMove}
@@ -72,7 +75,10 @@ export function InteractivePortrait({
         }}
         className="relative aspect-[4/5] w-full overflow-hidden border border-line bg-line will-change-transform"
       >
-        <Spotlight size={260} className="from-accent/40 via-accent/15 to-transparent" />
+        <Spotlight
+          size={260}
+          className="from-accent/40 via-accent/15 to-transparent"
+        />
 
         <motion.img
           src={src}
@@ -88,25 +94,18 @@ export function InteractivePortrait({
             x: imgX,
             y: imgY,
             scale: hovered ? 1.04 : 1,
-            transition: 'scale 0.35s ease',
           }}
         />
 
-        {/* Soft light that follows the cursor */}
         <motion.div
           aria-hidden
-          className="pointer-events-none absolute inset-0 mix-blend-soft-light"
+          className="pointer-events-none absolute inset-0 mix-blend-soft-light transition-opacity duration-300"
           style={{
-            background: useTransform(
-              [glareX, glareY],
-              ([gx, gy]) =>
-                `radial-gradient(420px circle at ${gx} ${gy}, rgba(247,246,243,0.22), transparent 55%)`
-            ),
+            background: glareBackground,
             opacity: hovered ? 1 : 0,
           }}
         />
 
-        {/* Edge vignette so the tilt feels grounded */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
