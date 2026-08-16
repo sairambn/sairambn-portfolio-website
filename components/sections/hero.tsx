@@ -122,7 +122,7 @@ export function Hero() {
               objectPosition="20% 38%"
             />
             <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted md:text-right">
-              CEG · Anna University · class of '25
+              {"CEG · Anna University · class of '25"}
             </figcaption>
           </figure>
         </div>
