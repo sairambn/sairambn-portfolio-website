@@ -93,11 +93,11 @@ export function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <LiquidButton
-              asChild
+              href="#work"
               size="lg"
               className="font-mono text-[11px] uppercase tracking-[0.14em]"
             >
-              <a href="#work">View work</a>
+              View work
             </LiquidButton>
             <Button variant="outline" asChild>
               <a
