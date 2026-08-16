@@ -72,4 +72,20 @@
       animation: none;
     }
   }
+
+  /* Spline / 3D scene loading indicator */
+  .loader {
+    width: 28px;
+    height: 28px;
+    border: 2px solid rgba(196, 165, 116, 0.25);
+    border-top-color: #c4a574;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }

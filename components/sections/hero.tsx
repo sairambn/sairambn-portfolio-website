@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import { profile, stats } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
+import { InteractivePortrait } from '@/components/ui/interactive-portrait';
 
 const VoxelTopographyGrid = dynamic(
   () =>
@@ -91,7 +92,11 @@ export function Hero() {
           </dl>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <LiquidButton asChild size="lg" className="font-mono text-[11px] uppercase tracking-[0.14em]">
+            <LiquidButton
+              asChild
+              size="lg"
+              className="font-mono text-[11px] uppercase tracking-[0.14em]"
+            >
               <a href="#work">View work</a>
             </LiquidButton>
             <Button variant="outline" asChild>
@@ -111,19 +116,11 @@ export function Hero() {
 
         <div className="order-1 md:order-2 md:col-span-5">
           <figure className="mx-auto w-full max-w-[280px] sm:max-w-[320px] md:ml-auto md:mr-0 md:max-w-[400px]">
-            <div className="relative aspect-[4/5] overflow-hidden border border-line bg-line">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/content.png"
-                alt={`${profile.name} at College of Engineering Guindy`}
-                width={1551}
-                height={798}
-                decoding="async"
-                fetchPriority="high"
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ objectPosition: '20% 38%' }}
-              />
-            </div>
+            <InteractivePortrait
+              src="/content.png"
+              alt={`${profile.name} at College of Engineering Guindy`}
+              objectPosition="20% 38%"
+            />
             <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted md:text-right">
               CEG · Anna University · class of '25
             </figcaption>
