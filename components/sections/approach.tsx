@@ -10,7 +10,7 @@ export function Approach() {
           </p>
           <div>
             <h2 className="font-display text-display-md text-paper">How I work</h2>
-            <p className="mt-4 max-w-lg text-[15px] leading-[1.65] text-muted">
+            <p className="mt-4 max-w-lg text-[15px] leading-[1.7] text-muted">
               Four habits. Correct systems, finished work.
             </p>
           </div>
@@ -20,13 +20,15 @@ export function Approach() {
           {principles.map((p) => (
             <li
               key={p.title}
-              className="border-b border-line py-8 md:odd:pr-10 md:even:border-l md:even:pl-10"
+              className="border-b border-line py-9 md:odd:pr-12 md:even:border-l md:even:pl-12"
             >
-              <p className="font-mono text-[10px] text-accent">Nº{p.index}</p>
-              <h3 className="mt-2 font-display text-xl font-medium tracking-tight text-paper">
+              <p className="font-mono text-[10px] tabular-nums tracking-wide text-accent">
+                Nº{p.index}
+              </p>
+              <h3 className="mt-2.5 font-display text-xl font-medium tracking-tight text-paper">
                 {p.title}
               </h3>
-              <p className="mt-3 max-w-sm text-sm leading-[1.65] text-muted">{p.body}</p>
+              <p className="mt-3 max-w-sm text-sm leading-[1.7] text-muted">{p.body}</p>
             </li>
           ))}
         </ol>

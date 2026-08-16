@@ -4,7 +4,6 @@ const links = [
   { label: 'LinkedIn', href: profile.linkedin },
   { label: 'GitHub', href: profile.github },
   { label: 'LeetCode', href: profile.leetcode },
-  { label: 'Email', href: `mailto:${profile.email}` },
 ];
 
 export function Contact() {
@@ -17,20 +16,25 @@ export function Contact() {
           </p>
           <div>
             <h2 className="font-display text-display-md text-paper">Open to SDE roles</h2>
-            <p className="mt-3 max-w-md text-[15px] leading-[1.65] text-muted">
-              {profile.openTo}. LinkedIn or email works best.
+            <p className="mt-3 max-w-md text-[15px] leading-[1.7] text-muted">
+              {profile.openTo}. Email is the fastest path.
             </p>
+
+            <a
+              href={`mailto:${profile.email}`}
+              className="link-quiet mt-10 inline-block font-display text-2xl font-medium tracking-tight md:text-3xl"
+            >
+              {profile.email}
+            </a>
 
             <ul className="mt-12 flex flex-wrap gap-x-10 gap-y-4">
               {links.map((l) => (
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    target={l.href.startsWith('mailto') ? undefined : '_blank'}
-                    rel={
-                      l.href.startsWith('mailto') ? undefined : 'noopener noreferrer'
-                    }
-                    className="font-display text-xl font-medium tracking-tight text-paper transition-colors hover:text-accent md:text-2xl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-quiet font-display text-lg font-medium tracking-tight md:text-xl"
                   >
                     {l.label}
                   </a>
@@ -38,11 +42,10 @@ export function Contact() {
               ))}
             </ul>
 
-            <p className="mt-20 font-mono text-[10px] leading-relaxed tracking-wide text-muted">
+            <p className="mt-24 font-mono text-[10px] leading-relaxed tracking-wide text-muted/70">
               © {new Date().getFullYear()} {profile.name}
-              <br className="md:hidden" />
-              <span className="hidden md:inline"> · </span>
-              {profile.education}
+              <span className="mx-2 text-line">·</span>
+              <span className="text-muted/55">{profile.education}</span>
             </p>
           </div>
         </div>

@@ -32,7 +32,7 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-line bg-canvas/95 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-line bg-canvas">
       <div className="mx-auto flex h-14 max-w-site items-center justify-between px-5 md:px-8">
         <Link
           href="#intro"
@@ -50,18 +50,14 @@ export function Nav() {
               style={{ objectPosition: '18% 36%' }}
             />
           </span>
-          <span className="font-script text-[1.75rem] font-normal leading-none">
+          <span className="font-script text-[1.75rem] font-normal leading-none tracking-[0.01em]">
             Sairam BN
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-muted transition-colors hover:text-paper"
-            >
+            <a key={l.href} href={l.href} className="link-meta">
               {l.label}
             </a>
           ))}
@@ -69,7 +65,7 @@ export function Nav() {
             href="https://github.com/sairambn"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-accent transition-colors hover:text-paper"
+            className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-accent transition-colors duration-200 hover:text-paper"
           >
             GitHub
           </a>
@@ -88,13 +84,13 @@ export function Nav() {
 
       {open && (
         <div className="border-t border-line bg-canvas md:hidden">
-          <nav className="flex flex-col px-5 py-3" aria-label="Mobile">
+          <nav className="flex flex-col px-5 py-4" aria-label="Mobile">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="py-3 font-mono text-xs uppercase tracking-[0.16em] text-muted hover:text-paper"
+                className="border-b border-line/60 py-3.5 font-mono text-xs uppercase tracking-[0.16em] text-muted last:border-0 hover:text-paper"
               >
                 {l.label}
               </a>
@@ -104,7 +100,7 @@ export function Nav() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="py-3 font-mono text-xs uppercase tracking-[0.16em] text-accent"
+              className="py-3.5 font-mono text-xs uppercase tracking-[0.16em] text-accent"
             >
               GitHub
             </a>

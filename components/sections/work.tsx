@@ -11,7 +11,7 @@ export function Work() {
           </p>
           <div>
             <h2 className="font-display text-display-md text-paper">Systems shipped</h2>
-            <p className="mt-4 max-w-xl text-[15px] leading-[1.65] text-muted">
+            <p className="mt-4 max-w-xl text-[15px] leading-[1.7] text-muted">
               Event platforms, constraint solvers, exam pipelines, client sites.
               Built for real use, not demos.
             </p>
@@ -22,37 +22,38 @@ export function Work() {
           {projects.map((p, i) => (
             <li
               key={p.title}
-              className="group grid gap-5 border-b border-line px-0 py-9 transition-colors md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-12 md:px-3 md:hover:bg-paper/[0.02]"
+              className="group grid gap-5 border-b border-line px-0 py-10 transition-colors duration-200 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-12 md:px-4 md:hover:bg-paper/[0.025]"
             >
               <div className="min-w-0">
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <span className="font-mono text-[10px] text-paper/30">
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1.5">
+                  <span className="font-mono text-[10px] tabular-nums text-paper/28">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="font-display text-display-sm text-paper transition-colors md:group-hover:text-accent">
+                  <h3 className="font-display text-display-sm text-paper transition-colors duration-200 md:group-hover:text-accent">
                     {p.title}
                   </h3>
                   <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-accent">
                     {p.outcome}
                   </span>
                 </div>
-                <p className="mt-3 max-w-2xl text-sm leading-[1.65] text-muted md:text-[15px]">
+                <p className="mt-3.5 max-w-2xl text-sm leading-[1.7] text-muted md:text-[15px]">
                   {p.description}
                 </p>
-                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-paper/35">
+                <p className="mt-3.5 font-mono text-[10px] uppercase tracking-[0.14em] text-paper/32">
                   {p.stack}
                 </p>
               </div>
 
-              <div className="flex shrink-0 flex-wrap gap-x-5 gap-y-2 md:pt-1">
+              <div className="flex shrink-0 flex-wrap gap-x-6 gap-y-2 md:pt-1">
                 {p.live && (
                   <a
                     href={p.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.16em] text-paper transition-colors hover:text-accent"
+                    className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.16em] text-paper transition-colors duration-200 hover:text-accent"
                   >
-                    Live <ArrowUpRight size={13} strokeWidth={1.5} aria-hidden />
+                    Live
+                    <ArrowUpRight size={12} strokeWidth={1.5} aria-hidden className="opacity-70" />
                     <span className="sr-only">(opens in new tab)</span>
                   </a>
                 )}
@@ -61,9 +62,10 @@ export function Work() {
                     href={p.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted transition-colors hover:text-paper"
+                    className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted transition-colors duration-200 hover:text-paper"
                   >
-                    Source <ArrowUpRight size={13} strokeWidth={1.5} aria-hidden />
+                    Source
+                    <ArrowUpRight size={12} strokeWidth={1.5} aria-hidden className="opacity-70" />
                     <span className="sr-only">(opens in new tab)</span>
                   </a>
                 )}

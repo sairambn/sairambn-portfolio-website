@@ -17,7 +17,7 @@ export function Stack() {
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
                 {g.title}
               </p>
-              <ul className="mt-4 space-y-2.5">
+              <ul className="mt-5 space-y-2.5">
                 {g.items.map((item) => (
                   <li
                     key={item}
