@@ -46,9 +46,9 @@ export function Activity() {
             <p className="font-display text-2xl font-medium tracking-tight text-paper md:text-3xl">
               15+
             </p>
-            <p className="mt-1 text-[13px] text-muted">Repos</p>
+            <p className="mt-1 text-[13px] text-muted">Projects</p>
             <p className="mt-0.5 font-mono text-[11px] text-muted/70">
-              Public projects
+              Public repositories
             </p>
           </div>
         </div>
