@@ -77,7 +77,7 @@ export const projects: Project[] = [
     title: 'AI Problem Solve-a-Thon',
     outcome: 'Ran live',
     description:
-      'Event platform for a department hackathon: team registration, problem assignment by team size, solution collection via GitHub PRs. Used on event day.',
+      'Event platform for a department hackathon. Team registration, problem assignment by team size, solution collection via GitHub PRs. Used on the day of the event.',
     stack: 'TypeScript',
     live: 'https://ai-thon-one.vercel.app',
     github: 'https://github.com/sairambn/AI-Competition',
@@ -86,7 +86,7 @@ export const projects: Project[] = [
     title: 'Master Timetable Generator',
     outcome: 'No conflicts',
     description:
-      'In-browser constraint solver for teachers, classes, and rooms. Outputs conflict-free timetables with class/teacher views and CSV export.',
+      'Browser constraint solver for teachers, classes and rooms. Outputs conflict-free timetables with class and teacher views plus CSV export.',
     stack: 'JavaScript',
     live: 'https://master-timetable-generator.vercel.app',
     github: 'https://github.com/sairambn/master-timetable-generator',
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     title: 'Result Analysis Portal',
     outcome: 'One-pass export',
     description:
-      'Exam-cell tool: upload mark sheets, get subject stats, toppers, arrear groups, FRONT + MARK Excel exports.',
+      'Exam-cell tool: upload mark sheets, get subject stats, toppers, arrear groups, and FRONT + MARK Excel reports.',
     stack: 'TypeScript',
     live: 'https://aiml-stats-portal.vercel.app',
     github: 'https://github.com/sairambn/aiml-stats-portal',
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     title: 'NeetCode 250 Daily',
     outcome: 'One problem a day',
     description:
-      'One DSA problem a day through the NeetCode 250 list. Solutions in Python, Java, and C++.',
+      'One DSA problem a day through the NeetCode 250 list. Solutions in Python, Java and C++.',
     stack: 'Python · Java · C++',
     github: 'https://github.com/sairambn/neetcode-250-daily',
   },
@@ -112,7 +112,7 @@ export const projects: Project[] = [
     title: 'Total Fitness Studio',
     outcome: 'Live client site',
     description:
-      'SSR business site for a 4.9-star gym. Local SEO, Maps, tel and WhatsApp CTAs. In production.',
+      'SSR business site for a 4.9-star gym. Local SEO, Maps, call and WhatsApp CTAs. Still running in production.',
     stack: 'TypeScript · SSR',
     live: 'https://total-fitness-studio-livid.vercel.app',
     github: 'https://github.com/sairambn/TotalFitnessStudio',
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     title: 'Naiyapudai Growth Studio',
     outcome: 'Live',
     description:
-      'SSR site and local SEO setup for a growth studio serving Tamil Nadu brands.',
+      'SSR site and local SEO setup for a growth studio serving Tamil Nadu brands. In production.',
     stack: 'TypeScript · SSR',
     live: 'https://naiyapudai.vercel.app',
     github: 'https://github.com/sairambn/naiyapudai-growth-studio',
