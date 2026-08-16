@@ -23,7 +23,7 @@ export function Activity() {
           </div>
         </div>
 
-        <div className="mb-8 grid grid-cols-3 gap-6 border-t border-line pt-8">
+        <div className="mb-10 grid grid-cols-3 gap-6 border-t border-line pt-8">
           <div>
             <p className="font-display text-2xl font-medium tracking-tight text-paper md:text-3xl">
               659
@@ -53,20 +53,18 @@ export function Activity() {
           </div>
         </div>
 
-        <div className="border border-line p-3 md:p-5">
+        <div className="overflow-hidden rounded border border-line">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`https://ghchart.rshah.org/40c463/${profile.handle}`}
-            alt={`GitHub contribution activity for ${profile.handle}`}
+            src="https://github-readme-activity-graph.vercel.app/graph?username=sairambn&theme=github-dark&hide_border=true&bg_color=0d1117&color=40c463&line=40c463&point=40c463&area=true&area_color=40c463"
+            alt="GitHub contribution activity for sairambn"
             className="h-auto w-full"
             loading="lazy"
-            width={663}
-            height={104}
           />
         </div>
 
-        <p className="mt-4 font-mono text-[10px] text-muted/60">
-          Chart updates automatically from GitHub. Numbers above are current as of August 2026.
+        <p className="mt-5 font-mono text-[10px] text-muted/60">
+          Live activity graph · Numbers current as of August 2026
         </p>
       </div>
     </section>
