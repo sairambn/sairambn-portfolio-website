@@ -1,13 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from 'framer-motion';
-import { Spotlight } from '@/components/ui/spotlight';
+import { useRef } from 'react';
 import { cn } from '@/lib/utils';
 
 type InteractivePortraitProps = {
@@ -17,93 +10,121 @@ type InteractivePortraitProps = {
   objectPosition?: string;
 };
 
+/**
+ * Lightweight cursor-reactive portrait.
+ * Uses direct transform updates (no React re-renders, no spring stacks).
+ */
 export function InteractivePortrait({
   src,
   alt,
   className,
   objectPosition = '20% 38%',
 }: InteractivePortraitProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [hovered, setHovered] = useState(false);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const glareRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef(0);
+  const targetRef = useRef({ x: 0, y: 0 });
+  const currentRef = useRef({ x: 0, y: 0 });
+  const activeRef = useRef(false);
 
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+  function tick() {
+    const frame = frameRef.current;
+    const img = imgRef.current;
+    const glare = glareRef.current;
+    if (!frame || !img || !glare) return;
 
-  const mouseX = useSpring(x, { stiffness: 180, damping: 22, mass: 0.4 });
-  const mouseY = useSpring(y, { stiffness: 180, damping: 22, mass: 0.4 });
+    const cur = currentRef.current;
+    const tgt = targetRef.current;
+    cur.x += (tgt.x - cur.x) * 0.14;
+    cur.y += (tgt.y - cur.y) * 0.14;
 
-  const rotateX = useTransform(mouseY, [-0.5, 0.5], [9, -9]);
-  const rotateY = useTransform(mouseX, [-0.5, 0.5], [-9, 9]);
-  const imgX = useTransform(mouseX, [-0.5, 0.5], [-8, 8]);
-  const imgY = useTransform(mouseY, [-0.5, 0.5], [-6, 6]);
-  const glareX = useTransform(mouseX, [-0.5, 0.5], ['0%', '100%']);
-  const glareY = useTransform(mouseY, [-0.5, 0.5], ['0%', '100%']);
+    const rx = (-cur.y * 8).toFixed(2);
+    const ry = (cur.x * 8).toFixed(2);
+    const tx = (cur.x * 6).toFixed(2);
+    const ty = (cur.y * 4).toFixed(2);
+    const gx = ((cur.x + 0.5) * 100).toFixed(1);
+    const gy = ((cur.y + 0.5) * 100).toFixed(1);
 
-  const glareBackground = useTransform(
-    [glareX, glareY],
-    ([gx, gy]) =>
-      `radial-gradient(420px circle at ${gx} ${gy}, rgba(247,246,243,0.22), transparent 55%)`
-  );
+    frame.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+    img.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${activeRef.current ? 1.03 : 1})`;
+    glare.style.background = `radial-gradient(380px circle at ${gx}% ${gy}%, rgba(247,246,243,0.18), transparent 55%)`;
+    glare.style.opacity = activeRef.current ? '1' : '0';
+
+    const settled =
+      Math.abs(tgt.x - cur.x) < 0.001 && Math.abs(tgt.y - cur.y) < 0.001;
+
+    if (!settled || activeRef.current) {
+      rafRef.current = requestAnimationFrame(tick);
+    } else {
+      rafRef.current = 0;
+    }
+  }
+
+  function ensureTick() {
+    if (!rafRef.current) {
+      rafRef.current = requestAnimationFrame(tick);
+    }
+  }
 
   function handleMove(e: React.MouseEvent<HTMLDivElement>) {
-    const el = ref.current;
+    const el = frameRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
-    x.set(px);
-    y.set(py);
+    targetRef.current = {
+      x: (e.clientX - rect.left) / rect.width - 0.5,
+      y: (e.clientY - rect.top) / rect.height - 0.5,
+    };
+    activeRef.current = true;
+    ensureTick();
+  }
+
+  function handleEnter() {
+    activeRef.current = true;
+    ensureTick();
   }
 
   function handleLeave() {
-    setHovered(false);
-    x.set(0);
-    y.set(0);
+    activeRef.current = false;
+    targetRef.current = { x: 0, y: 0 };
+    ensureTick();
   }
 
   return (
-    <div className={cn(className)} style={{ perspective: '1200px' }}>
-      <motion.div
-        ref={ref}
-        onMouseMove={handleMove}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={handleLeave}
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: 'preserve-3d',
-        }}
+    <div
+      className={cn(className)}
+      style={{ perspective: '1000px' }}
+      onMouseMove={handleMove}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      <div
+        ref={frameRef}
         className="relative aspect-[4/5] w-full overflow-hidden border border-line bg-line will-change-transform"
+        style={{ transformStyle: 'preserve-3d' }}
       >
-        <Spotlight
-          size={260}
-          className="from-accent/40 via-accent/15 to-transparent"
-        />
-
-        <motion.img
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          ref={imgRef}
           src={src}
           alt={alt}
-          width={1551}
-          height={798}
+          width={800}
+          height={1000}
           decoding="async"
           fetchPriority="high"
           draggable={false}
-          className="absolute inset-0 h-full w-full select-none object-cover"
+          className="absolute inset-0 h-full w-full select-none object-cover will-change-transform"
           style={{
             objectPosition,
-            x: imgX,
-            y: imgY,
-            scale: hovered ? 1.04 : 1,
+            transition: 'transform 0.2s ease-out',
           }}
         />
 
-        <motion.div
+        <div
+          ref={glareRef}
           aria-hidden
-          className="pointer-events-none absolute inset-0 mix-blend-soft-light transition-opacity duration-300"
-          style={{
-            background: glareBackground,
-            opacity: hovered ? 1 : 0,
-          }}
+          className="pointer-events-none absolute inset-0 mix-blend-soft-light transition-opacity duration-200"
+          style={{ opacity: 0 }}
         />
 
         <div
@@ -114,7 +135,7 @@ export function InteractivePortrait({
               'linear-gradient(to top, rgba(10,10,10,0.35) 0%, transparent 28%), linear-gradient(to bottom, rgba(10,10,10,0.12) 0%, transparent 20%)',
           }}
         />
-      </motion.div>
+      </div>
     </div>
   );
 }

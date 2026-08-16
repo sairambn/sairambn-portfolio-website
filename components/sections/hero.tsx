@@ -26,13 +26,13 @@ export function Hero() {
       id="intro"
       className="relative min-h-[100svh] overflow-hidden border-b border-line"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-25 md:opacity-30">
+      <div className="pointer-events-none absolute inset-0 opacity-20 md:opacity-25">
         <VoxelTopographyGrid
           primaryColor="#c4a574"
-          wireColor="rgba(196, 165, 116, 0.14)"
-          tileSize={32}
-          maxHeight={56}
-          speed={0.01}
+          wireColor="rgba(196, 165, 116, 0.12)"
+          tileSize={40}
+          maxHeight={44}
+          speed={0.007}
         />
       </div>
       <div className="pointer-events-none absolute inset-0 bg-canvas/80" />
