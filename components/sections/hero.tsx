@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { profile, stats } from '@/lib/data';
 import { Button } from '@/components/ui/button';
@@ -11,6 +12,14 @@ const VoxelTopographyGrid = dynamic(
 );
 
 export function Hero() {
+  const [written, setWritten] = useState(false);
+
+  useEffect(() => {
+    // Start writing shortly after the page settles
+    const timer = setTimeout(() => setWritten(true), 400);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section
       id="intro"
@@ -33,8 +42,24 @@ export function Hero() {
             Nº001 / Intro
           </p>
 
-          <h1 className="font-script text-script-xl text-paper">
-            {profile.shortName}
+          {/* Cursive name with left-to-right writing animation */}
+          <h1 className="relative overflow-hidden">
+            <span
+              className={`inline-block font-script text-script-xl text-paper transition-all duration-[1.6s] ease-out ${
+                written
+                  ? 'translate-x-0 opacity-100'
+                  : '-translate-x-4 opacity-0'
+              }`}
+              style={{
+                clipPath: written
+                  ? 'inset(0 0 0 0)'
+                  : 'inset(0 100% 0 0)',
+                transition:
+                  'clip-path 1.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease, transform 0.8s ease',
+              }}
+            >
+              {profile.shortName}
+            </span>
           </h1>
 
           <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
@@ -101,7 +126,7 @@ export function Hero() {
               />
             </div>
             <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted md:text-right">
-              CEG · Anna University · class of &apos;25
+              CEG · Anna University · class of '25
             </figcaption>
           </figure>
         </div>
