@@ -127,3 +127,54 @@ export const projects: Project[] = [
     github: 'https://github.com/sairambn/naiyapudai-growth-studio',
   },
 ];
+
+/** Activity / practice signal — kept honest and recent. */
+export const activitySignal = {
+  since: 'July 2026',
+  focus:
+    'Daily DSA, live systems, and public work that stays usable — not a year of empty squares.',
+  metrics: [
+    {
+      value: 'Daily',
+      label: 'DSA practice',
+      note: 'NeetCode 250 · Python · Java',
+    },
+    {
+      value: '15',
+      label: 'Public repos',
+      note: 'Shipped and maintained',
+    },
+    {
+      value: '6+',
+      label: 'Live systems',
+      note: 'Client + college tools',
+    },
+  ],
+  lanes: [
+    {
+      title: 'Algorithms',
+      body: 'One problem a day through NeetCode 250. Solutions in Python, Java, and C++ with clean explanations.',
+      href: 'https://github.com/sairambn/neetcode-250-daily',
+      tag: 'Python · Java',
+    },
+    {
+      title: 'Product systems',
+      body: 'Event platforms, timetable solvers, exam pipelines, and client sites that stay in production.',
+      href: 'https://github.com/sairambn',
+      tag: 'TypeScript',
+    },
+    {
+      title: 'Portfolio craft',
+      body: 'This site and related experiments — type, performance, and shipping discipline as practice.',
+      href: 'https://github.com/sairambn/sairambn-portfolio-website',
+      tag: 'Next.js',
+    },
+  ],
+  /** Recent intensity marks for a compact 4-week strip (0–3 scale). */
+  recentWeeks: [
+    { label: 'W1', level: 2 },
+    { label: 'W2', level: 3 },
+    { label: 'W3', level: 3 },
+    { label: 'W4', level: 3 },
+  ],
+};
