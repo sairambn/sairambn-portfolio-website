@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { profile, stats } from '@/lib/data';
 import { Button } from '@/components/ui/button';
+import { LiquidButton } from '@/components/ui/liquid-glass-button';
 
 const VoxelTopographyGrid = dynamic(
   () =>
@@ -15,7 +16,6 @@ export function Hero() {
   const [written, setWritten] = useState(false);
 
   useEffect(() => {
-    // Start writing shortly after the page settles
     const timer = setTimeout(() => setWritten(true), 400);
     return () => clearTimeout(timer);
   }, []);
@@ -42,7 +42,6 @@ export function Hero() {
             Nº001 / Intro
           </p>
 
-          {/* Cursive name with left-to-right writing animation */}
           <h1 className="relative overflow-hidden">
             <span
               className={`inline-block font-script text-script-xl text-paper transition-all duration-[1.6s] ease-out ${
@@ -91,10 +90,10 @@ export function Hero() {
             ))}
           </dl>
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Button asChild>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <LiquidButton asChild size="lg" className="font-mono text-[11px] uppercase tracking-[0.14em]">
               <a href="#work">View work</a>
-            </Button>
+            </LiquidButton>
             <Button variant="outline" asChild>
               <a
                 href={profile.linkedin}
