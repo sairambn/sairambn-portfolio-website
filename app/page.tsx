@@ -2,6 +2,7 @@ import { Nav } from '@/components/nav';
 import { Hero } from '@/components/sections/hero';
 import { Marquee } from '@/components/sections/marquee';
 import { Work } from '@/components/sections/work';
+import { Keyboard } from '@/components/sections/keyboard';
 import { Approach } from '@/components/sections/approach';
 import { Stack } from '@/components/sections/stack';
 import { Activity } from '@/components/sections/activity';
@@ -15,6 +16,7 @@ export default function HomePage() {
         <Hero />
         <Marquee text="SHIPS SYSTEMS PEOPLE USE" />
         <Work />
+        <Keyboard />
         <Approach />
         <Marquee text="DAILY DSA · PYTHON · JAVA · TYPESCRIPT" />
         <Stack />
