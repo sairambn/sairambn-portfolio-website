@@ -16,7 +16,7 @@ let thockEngine: ThockEngine | null = null;
 let thockEnginePromise: Promise<ThockEngine | null> | null = null;
 
 function buildCaseImpulse(ctx: AudioContext): AudioBuffer {
-  const duration = 0.2;
+  const duration = 0.18;
   const length = Math.ceil(ctx.sampleRate * duration);
   const buffer = ctx.createBuffer(2, length, ctx.sampleRate);
   for (let ch = 0; ch < 2; ch++) {
@@ -29,6 +29,31 @@ function buildCaseImpulse(ctx: AudioContext): AudioBuffer {
       lp += (raw - lp) * 0.3;
       data[i] = lp;
     }
+  }
+  return buffer;
+}
+
+/** Procedural key thock — works in every browser (no Ogg needed). */
+function buildSyntheticThock(ctx: AudioContext): AudioBuffer {
+  const duration = 0.09;
+  const sampleRate = ctx.sampleRate;
+  const length = Math.ceil(sampleRate * duration);
+  const buffer = ctx.createBuffer(1, length, sampleRate);
+  const data = buffer.getChannelData(0);
+
+  for (let i = 0; i < length; i++) {
+    const t = i / sampleRate;
+    // Fast click transient
+    const click = Math.exp(-t * 180) * (Math.random() * 2 - 1) * 0.55;
+    // Body / thock body around ~180–320 Hz range via noise + envelope
+    const body =
+      Math.exp(-t * 42) *
+      Math.sin(2 * Math.PI * (210 + t * 40) * t) *
+      0.35;
+    // Soft low rumble
+    const rumble =
+      Math.exp(-t * 28) * Math.sin(2 * Math.PI * 95 * t) * 0.22;
+    data[i] = click + body + rumble;
   }
   return buffer;
 }
@@ -53,9 +78,21 @@ async function decodeSample(
   const arrayBuffer = base64ToArrayBuffer(dataUri);
   if (!arrayBuffer || arrayBuffer.byteLength === 0) return null;
   try {
-    return await ctx.decodeAudioData(arrayBuffer);
+    // copy so the buffer can be decoded again if needed
+    const copy = arrayBuffer.slice(0);
+    return await ctx.decodeAudioData(copy);
   } catch {
     return null;
+  }
+}
+
+async function unlockContext(ctx: AudioContext) {
+  if (ctx.state === "suspended") {
+    try {
+      await ctx.resume();
+    } catch {
+      // ignore — will retry on next press
+    }
   }
 }
 
@@ -74,30 +111,34 @@ export function getThockEngine(): Promise<ThockEngine | null> {
     const ctx = new Ctor();
 
     const compressor = ctx.createDynamicsCompressor();
-    compressor.threshold.value = -20;
-    compressor.knee.value = 12;
-    compressor.ratio.value = 5;
+    compressor.threshold.value = -18;
+    compressor.knee.value = 10;
+    compressor.ratio.value = 4;
     compressor.attack.value = 0.002;
     compressor.release.value = 0.08;
 
     const master = ctx.createGain();
-    master.gain.value = 0.9;
+    master.gain.value = 1.0;
     compressor.connect(master);
     master.connect(ctx.destination);
 
     const dry = ctx.createGain();
-    dry.gain.value = 0.85;
+    dry.gain.value = 0.9;
     dry.connect(compressor);
 
     const wet = ctx.createGain();
-    wet.gain.value = 0.3;
+    wet.gain.value = 0.28;
     const convolver = ctx.createConvolver();
     convolver.normalize = true;
     convolver.buffer = buildCaseImpulse(ctx);
     wet.connect(convolver);
     convolver.connect(compressor);
 
-    const buffer = await decodeSample(ctx, AUDIO_SAMPLE);
+    // Prefer real sample; fall back to synthetic (Safari cannot decode Ogg)
+    let buffer = await decodeSample(ctx, AUDIO_SAMPLE);
+    if (!buffer) {
+      buffer = buildSyntheticThock(ctx);
+    }
 
     const engine: ThockEngine = {
       ctx,
@@ -117,17 +158,24 @@ const CATEGORY_PROFILE: Record<
   SoundCategory,
   { rate: [number, number]; gain: number; filterHz: number | null }
 > = {
-  normal: { rate: [0.97, 1.04], gain: 0.85, filterHz: null },
-  spacebar: { rate: [0.72, 0.78], gain: 1.0, filterHz: 1600 },
-  modifier: { rate: [0.86, 0.92], gain: 0.68, filterHz: 3000 },
+  normal: { rate: [0.97, 1.04], gain: 0.95, filterHz: null },
+  spacebar: { rate: [0.72, 0.78], gain: 1.15, filterHz: 1600 },
+  modifier: { rate: [0.86, 0.92], gain: 0.78, filterHz: 3000 },
 };
 
-export function playKeySound(category: SoundCategory, muted: boolean, panHint = 0) {
+export function playKeySound(
+  category: SoundCategory,
+  muted: boolean,
+  panHint = 0,
+) {
   if (typeof window === "undefined") return;
-  getThockEngine().then((engine) => {
+
+  void getThockEngine().then(async (engine) => {
     if (!engine || !engine.buffer) return;
     const { ctx, dry, wet, supportsPanning, buffer } = engine;
-    if (ctx.state === "suspended") void ctx.resume();
+
+    await unlockContext(ctx);
+    if (ctx.state === "suspended") return;
 
     const profile = CATEGORY_PROFILE[category];
     const now = ctx.currentTime;
