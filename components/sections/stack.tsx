@@ -6,7 +6,7 @@ export function Stack() {
       <div className="mx-auto max-w-site px-5 py-20 md:px-8 md:py-28">
         <div className="mb-14 grid gap-4 md:grid-cols-[minmax(0,180px)_1fr] md:gap-8">
           <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">
-            Nº004 / Stack
+            Nº005 / Stack
           </p>
           <h2 className="font-display text-display-md text-paper">Languages & tools</h2>
         </div>
