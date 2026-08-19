@@ -14,7 +14,7 @@ export function Activity() {
       <div className="mx-auto max-w-site px-5 py-20 md:px-8 md:py-28">
         <div className="mb-16 grid gap-4 md:grid-cols-[minmax(0,180px)_1fr] md:gap-8">
           <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">
-            Nº005 / Activity
+            Nº006 / Activity
           </p>
           <div className="flex flex-wrap items-end justify-between gap-8">
             <div>
