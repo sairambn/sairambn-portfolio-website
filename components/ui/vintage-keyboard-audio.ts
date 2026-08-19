@@ -1,6 +1,6 @@
 /** Thock audio engine for vintage keyboard */
 
-import { AUDIO_SAMPLE } from '@/components/ui/vintage-keyboard-assets';
+import { AUDIO_SAMPLE } from '@/components/ui/vintage-keyboard-sample';
 
 export type SoundCategory = "normal" | "spacebar" | "modifier";
 
