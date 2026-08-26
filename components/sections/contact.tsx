@@ -22,7 +22,9 @@ export function Contact() {
               </span>
               Available for SDE roles
             </p>
-            <h2 className="font-display text-display-md text-paper">Let's build something real</h2>
+            <h2 className="font-display text-display-md text-paper">
+              Let's build something real
+            </h2>
             <p className="mt-3 max-w-md text-[15px] leading-[1.7] text-muted">
               {profile.openTo}. Email is the fastest path — I read every message.
             </p>
