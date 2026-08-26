@@ -33,15 +33,17 @@ export function Keyboard() {
               Type something real
             </h2>
             <p className="mt-4 max-w-xl text-[15px] leading-[1.7] text-muted">
-              A full mechanical keyboard with thock, wood grain, and key press
-              feedback. Click or use your physical keys — it listens.
+              Full mechanical keyboard with thock, wood grain, and press feedback.
+              Click the keys or use your physical keyboard — it listens.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="w-full overflow-hidden border-t border-line bg-[#FAFAFA]">
-        <VintageKeyboard />
+      <div className="w-full overflow-x-auto overflow-y-hidden border-t border-line bg-[#FAFAFA]">
+        <div className="min-w-[640px] md:min-w-0">
+          <VintageKeyboard />
+        </div>
       </div>
     </section>
   );
