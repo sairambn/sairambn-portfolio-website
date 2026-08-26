@@ -2,7 +2,8 @@
 
 **Software Engineer · DSA · Python · Java**
 
-Editorial, type-led personal site. Numbered sections, kinetic marquee, case-file project rows, and a pointer-reactive hero.
+Editorial, type-led personal site.
+Numbered sections, kinetic marquee, case-file project rows, interactive mechanical keyboard, and a pointer-reactive hero.
 
 **Live** → [bnsairam.vercel.app](https://bnsairam.vercel.app)
 
