@@ -86,7 +86,7 @@ export const projects: Project[] = [
     title: 'Master Timetable Generator',
     outcome: 'No conflicts',
     description:
-      'Browser constraint solver for teachers, classes and rooms. Outputs conflict-free timetables with class and teacher views plus CSV export.',
+      'Browser constraint solver for teachers, classes and rooms. Conflict-free schedules with class and teacher views plus CSV export.',
     stack: 'JavaScript',
     live: 'https://master-timetable-generator.vercel.app',
     github: 'https://github.com/sairambn/master-timetable-generator',
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     title: 'Result Analysis Portal',
     outcome: 'One-pass export',
     description:
-      'Exam-cell tool: upload mark sheets, get subject stats, toppers, arrear groups, and FRONT + MARK Excel reports.',
+      'Exam-cell tool: upload mark sheets → subject stats, toppers, arrear groups, and ready-to-use Excel reports.',
     stack: 'TypeScript',
     live: 'https://aiml-stats-portal.vercel.app',
     github: 'https://github.com/sairambn/aiml-stats-portal',
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     title: 'NeetCode 250 Daily',
     outcome: 'One problem a day',
     description:
-      'One DSA problem a day through the NeetCode 250 list. Solutions in Python, Java and C++.',
+      'One DSA problem a day through the NeetCode 250 list. Solutions in Python, Java and C++ with clean explanations.',
     stack: 'Python · Java · C++',
     github: 'https://github.com/sairambn/neetcode-250-daily',
   },
