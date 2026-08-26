@@ -9,10 +9,10 @@ const VintageKeyboard = dynamic(
     ssr: false,
     loading: () => (
       <div
-        className="flex min-h-[320px] w-full items-center justify-center rounded-sm bg-[#FAFAFA]"
+        className="flex min-h-[320px] w-full items-center justify-center bg-canvas"
         aria-hidden
       >
-        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-400">
+        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
           Loading keyboard…
         </span>
       </div>
@@ -34,13 +34,14 @@ export function Keyboard() {
             </h2>
             <p className="mt-4 max-w-xl text-[15px] leading-[1.7] text-muted">
               Full mechanical keyboard with thock, wood grain, and press feedback.
-              Click the keys or use your physical keyboard — it listens.
+              Click the keys or use your physical keyboard — it listens. What you
+              type prints above in the same type system as the rest of the site.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="w-full overflow-x-auto overflow-y-hidden border-t border-line bg-[#FAFAFA]">
+      <div className="w-full overflow-x-auto overflow-y-hidden border-t border-line bg-canvas">
         <div className="min-w-[640px] md:min-w-0">
           <VintageKeyboard />
         </div>
