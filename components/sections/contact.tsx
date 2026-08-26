@@ -15,9 +15,16 @@ export function Contact() {
             Nº007 / Contact
           </p>
           <div>
-            <h2 className="font-display text-display-md text-paper">Open to SDE roles</h2>
+            <p className="mb-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-40" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+              </span>
+              Available for SDE roles
+            </p>
+            <h2 className="font-display text-display-md text-paper">Let's build something real</h2>
             <p className="mt-3 max-w-md text-[15px] leading-[1.7] text-muted">
-              {profile.openTo}. Email is the fastest path.
+              {profile.openTo}. Email is the fastest path — I read every message.
             </p>
 
             <a
@@ -46,6 +53,8 @@ export function Contact() {
               © {new Date().getFullYear()} {profile.name}
               <span className="mx-2 text-line">·</span>
               <span className="text-muted/55">{profile.education}</span>
+              <span className="mx-2 text-line">·</span>
+              <span className="text-muted/55">Consistency over intensity</span>
             </p>
           </div>
         </div>
