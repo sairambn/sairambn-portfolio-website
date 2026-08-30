@@ -119,7 +119,7 @@ export function Hero() {
             <InteractivePortrait
               src="/content.png"
               alt={`${profile.name} at College of Engineering Guindy`}
-              objectPosition="45% 18%"
+              objectPosition="28% 42%"
             />
             <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-muted md:text-right">
               {"CEG · Anna University · class of '25"}
