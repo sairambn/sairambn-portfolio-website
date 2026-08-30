@@ -205,6 +205,8 @@ const MOBILE_LABEL_OVERRIDES: Record<string, string> = {
   caps: "Caps",
 };
 
+const HOME_ROW_IDS = new Set(["f", "j"]);
+
 export const KEY_STYLE_TAG = `
 .kb-key {
   --tilt: 0deg;
@@ -214,18 +216,18 @@ export const KEY_STYLE_TAG = `
   touch-action: none;
   -webkit-tap-highlight-color: transparent;
   transform: translateY(0) scale(1) rotate(var(--tilt));
-  transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 220ms cubic-bezier(0.22, 1.4, 0.36, 1);
 }
 .kb-key[data-pressed="true"] {
-  transform: translateY(4.5px) scale(0.975) rotate(calc(var(--tilt) * 0.3));
-  transition: transform 15ms linear;
+  transform: translateY(5px) scale(0.97) rotate(calc(var(--tilt) * 0.25));
+  transition: transform 12ms linear;
 }
 .kb-viewport {
   min-height: 0;
 }
 `;
 
-const MIN_VISIBLE_PRESS_MS = 55;
+const MIN_VISIBLE_PRESS_MS = 48;
 
 function usePressState(): [boolean, () => void, () => void] {
   const [pressed, setPressed] = useState(false);
@@ -271,6 +273,7 @@ export const Key = memo(function Key({
   registerTrigger,
   onActivate,
   onDeactivate,
+  onType,
 }: {
   config: KeyConfig;
   rowIndex: number;
@@ -278,6 +281,7 @@ export const Key = memo(function Key({
   registerTrigger: (id: string, trigger: KeyTrigger) => () => void;
   onActivate: (id: string) => void;
   onDeactivate: (id: string) => void;
+  onType?: (id: string) => void;
 }) {
   const {
     id,
@@ -303,6 +307,7 @@ export const Key = memo(function Key({
   const pressed = pointerPressed || physicallyPressed;
   const variance = useMemo(() => getKeyVariance(id, small), [id, small]);
   const primaryAlign: "left" | "center" = align;
+  const showHomeBump = HOME_ROW_IDS.has(id);
 
   useEffect(() => {
     return registerTrigger(id, {
@@ -344,12 +349,14 @@ export const Key = memo(function Key({
 
   const handlePress = useCallback(
     (event: ReactPointerEvent<HTMLButtonElement>) => {
+      event.preventDefault();
       event.currentTarget.setPointerCapture(event.pointerId);
       pressPointer();
       onActivate(id);
       playKeySound(getSoundCategory(id), !!muted, KEY_PAN[id] ?? 0);
+      onType?.(id);
     },
-    [id, muted, pressPointer, onActivate],
+    [id, muted, pressPointer, onActivate, onType],
   );
 
   const handleRelease = useCallback(() => {
@@ -385,7 +392,7 @@ export const Key = memo(function Key({
           boxShadow: pressed
             ? "0 0.5px 1px rgba(15,9,4,0.2), 0 2px 4px rgba(15,9,4,0.12)"
             : contactShadow,
-          transition: "box-shadow 140ms ease-out",
+          transition: "box-shadow 120ms ease-out",
           zIndex: 0,
         }}
       />
@@ -418,7 +425,7 @@ export const Key = memo(function Key({
           background: layers.topGradient,
           filter: layers.topFilter,
           boxShadow: pressed ? layers.topShadowPressed : layers.topShadow,
-          transition: "box-shadow 140ms ease-out, background 140ms ease-out",
+          transition: "box-shadow 120ms ease-out, background 120ms ease-out",
           zIndex: 3,
         }}
       />
@@ -442,7 +449,7 @@ export const Key = memo(function Key({
           background:
             "radial-gradient(55% 50% at 26% 18%, rgba(255,252,244,0.28), transparent 70%)",
           opacity: pressed ? 0.4 : 1,
-          transition: "opacity 140ms ease-out",
+          transition: "opacity 120ms ease-out",
           zIndex: 4,
         }}
       />
@@ -454,13 +461,30 @@ export const Key = memo(function Key({
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.24) 0%, transparent 14%), linear-gradient(100deg, rgba(255,255,255,0.09) 0%, transparent 9%)",
           opacity: pressed ? layers.rimOpacityDown : layers.rimOpacityUp,
-          transition: "opacity 140ms ease-out",
+          transition: "opacity 120ms ease-out",
           zIndex: 4,
         }}
       />
+      {showHomeBump && (
+        <span
+          className="pointer-events-none absolute"
+          aria-hidden
+          style={{
+            left: "50%",
+            bottom: `calc(${sculpt.insetBottom}px + 28%)`,
+            transform: "translateX(-50%)",
+            width: tier === "mobile" ? 8 : 10,
+            height: tier === "mobile" ? 2.5 : 3,
+            borderRadius: 2,
+            background: "rgba(65, 62, 56, 0.35)",
+            boxShadow: "0 0.5px 0 rgba(255,255,255,0.2)",
+            zIndex: 5,
+          }}
+        />
+      )}
       <span
         className="pointer-events-none absolute inset-0"
-        style={{ zIndex: 5 }}
+        style={{ zIndex: 6 }}
       >
         {shiftLabel && (
           <span
