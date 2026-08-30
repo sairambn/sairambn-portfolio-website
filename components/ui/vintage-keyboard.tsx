@@ -16,6 +16,9 @@ import {
 } from "@/components/ui/vintage-keyboard-assets";
 import { getThockEngine, playKeySound } from "@/components/ui/vintage-keyboard-audio";
 import {
+  KEY_TO_CHAR,
+} from "@/components/ui/vintage-keyboard-data";
+import {
   Key,
   ROWS,
   ALL_KEYS_BY_ID,
@@ -37,6 +40,8 @@ const MODIFIER_FAMILIES: Array<{ modifier: string; ids: string[] }> = [
   { modifier: "Meta", ids: ["lwin", "rwin"] },
 ];
 
+const MAX_TYPED = 72;
+
 export const Component = () => {
   const rows = useMemo(() => ROWS, []);
   const keyTriggersRef = useRef<Record<string, { press: () => void; release: () => void }>>({});
@@ -44,6 +49,7 @@ export const Component = () => {
   const container = CONTAINER_TIERS[tier];
   const caseTier = CASE_TIERS[tier];
   const gap = KEY_GAP_TIERS[tier];
+  const shiftHeldRef = useRef(false);
 
   const registerTrigger = useCallback((id: string, trigger: { press: () => void; release: () => void }) => {
     keyTriggersRef.current[id] = trigger;
@@ -71,6 +77,33 @@ export const Component = () => {
   const deactivateKey = useCallback((id: string) => {
     setActiveKeyIds((prev) => (prev.includes(id) ? prev.filter((k) => k !== id) : prev));
   }, []);
+
+  const applyType = useCallback((id: string) => {
+    if (id === "backspace") {
+      setTypedLine((t) => t.slice(0, -1));
+      return;
+    }
+    if (id === "enter") {
+      setTypedLine((t) => (t + " ").slice(-MAX_TYPED));
+      return;
+    }
+    const base = KEY_TO_CHAR[id];
+    if (!base) return;
+    const shift =
+      shiftHeldRef.current ||
+      activeKeyIds.includes("lshift") ||
+      activeKeyIds.includes("rshift");
+    let ch = base;
+    if (shift) {
+      if (base.length === 1 && /[a-z]/.test(base)) {
+        ch = base.toUpperCase();
+      } else {
+        const config = ALL_KEYS_BY_ID[id];
+        if (config?.shiftLabel) ch = config.shiftLabel;
+      }
+    }
+    setTypedLine((t) => (t + ch).slice(-MAX_TYPED));
+  }, [activeKeyIds]);
 
   useEffect(() => {
     if (holdTimeoutRef.current !== null) {
@@ -119,6 +152,9 @@ export const Component = () => {
     const releaseKey = (id: string) => {
       if (!held.has(id)) return;
       held.delete(id);
+      if (id === "lshift" || id === "rshift") {
+        shiftHeldRef.current = held.has("lshift") || held.has("rshift");
+      }
       keyTriggersRef.current[id]?.release();
       deactivateKey(id);
     };
@@ -128,6 +164,7 @@ export const Component = () => {
         deactivateKey(id);
       });
       held.clear();
+      shiftHeldRef.current = false;
     };
     const reconcileModifiers = (event: KeyboardEvent) => {
       if (typeof event.getModifierState !== "function") return;
@@ -145,6 +182,7 @@ export const Component = () => {
       const id = CODE_TO_KEY_ID[event.code];
       if (!id || held.has(id)) return;
       held.add(id);
+      if (id === "lshift" || id === "rshift") shiftHeldRef.current = true;
       keyTriggersRef.current[id]?.press();
       activateKey(id);
       const config = ALL_KEYS_BY_ID[id];
@@ -152,9 +190,9 @@ export const Component = () => {
       if (event.key === "Backspace") {
         setTypedLine((t) => t.slice(0, -1));
       } else if (event.key === "Enter") {
-        setTypedLine((t) => (t + " ").slice(-64));
+        setTypedLine((t) => (t + " ").slice(-MAX_TYPED));
       } else if (event.key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey) {
-        setTypedLine((t) => (t + event.key).slice(-64));
+        setTypedLine((t) => (t + event.key).slice(-MAX_TYPED));
       }
     };
     const handleKeyUp = (event: KeyboardEvent) => {
@@ -233,7 +271,7 @@ export const Component = () => {
                   color: "rgba(196, 165, 116, 0.55)",
                 }}
               >
-                Press any key
+                Click keys or type
               </span>
             )}
           </div>
@@ -336,6 +374,7 @@ export const Component = () => {
                           registerTrigger={registerTrigger}
                           onActivate={activateKey}
                           onDeactivate={deactivateKey}
+                          onType={applyType}
                         />
                       ))}
                     </div>

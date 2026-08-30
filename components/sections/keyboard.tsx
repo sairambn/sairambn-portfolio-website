@@ -33,9 +33,8 @@ export function Keyboard() {
               Type something real
             </h2>
             <p className="mt-4 max-w-xl text-[15px] leading-[1.7] text-muted">
-              Full mechanical board with wood case, layered keycaps, and real thock.
-              Click the keys or use your own keyboard. What you type appears above
-              in the same type system as the rest of the site.
+              Wood case, layered keycaps, stereo thock. Click the keys or use your
+              own keyboard. What you type shows above. F and J have home row bumps.
             </p>
           </div>
         </div>
@@ -43,10 +42,10 @@ export function Keyboard() {
 
       <div className="relative w-full overflow-x-auto overflow-y-hidden border-t border-line bg-canvas">
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-24"
+          className="pointer-events-none absolute inset-x-0 top-0 h-28"
           style={{
             background:
-              'radial-gradient(ellipse 70% 100% at 50% 0%, rgba(196,165,116,0.08), transparent 70%)',
+              'radial-gradient(ellipse 70% 100% at 50% 0%, rgba(196,165,116,0.1), transparent 70%)',
           }}
           aria-hidden
         />
