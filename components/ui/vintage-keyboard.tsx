@@ -17,6 +17,7 @@ import {
 import { getThockEngine, playKeySound } from "@/components/ui/vintage-keyboard-audio";
 import {
   KEY_TO_CHAR,
+  ALL_KEYS_BY_ID as DATA_KEYS,
 } from "@/components/ui/vintage-keyboard-data";
 import {
   Key,
@@ -41,6 +42,7 @@ const MODIFIER_FAMILIES: Array<{ modifier: string; ids: string[] }> = [
 ];
 
 const MAX_TYPED = 72;
+const SHIFT_IDS = new Set(["lshift", "rshift"]);
 
 export const Component = () => {
   const rows = useMemo(() => ROWS, []);
@@ -50,6 +52,7 @@ export const Component = () => {
   const caseTier = CASE_TIERS[tier];
   const gap = KEY_GAP_TIERS[tier];
   const shiftHeldRef = useRef(false);
+  const heldShiftIdsRef = useRef(new Set<string>());
 
   const registerTrigger = useCallback((id: string, trigger: { press: () => void; release: () => void }) => {
     keyTriggersRef.current[id] = trigger;
@@ -70,13 +73,25 @@ export const Component = () => {
     indicatorPartsRef.current = indicatorParts;
   }, [indicatorParts]);
 
-  const activateKey = useCallback((id: string) => {
-    setActiveKeyIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
+  const syncShiftRef = useCallback(() => {
+    shiftHeldRef.current = heldShiftIdsRef.current.size > 0;
   }, []);
 
+  const activateKey = useCallback((id: string) => {
+    if (SHIFT_IDS.has(id)) {
+      heldShiftIdsRef.current.add(id);
+      syncShiftRef();
+    }
+    setActiveKeyIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
+  }, [syncShiftRef]);
+
   const deactivateKey = useCallback((id: string) => {
+    if (SHIFT_IDS.has(id)) {
+      heldShiftIdsRef.current.delete(id);
+      syncShiftRef();
+    }
     setActiveKeyIds((prev) => (prev.includes(id) ? prev.filter((k) => k !== id) : prev));
-  }, []);
+  }, [syncShiftRef]);
 
   const applyType = useCallback((id: string) => {
     if (id === "backspace") {
@@ -89,21 +104,18 @@ export const Component = () => {
     }
     const base = KEY_TO_CHAR[id];
     if (!base) return;
-    const shift =
-      shiftHeldRef.current ||
-      activeKeyIds.includes("lshift") ||
-      activeKeyIds.includes("rshift");
+    const shift = shiftHeldRef.current;
     let ch = base;
     if (shift) {
       if (base.length === 1 && /[a-z]/.test(base)) {
         ch = base.toUpperCase();
       } else {
-        const config = ALL_KEYS_BY_ID[id];
+        const config = DATA_KEYS[id] ?? ALL_KEYS_BY_ID[id];
         if (config?.shiftLabel) ch = config.shiftLabel;
       }
     }
     setTypedLine((t) => (t + ch).slice(-MAX_TYPED));
-  }, [activeKeyIds]);
+  }, []);
 
   useEffect(() => {
     if (holdTimeoutRef.current !== null) {
@@ -152,9 +164,6 @@ export const Component = () => {
     const releaseKey = (id: string) => {
       if (!held.has(id)) return;
       held.delete(id);
-      if (id === "lshift" || id === "rshift") {
-        shiftHeldRef.current = held.has("lshift") || held.has("rshift");
-      }
       keyTriggersRef.current[id]?.release();
       deactivateKey(id);
     };
@@ -164,6 +173,7 @@ export const Component = () => {
         deactivateKey(id);
       });
       held.clear();
+      heldShiftIdsRef.current.clear();
       shiftHeldRef.current = false;
     };
     const reconcileModifiers = (event: KeyboardEvent) => {
@@ -182,7 +192,6 @@ export const Component = () => {
       const id = CODE_TO_KEY_ID[event.code];
       if (!id || held.has(id)) return;
       held.add(id);
-      if (id === "lshift" || id === "rshift") shiftHeldRef.current = true;
       keyTriggersRef.current[id]?.press();
       activateKey(id);
       const config = ALL_KEYS_BY_ID[id];
@@ -220,8 +229,12 @@ export const Component = () => {
 
   return (
     <div
-      className="kb-viewport flex w-full items-center justify-center overflow-x-hidden bg-[#0a0a0a] py-10 md:py-16"
-      style={{ padding: container.padding }}
+      className="kb-viewport flex w-full items-center justify-center overflow-x-hidden bg-[#0a0a0a] py-8 md:py-12"
+      style={{
+        padding: container.padding,
+        background:
+          "radial-gradient(ellipse 90% 55% at 50% 100%, rgba(40,28,16,0.45) 0%, transparent 55%), #0a0a0a",
+      }}
     >
       <style>{KEY_STYLE_TAG}</style>
       <style>{"@keyframes kb-cursor { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }"}</style>
@@ -229,13 +242,13 @@ export const Component = () => {
         <div
           className="flex w-full flex-col items-center justify-center"
           style={{
-            marginBottom: "clamp(1rem, 2.6vw, 1.5rem)",
-            minHeight: "clamp(3.4rem, 6.2vw, 4.2rem)",
+            marginBottom: "clamp(0.85rem, 2.2vw, 1.25rem)",
+            minHeight: "clamp(3rem, 5.5vw, 3.8rem)",
             fontFamily: 'var(--font-mono), "IBM Plex Mono", ui-monospace, monospace',
-            gap: "0.7rem",
+            gap: "0.55rem",
           }}
         >
-          <div className="w-full max-w-xl px-4 text-center" style={{ minHeight: "1.6rem" }}>
+          <div className="w-full max-w-xl px-4 text-center" style={{ minHeight: "1.5rem" }}>
             {typedLine ? (
               <p
                 style={{
@@ -279,7 +292,7 @@ export const Component = () => {
             style={{
               opacity: indicatorVisible && indicatorParts && indicatorParts.length > 0 ? 1 : 0,
               transition: "opacity 220ms ease-out",
-              minHeight: "1.5rem",
+              minHeight: "1.4rem",
             }}
           >
             {indicatorParts && indicatorParts.length > 0 ? (
@@ -314,12 +327,12 @@ export const Component = () => {
             ) : null}
           </div>
         </div>
-        <div style={{ perspective: "2000px", width: "100%" }}>
-          <div className="relative w-full" style={{ transform: "rotateX(8deg)", transformOrigin: "50% 100%" }}>
+        <div style={{ perspective: "2200px", width: "100%" }}>
+          <div className="relative w-full" style={{ transform: "rotateX(9deg)", transformOrigin: "50% 100%" }}>
             <div
-              className="pointer-events-none absolute -inset-x-8 -bottom-6 h-16 blur-2xl"
+              className="pointer-events-none absolute -inset-x-10 -bottom-8 h-20 blur-2xl"
               style={{
-                background: "radial-gradient(ellipse 80% 100% at 50% 100%, rgba(0,0,0,0.55), transparent 70%)",
+                background: "radial-gradient(ellipse 85% 100% at 50% 100%, rgba(0,0,0,0.65), transparent 70%)",
               }}
               aria-hidden
             />
@@ -328,9 +341,9 @@ export const Component = () => {
               style={
                 {
                   padding: caseTier.casePadding,
-                  background: `linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 10%), linear-gradient(178deg, #b57a42 0%, #9d6636 28%, #895128 55%, #764a24 78%, #5c3618 100%)`,
+                  background: `linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 10%), linear-gradient(178deg, #b57a42 0%, #9d6636 28%, #895128 55%, #764a24 78%, #5c3618 100%)`,
                   boxShadow:
-                    "0 0.5px 0 rgba(255,222,185,0.2) inset, 0 -2px 5px rgba(35,19,6,0.35) inset, 0 4px 10px rgba(15,8,3,0.28), 0 12px 28px rgba(0,0,0,0.35)",
+                    "0 0.5px 0 rgba(255,222,185,0.22) inset, 0 -2px 5px rgba(35,19,6,0.35) inset, 0 6px 14px rgba(15,8,3,0.32), 0 18px 36px rgba(0,0,0,0.4)",
                   "--kb-case-radius": caseTier.caseRadius,
                   "--kb-bezel-radius": caseTier.bezelRadius,
                 } as CSSProperties

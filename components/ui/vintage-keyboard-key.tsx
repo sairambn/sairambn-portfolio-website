@@ -151,9 +151,9 @@ const CONTACT_SHADOW_TIERS: Record<DeviceTier, string> = {
 };
 
 const KEY_HEIGHT_TIERS: Record<DeviceTier, string> = {
-  desktop: "clamp(2.15rem, min(4.15vw, 7.5vh), 2.95rem)",
-  tablet: "clamp(1.95rem, min(5.4vw, 7vh), 2.6rem)",
-  mobile: "clamp(1.75rem, min(8vw, 6vh), 2.2rem)",
+  desktop: "clamp(2.25rem, min(4.3vw, 7.8vh), 3.05rem)",
+  tablet: "clamp(2rem, min(5.5vw, 7.2vh), 2.7rem)",
+  mobile: "clamp(1.8rem, min(8.2vw, 6.2vh), 2.25rem)",
 };
 
 export const KEY_GAP_TIERS: Record<DeviceTier, string> = {
@@ -166,9 +166,9 @@ export const CONTAINER_TIERS: Record<
   DeviceTier,
   { padding: string; maxWidth: string }
 > = {
-  desktop: { padding: "clamp(1.5rem, 6.25vw, 2.5rem)", maxWidth: "48rem" },
-  tablet: { padding: "clamp(1.1rem, 3.6vw, 1.75rem)", maxWidth: "38rem" },
-  mobile: { padding: "clamp(0.6rem, 3vw, 0.9rem)", maxWidth: "26rem" },
+  desktop: { padding: "clamp(1.25rem, 5vw, 2.25rem)", maxWidth: "52rem" },
+  tablet: { padding: "clamp(1rem, 3.4vw, 1.6rem)", maxWidth: "40rem" },
+  mobile: { padding: "clamp(0.55rem, 2.8vw, 0.85rem)", maxWidth: "27rem" },
 };
 
 export const CASE_TIERS: Record<
@@ -181,10 +181,10 @@ export const CASE_TIERS: Record<
   }
 > = {
   desktop: {
-    caseRadius: "0.32rem",
-    bezelRadius: "0.24rem",
-    casePadding: "1.15% 1.3%",
-    bezelPadding: "0.28%",
+    caseRadius: "0.34rem",
+    bezelRadius: "0.26rem",
+    casePadding: "1.2% 1.35%",
+    bezelPadding: "0.3%",
   },
   tablet: {
     caseRadius: "0.3rem",
@@ -216,18 +216,18 @@ export const KEY_STYLE_TAG = `
   touch-action: none;
   -webkit-tap-highlight-color: transparent;
   transform: translateY(0) scale(1) rotate(var(--tilt));
-  transition: transform 220ms cubic-bezier(0.22, 1.4, 0.36, 1);
+  transition: transform 200ms cubic-bezier(0.22, 1.35, 0.36, 1);
 }
 .kb-key[data-pressed="true"] {
-  transform: translateY(5px) scale(0.97) rotate(calc(var(--tilt) * 0.25));
-  transition: transform 12ms linear;
+  transform: translateY(5px) scale(0.968) rotate(calc(var(--tilt) * 0.2));
+  transition: transform 10ms linear;
 }
 .kb-viewport {
   min-height: 0;
 }
 `;
 
-const MIN_VISIBLE_PRESS_MS = 48;
+const MIN_VISIBLE_PRESS_MS = 45;
 
 function usePressState(): [boolean, () => void, () => void] {
   const [pressed, setPressed] = useState(false);
@@ -392,7 +392,7 @@ export const Key = memo(function Key({
           boxShadow: pressed
             ? "0 0.5px 1px rgba(15,9,4,0.2), 0 2px 4px rgba(15,9,4,0.12)"
             : contactShadow,
-          transition: "box-shadow 120ms ease-out",
+          transition: "box-shadow 110ms ease-out",
           zIndex: 0,
         }}
       />
@@ -425,7 +425,7 @@ export const Key = memo(function Key({
           background: layers.topGradient,
           filter: layers.topFilter,
           boxShadow: pressed ? layers.topShadowPressed : layers.topShadow,
-          transition: "box-shadow 120ms ease-out, background 120ms ease-out",
+          transition: "box-shadow 110ms ease-out, background 110ms ease-out",
           zIndex: 3,
         }}
       />
@@ -449,7 +449,7 @@ export const Key = memo(function Key({
           background:
             "radial-gradient(55% 50% at 26% 18%, rgba(255,252,244,0.28), transparent 70%)",
           opacity: pressed ? 0.4 : 1,
-          transition: "opacity 120ms ease-out",
+          transition: "opacity 110ms ease-out",
           zIndex: 4,
         }}
       />
@@ -461,7 +461,7 @@ export const Key = memo(function Key({
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.24) 0%, transparent 14%), linear-gradient(100deg, rgba(255,255,255,0.09) 0%, transparent 9%)",
           opacity: pressed ? layers.rimOpacityDown : layers.rimOpacityUp,
-          transition: "opacity 120ms ease-out",
+          transition: "opacity 110ms ease-out",
           zIndex: 4,
         }}
       />
@@ -471,13 +471,13 @@ export const Key = memo(function Key({
           aria-hidden
           style={{
             left: "50%",
-            bottom: `calc(${sculpt.insetBottom}px + 28%)`,
+            bottom: `calc(${sculpt.insetBottom}px + 30%)`,
             transform: "translateX(-50%)",
-            width: tier === "mobile" ? 8 : 10,
-            height: tier === "mobile" ? 2.5 : 3,
+            width: tier === "mobile" ? 9 : 11,
+            height: tier === "mobile" ? 2.5 : 3.2,
             borderRadius: 2,
-            background: "rgba(65, 62, 56, 0.35)",
-            boxShadow: "0 0.5px 0 rgba(255,255,255,0.2)",
+            background: "rgba(65, 62, 56, 0.4)",
+            boxShadow: "0 0.5px 0 rgba(255,255,255,0.22)",
             zIndex: 5,
           }}
         />
