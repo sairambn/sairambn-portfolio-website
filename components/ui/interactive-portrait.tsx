@@ -18,7 +18,7 @@ export function InteractivePortrait({
   src,
   alt,
   className,
-  objectPosition = '20% 38%',
+  objectPosition = '48% 22%',
 }: InteractivePortraitProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
@@ -56,23 +56,21 @@ export function InteractivePortrait({
 
     const cur = currentRef.current;
     const tgt = targetRef.current;
-    // Snappier follow
-    cur.x += (tgt.x - cur.x) * 0.22;
-    cur.y += (tgt.y - cur.y) * 0.22;
+    cur.x += (tgt.x - cur.x) * 0.2;
+    cur.y += (tgt.y - cur.y) * 0.2;
 
-    // Stronger tilt + parallax shift
-    const rx = (-cur.y * 12).toFixed(2);
-    const ry = (cur.x * 14).toFixed(2);
-    const tz = (activeRef.current ? 18 : 0).toFixed(1);
-    const tx = (cur.x * 10).toFixed(2);
-    const ty = (cur.y * 7).toFixed(2);
-    const scale = activeRef.current ? 1.045 : 1;
+    const rx = (-cur.y * 9).toFixed(2);
+    const ry = (cur.x * 11).toFixed(2);
+    const tz = (activeRef.current ? 14 : 0).toFixed(1);
+    const tx = (cur.x * 7).toFixed(2);
+    const ty = (cur.y * 5).toFixed(2);
+    const scale = activeRef.current ? 1.03 : 1;
     const gx = ((cur.x + 0.5) * 100).toFixed(1);
     const gy = ((cur.y + 0.5) * 100).toFixed(1);
 
     frame.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(${tz}px)`;
     img.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${scale})`;
-    glare.style.background = `radial-gradient(420px circle at ${gx}% ${gy}%, rgba(247,246,243,0.22), transparent 58%)`;
+    glare.style.background = `radial-gradient(380px circle at ${gx}% ${gy}%, rgba(247,246,243,0.18), transparent 55%)`;
     glare.style.opacity = activeRef.current ? '1' : '0';
 
     const settled =
@@ -97,7 +95,6 @@ export function InteractivePortrait({
     const rect = el.getBoundingClientRect();
     if (rect.width === 0 || rect.height === 0) return;
 
-    // Normalize to -0.5 … 0.5, clamp so edges stay stable
     const nx = Math.max(-0.5, Math.min(0.5, (clientX - rect.left) / rect.width - 0.5));
     const ny = Math.max(-0.5, Math.min(0.5, (clientY - rect.top) / rect.height - 0.5));
 
@@ -125,20 +122,22 @@ export function InteractivePortrait({
     <div
       ref={rootRef}
       className={cn('relative cursor-crosshair', className)}
-      style={{ perspective: '900px' }}
+      style={{ perspective: '1100px' }}
       onPointerMove={handlePointerMove}
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
     >
-      {/* Extra invisible hit padding so tracking starts before the frame edge */}
-      <div className="absolute -inset-6 z-10" aria-hidden />
+      <div className="absolute -inset-8 z-10" aria-hidden />
 
       <div
         ref={frameRef}
-        className="relative aspect-[4/5] w-full overflow-hidden border border-line bg-line will-change-transform"
+        className="relative aspect-[4/5] w-full overflow-hidden will-change-transform"
         style={{
           transformStyle: 'preserve-3d',
-          transition: 'box-shadow 0.3s ease',
+          border: '1px solid rgba(196, 165, 116, 0.22)',
+          boxShadow:
+            '0 0 0 1px rgba(10,10,10,0.6), 0 18px 40px -12px rgba(0,0,0,0.65), 0 8px 16px -8px rgba(0,0,0,0.4)',
+          background: '#121212',
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -151,14 +150,14 @@ export function InteractivePortrait({
           decoding="async"
           fetchPriority="high"
           draggable={false}
-          className="absolute inset-[-6%] h-[112%] w-[112%] max-w-none select-none object-cover will-change-transform"
+          className="absolute inset-0 h-full w-full max-w-none select-none object-cover will-change-transform"
           style={{ objectPosition }}
         />
 
         <div
           ref={glareRef}
           aria-hidden
-          className="pointer-events-none absolute inset-0 mix-blend-soft-light transition-opacity duration-150"
+          className="pointer-events-none absolute inset-0 mix-blend-soft-light transition-opacity duration-200"
           style={{ opacity: 0 }}
         />
 
@@ -167,7 +166,15 @@ export function InteractivePortrait({
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              'linear-gradient(to top, rgba(10,10,10,0.38) 0%, transparent 30%), linear-gradient(to bottom, rgba(10,10,10,0.14) 0%, transparent 22%)',
+              'linear-gradient(to top, rgba(10,10,10,0.42) 0%, transparent 28%), linear-gradient(to bottom, rgba(10,10,10,0.12) 0%, transparent 18%), linear-gradient(135deg, rgba(196,165,116,0.06) 0%, transparent 40%)',
+          }}
+        />
+
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.04)',
           }}
         />
       </div>

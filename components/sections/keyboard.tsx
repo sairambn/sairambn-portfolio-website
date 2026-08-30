@@ -9,7 +9,7 @@ const VintageKeyboard = dynamic(
     ssr: false,
     loading: () => (
       <div
-        className="flex min-h-[320px] w-full items-center justify-center bg-canvas"
+        className="flex min-h-[360px] w-full items-center justify-center bg-canvas"
         aria-hidden
       >
         <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
@@ -33,15 +33,23 @@ export function Keyboard() {
               Type something real
             </h2>
             <p className="mt-4 max-w-xl text-[15px] leading-[1.7] text-muted">
-              Full mechanical keyboard with thock, wood grain, and press feedback.
-              Click the keys or use your physical keyboard — it listens. What you
-              type prints above in the same type system as the rest of the site.
+              Full mechanical board with wood case, layered keycaps, and real thock.
+              Click the keys or use your own keyboard. What you type appears above
+              in the same type system as the rest of the site.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="w-full overflow-x-auto overflow-y-hidden border-t border-line bg-canvas">
+      <div className="relative w-full overflow-x-auto overflow-y-hidden border-t border-line bg-canvas">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-24"
+          style={{
+            background:
+              'radial-gradient(ellipse 70% 100% at 50% 0%, rgba(196,165,116,0.08), transparent 70%)',
+          }}
+          aria-hidden
+        />
         <div className="min-w-[640px] md:min-w-0">
           <VintageKeyboard />
         </div>

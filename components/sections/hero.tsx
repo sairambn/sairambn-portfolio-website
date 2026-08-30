@@ -26,7 +26,6 @@ export function Hero() {
       id="intro"
       className="relative min-h-[100svh] overflow-hidden border-b border-line"
     >
-      {/* Grand interactive voxel field */}
       <div className="absolute inset-0 opacity-[0.42] md:opacity-[0.5]">
         <VoxelTopographyGrid
           primaryColor="#c4a574"
@@ -39,7 +38,6 @@ export function Hero() {
           influenceBoost={86}
         />
       </div>
-      {/* Readability veil — lighter so terrain stays visible */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-canvas/35 via-canvas/55 to-canvas" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,transparent_0%,rgba(10,10,10,0.45)_100%)]" />
 
@@ -117,13 +115,13 @@ export function Hero() {
         </div>
 
         <div className="order-1 md:order-2 md:col-span-5">
-          <figure className="mx-auto w-full max-w-[280px] sm:max-w-[320px] md:ml-auto md:mr-0 md:max-w-[400px]">
+          <figure className="mx-auto w-full max-w-[300px] sm:max-w-[340px] md:ml-auto md:mr-0 md:max-w-[420px]">
             <InteractivePortrait
               src="/content.png"
               alt={`${profile.name} at College of Engineering Guindy`}
-              objectPosition="20% 38%"
+              objectPosition="48% 22%"
             />
-            <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted md:text-right">
+            <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-muted md:text-right">
               {"CEG · Anna University · class of '25"}
             </figcaption>
           </figure>

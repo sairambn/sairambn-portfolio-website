@@ -182,7 +182,7 @@ export const Component = () => {
 
   return (
     <div
-      className="kb-viewport flex w-full items-center justify-center overflow-x-hidden bg-[#0a0a0a] py-8 md:py-14"
+      className="kb-viewport flex w-full items-center justify-center overflow-x-hidden bg-[#0a0a0a] py-10 md:py-16"
       style={{ padding: container.padding }}
     >
       <style>{KEY_STYLE_TAG}</style>
@@ -191,18 +191,18 @@ export const Component = () => {
         <div
           className="flex w-full flex-col items-center justify-center"
           style={{
-            marginBottom: "clamp(0.85rem, 2.4vw, 1.35rem)",
-            minHeight: "clamp(3.2rem, 6vw, 4rem)",
+            marginBottom: "clamp(1rem, 2.6vw, 1.5rem)",
+            minHeight: "clamp(3.4rem, 6.2vw, 4.2rem)",
             fontFamily: 'var(--font-mono), "IBM Plex Mono", ui-monospace, monospace',
-            gap: "0.65rem",
+            gap: "0.7rem",
           }}
         >
-          <div className="w-full max-w-xl px-4 text-center" style={{ minHeight: "1.5rem" }}>
+          <div className="w-full max-w-xl px-4 text-center" style={{ minHeight: "1.6rem" }}>
             {typedLine ? (
               <p
                 style={{
                   fontFamily: 'var(--font-display), "Bricolage Grotesque", system-ui, sans-serif',
-                  fontSize: "clamp(1.05rem, 2.4vw, 1.35rem)",
+                  fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)",
                   fontWeight: 500,
                   letterSpacing: "-0.02em",
                   color: "#f7f6f3",
@@ -276,16 +276,23 @@ export const Component = () => {
             ) : null}
           </div>
         </div>
-        <div style={{ perspective: "1800px", width: "100%" }}>
-          <div className="relative w-full" style={{ transform: "rotateX(7deg)", transformOrigin: "50% 100%" }}>
+        <div style={{ perspective: "2000px", width: "100%" }}>
+          <div className="relative w-full" style={{ transform: "rotateX(8deg)", transformOrigin: "50% 100%" }}>
+            <div
+              className="pointer-events-none absolute -inset-x-8 -bottom-6 h-16 blur-2xl"
+              style={{
+                background: "radial-gradient(ellipse 80% 100% at 50% 100%, rgba(0,0,0,0.55), transparent 70%)",
+              }}
+              aria-hidden
+            />
             <div
               className="relative rounded-[var(--kb-case-radius)]"
               style={
                 {
                   padding: caseTier.casePadding,
-                  background: `linear-gradient(180deg, rgba(255,255,255,0.045) 0%, transparent 9%), linear-gradient(178deg, #ad7440 0%, #9d6636 26%, #895128 55%, #764a24 78%, #63391a 100%)`,
+                  background: `linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 10%), linear-gradient(178deg, #b57a42 0%, #9d6636 28%, #895128 55%, #764a24 78%, #5c3618 100%)`,
                   boxShadow:
-                    "0 0.5px 0 rgba(255,222,185,0.18) inset, 0 -2px 4.5px rgba(35,19,6,0.32) inset, 0 3px 6px rgba(15,8,3,0.22)",
+                    "0 0.5px 0 rgba(255,222,185,0.2) inset, 0 -2px 5px rgba(35,19,6,0.35) inset, 0 4px 10px rgba(15,8,3,0.28), 0 12px 28px rgba(0,0,0,0.35)",
                   "--kb-case-radius": caseTier.caseRadius,
                   "--kb-bezel-radius": caseTier.bezelRadius,
                 } as CSSProperties
@@ -293,11 +300,11 @@ export const Component = () => {
             >
               <div
                 className="pointer-events-none absolute inset-0 rounded-[var(--kb-case-radius)] mix-blend-multiply"
-                style={{ backgroundImage: `url("${WOOD_TONE_URI}")`, backgroundSize: "520px 520px", opacity: 0.46 }}
+                style={{ backgroundImage: `url("${WOOD_TONE_URI}")`, backgroundSize: "520px 520px", opacity: 0.48 }}
               />
               <div
                 className="pointer-events-none absolute inset-0 rounded-[var(--kb-case-radius)] mix-blend-multiply"
-                style={{ backgroundImage: `url("${WOOD_GRAIN_URI}")`, backgroundSize: "460px 460px", opacity: 0.5 }}
+                style={{ backgroundImage: `url("${WOOD_GRAIN_URI}")`, backgroundSize: "460px 460px", opacity: 0.52 }}
               />
               <div
                 className="pointer-events-none absolute inset-0 rounded-[var(--kb-case-radius)] mix-blend-multiply"
@@ -305,16 +312,16 @@ export const Component = () => {
                   backgroundImage: `url("${WOOD_GRAIN_FINE_URI}")`,
                   backgroundSize: "300px 300px",
                   backgroundPosition: "23px 11px",
-                  opacity: 0.24,
+                  opacity: 0.26,
                 }}
               />
               <div
                 className="relative rounded-[var(--kb-bezel-radius)]"
                 style={{
                   padding: caseTier.bezelPadding,
-                  background: "linear-gradient(155deg, #15120e 0%, #0e0c08 50%, #0a0805 100%)",
+                  background: "linear-gradient(155deg, #16130f 0%, #0f0c09 50%, #0a0805 100%)",
                   boxShadow:
-                    "inset 0 2.5px 6px rgba(0,0,0,0.55), inset 0 4px 8px rgba(0,0,0,0.28), 0 1px 0 rgba(255,236,204,0.1)",
+                    "inset 0 2.5px 6px rgba(0,0,0,0.58), inset 0 4px 10px rgba(0,0,0,0.3), 0 1px 0 rgba(255,236,204,0.12)",
                 }}
               >
                 <div className="relative z-10 flex flex-col" style={{ gap }}>
