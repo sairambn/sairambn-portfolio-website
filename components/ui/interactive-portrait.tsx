@@ -18,7 +18,7 @@ export function InteractivePortrait({
   src,
   alt,
   className,
-  objectPosition = '48% 22%',
+  objectPosition = '45% 18%',
 }: InteractivePortraitProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
@@ -150,8 +150,15 @@ export function InteractivePortrait({
           decoding="async"
           fetchPriority="high"
           draggable={false}
-          className="absolute inset-0 h-full w-full max-w-none select-none object-cover will-change-transform"
-          style={{ objectPosition }}
+          className="absolute select-none object-cover will-change-transform"
+          style={{
+            objectPosition,
+            top: '-8%',
+            left: '-6%',
+            width: '112%',
+            height: '116%',
+            maxWidth: 'none',
+          }}
         />
 
         <div
@@ -166,7 +173,7 @@ export function InteractivePortrait({
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              'linear-gradient(to top, rgba(10,10,10,0.42) 0%, transparent 28%), linear-gradient(to bottom, rgba(10,10,10,0.12) 0%, transparent 18%), linear-gradient(135deg, rgba(196,165,116,0.06) 0%, transparent 40%)',
+              'linear-gradient(to top, rgba(10,10,10,0.42) 0%, transparent 28%), linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, transparent 16%), linear-gradient(135deg, rgba(196,165,116,0.05) 0%, transparent 40%)',
           }}
         />
 
