@@ -13,12 +13,13 @@ type InteractivePortraitProps = {
 /**
  * Portrait that tilts and shifts toward the pointer.
  * Imperative transforms only — no React re-renders on move.
+ * Source photo is landscape; object-position locks onto the subject on the left.
  */
 export function InteractivePortrait({
   src,
   alt,
   className,
-  objectPosition = '28% 42%',
+  objectPosition = '12% 50%',
 }: InteractivePortraitProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
@@ -59,18 +60,18 @@ export function InteractivePortrait({
     cur.x += (tgt.x - cur.x) * 0.2;
     cur.y += (tgt.y - cur.y) * 0.2;
 
-    const rx = (-cur.y * 9).toFixed(2);
-    const ry = (cur.x * 11).toFixed(2);
-    const tz = (activeRef.current ? 14 : 0).toFixed(1);
-    const tx = (cur.x * 7).toFixed(2);
-    const ty = (cur.y * 5).toFixed(2);
-    const scale = activeRef.current ? 1.03 : 1;
+    const rx = (-cur.y * 8).toFixed(2);
+    const ry = (cur.x * 10).toFixed(2);
+    const tz = (activeRef.current ? 12 : 0).toFixed(1);
+    const tx = (cur.x * 6).toFixed(2);
+    const ty = (cur.y * 4).toFixed(2);
+    const scale = activeRef.current ? 1.025 : 1;
     const gx = ((cur.x + 0.5) * 100).toFixed(1);
     const gy = ((cur.y + 0.5) * 100).toFixed(1);
 
     frame.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(${tz}px)`;
     img.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${scale})`;
-    glare.style.background = `radial-gradient(380px circle at ${gx}% ${gy}%, rgba(247,246,243,0.18), transparent 55%)`;
+    glare.style.background = `radial-gradient(360px circle at ${gx}% ${gy}%, rgba(247,246,243,0.16), transparent 55%)`;
     glare.style.opacity = activeRef.current ? '1' : '0';
 
     const settled =
@@ -150,7 +151,7 @@ export function InteractivePortrait({
           decoding="async"
           fetchPriority="high"
           draggable={false}
-          className="absolute inset-[-8%] h-[116%] w-[116%] max-w-none select-none object-cover will-change-transform"
+          className="absolute inset-0 h-full w-full max-w-none select-none object-cover will-change-transform"
           style={{ objectPosition }}
         />
 
@@ -166,7 +167,7 @@ export function InteractivePortrait({
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              'linear-gradient(to top, rgba(10,10,10,0.38) 0%, transparent 26%), linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, transparent 16%), linear-gradient(135deg, rgba(196,165,116,0.05) 0%, transparent 40%)',
+              'linear-gradient(to top, rgba(10,10,10,0.36) 0%, transparent 24%), linear-gradient(to bottom, rgba(10,10,10,0.08) 0%, transparent 14%), linear-gradient(135deg, rgba(196,165,116,0.05) 0%, transparent 40%)',
           }}
         />
 
